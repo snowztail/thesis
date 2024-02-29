@@ -13,36 +13,43 @@
 
 
 %********************************** %First Section  **************************************
-\section{What is loren ipsum? Title with math \texorpdfstring{$\sigma$}{[sigma]}} %Section - 1.1 
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry (see 
-Section~\ref{section1.3}). Lorem Ipsum~\citep{Aup91} has been the industry's 
-standard dummy text ever since the 1500s, when an unknown printer took a galley 
-of type and scrambled it to make a type specimen book. It has survived not only 
-five centuries, but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s with the release of 
-Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
-publishing software like Aldus PageMaker including versions of Lorem 
-Ipsum~\citep{AAB95,Con90,LM65}.
+\begin{section}{Introduction}
+	\begin{subsection}{Simultaneous Wireless Information and Power Transfer}
+		With the great advance in communication performance, a bottleneck of wireless networks has come to energy supply. \gls{swipt} is a promising solution to connect and power mobile devices via \gls{rf} waves. It provides low power at \si{\uW} level but broad coverage up to hundreds of meters in a sustainable and controllable manner, bringing more opportunities to the \gls{iot} and Machine to Machine (M2M) networks. The upsurge in wireless devices, together with the decrease of electronics power consumption, calls for a re-thinking of future wireless networks based on Wireless Power Transfer (WPT) and SWIPT \cite{Clerckx2019}.
 
-The most famous equation in the world: $E^2 = (m_0c^2)^2 + (pc)^2$, which is 
-known as the \textbf{energy-mass-momentum} relation as an in-line equation.
-
-A {\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file, which holds style information for a particular \LaTeX{}.
+		% The concept of SWIPT was first cast in \cite{Varshney2008}, where the authors investigated the Rate-Energy (R-E) tradeoff for a flat Gaussian channel and typical discrete channels. \cite{Zhou2013} proposed two practical co-located information and power receivers, i.e., Time Switching (TS) and Power Splitting (PS). Dedicated information and energy beamforming were then investigated in \cite{Zhang2013,Park2014} to characterize the R-E region for multi-antenna broadcast and interference channels. On the other hand, \cite{Trotter2009} pointed out that the RF-to-DC conversion efficiency of rectifiers depends on the input power and waveform shape. It implies that the modeling of the energy harvester, particularly its nonlinearity, has a crucial impact on the waveform preference, resource allocation, and system design of any wireless-powered systems \cite{Trotter2009,Clerckx2018,Clerckx2019}. Motivated by this, \cite{Clerckx2016a} derived a tractable nonlinear harvester model based on the Taylor expansion of diode I-V characteristics, and performed joint waveform and beamforming design for WPT. Simulation and experiments showed the benefit of modeling energy harvester nonlinearity in real system design \cite{Kim2019,Kim2020a} and demonstrated the joint waveform and beamforming strategy as a key technique to expand the operation range \cite{Kim2021}. A low-complexity adaptive waveform design by Scaled Matched Filter (SMF) was proposed in \cite{Clerckx2017} to exploit the rectifier nonlinearity, whose advantage was then demonstrated in a prototype with channel acquisition \cite{Kim2017}. Beyond WPT, \cite{Clerckx2018b} uniquely showed that the rectifier nonlinearity brings radical changes to SWIPT design, namely (i) modulated and unmodulated waveforms are not equally suitable for wireless power delivery; (ii) a multi-carrier unmodulated waveform superposed to a multi-carrier modulated waveform can enlarge the R-E region; (iii) a combination of PS and TS is generally the best strategy; (iv) the optimal input distribution is not the conventional Circularly Symmetric Complex Gaussian (CSCG); (v) modeling rectifier nonlinearity is beneficial to system performance and essential to efficient SWIPT design. Those observations, validated experimentally in \cite{Kim2019}, led to the question: \emph{What is the optimal input distribution for SWIPT under nonlinearity?} This question was answered in \cite{Varasteh2020} for single-carrier SWIPT, and some attempts were further made in \cite{Varasteh2019d} for multi-carrier SWIPT. The answers shed new light to the fundamental limits of SWIPT and practical signaling (e.g., modulation and waveform) strategies. It is now well understood from \cite{Clerckx2018b,Varasteh2020,Varasteh2019d} that, due to harvester nonlinearity, a combination of CSCG and on-off keying in single-carrier setting and non-zero mean asymmetric inputs in multi-carrier setting lead to significantly larger R-E region compared to conventional CSCG. Recently, \cite{Varasteh2020a} used machine learning techniques to design SWIPT signaling under nonlinearity to complement the information-theoretic results of \cite{Varasteh2020}, and new modulation schemes were subsequently invented.
+	\end{subsection}
 
 
-\begin{align}
-CIF: \hspace*{5mm}F_0^j(a) = \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(z)}{z - a} dz
-\end{align}
+	\begin{equation}
+		\mathbf{\Theta}_g^{(r+1)} = \mathbf{G}_g^{(r)}(\mu^\star).
+		\label{eq:update_geodesic}
+	\end{equation}
 
-\nomenclature[z-cif]{$CIF$}{Cauchy's Integral Formula}                                % first letter Z is for Acronyms 
-\nomenclature[a-F]{$F$}{complex function}                                                   % first letter A is for Roman symbols
-\nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}                                             % first letter G is for Greek Symbols
-\nomenclature[g-i]{$\iota$}{unit imaginary number $\sqrt{-1}$}                      % first letter G is for Greek Symbols
-\nomenclature[g-g]{$\gamma$}{a simply closed curve on a complex plane}  % first letter G is for Greek Symbols
-\nomenclature[x-i]{$\oint_\gamma$}{integration around a curve $\gamma$} % first letter X is for Other Symbols
-\nomenclature[r-j]{$j$}{superscript index}                                                       % first letter R is for superscripts
-\nomenclature[s-0]{$0$}{subscript index}                                                        % first letter S is for subscripts
+	% \begin{subsection}{Intelligent Reflecting Surface}
+	% 	Intelligent Reflecting Surface (IRS) has recently emerged as a promising technique that adapts the propagation environment to enhance the spectrum and energy efficiency. In practice, an IRS consists of multiple individual sub-wavelength reflecting elements to adjust the amplitude and phase of the incoming signal (i.e., passive beamforming). Different from the relay, backscatter and frequency-selective surface \cite{Anwar2018}, the IRS assists the primary transmission using passive components with negligible thermal noise but is limited to frequency-dependent reflection.
+
+	% 	Inspired by the development of real-time reconfigurable metamaterials \cite{Cui2014}, the authors of \cite{Liaskos2018} introduced a programmable metasurface that steers or polarizes the electromagnetic wave at a specific frequency to mitigate signal attenuation. \cite{Wu2018} proposed an IRS-assisted Multiple-Input Single-Output (MISO) system and jointly optimized the precoder at the Access Point (AP) and the phase shifts at the IRS to minimize the transmit power. The active and passive beamforming problem was then extended to the discrete phase shift case \cite{Wu2019a} and the multi-user case \cite{Wu2019}. In \cite{Abeywickrama2020}, the authors investigated the impact of non-zero resistance on the reflection pattern and emphasized the coupling between reflection amplitude and phase shift in practice. To estimate the cascaded AP-IRS-User Equipment (UE) link without RF-chains at the IRS, practical protocols were developed based on element-wise on/off switching \cite{Nadeem2019}, training sequence and reflection pattern design \cite{You2019,Kang2020}, and compressed sensing \cite{Wang2020}. The hardware architecture, design challenges, and application opportunities of practical IRS were covered in \cite{Wu2020}. In \cite{Dai2020}, a prototype IRS with \num{256} \num{2}-bit elements based on Positive Intrinsic-Negative (PIN) diodes was developed to support real-time video transmission at \si{GHz} and mmWave frequency.
+	% \end{subsection}
+
+
+	% \begin{subsection}{IRS-Aided SWIPT}
+	% 	By integrating IRS with SWIPT, the constructive reflection can boost the end-to-end power efficiency and improve the R-E tradeoff. In multi-user cases, dedicated energy beams were proved unnecessary for the Weighted Sum-Power (WSP) maximization \cite{Wu2020b} but essential when fairness issue is considered \cite{Tang2019}. It was also claimed that Line-of-Sight (LoS) links could boost the WSP since rank-deficient channels require fewer energy beams \cite{Wu2020a}. However, \cite{Wu2020b,Tang2019,Wu2020a} were based on a linear energy harvester model that is known in both the RF and the communication literature to be inefficient and inaccurate \cite{Clerckx2019,Trotter2009,Clerckx2018,Clerckx2016a,Kim2019,Kim2020a,Kim2021,Clerckx2017,Kim2017,Clerckx2018b,Varasteh2020,Varasteh2019d,Varasteh2020a}. Based on practical IRS and harvester models, \cite{Xu2021c} introduced a scalable resource allocation framework for a large-scale tile-based IRS-assisted SWIPT system, where the optimization consists of a reflection design stage and a joint reflection selection and precoder design stage. The proposed framework provides a flexible tradeoff between performance and complexity. To the best of our knowledge, all existing papers considered resource allocation and beamforming design for dedicated information and energy users in a single-carrier network. In this paper, we instead build our design based on a proper nonlinear harvester model that captures the dependency of the output DC power on both the power and shape of the input waveform, and marry the benefits of joint multi-carrier waveform and active beamforming optimization for SWIPT with the passive beamforming capability of IRS, to investigate the R-E tradeoff for one SWIPT user with co-located information decoder and energy harvester. We ask ourselves the important question: \emph{How to jointly exploit the spatial domain and the frequency domain efficiently through joint waveform and beamforming design to enlarge the R-E region of IRS-aided SWIPT?} The contributions of this paper are summarized as follows.
+
+	% 	\emph{First,} we propose a novel IRS-aided SWIPT architecture based on joint waveform, active and passive beamforming design under the diode nonlinear model \cite{Clerckx2016a}. Although this tractable harvester model accurately reveals how the input power level and waveform shape influence the output DC power, it also introduces design challenges such as frequency coupling (i.e., components of different frequencies compensate and produce DC), waveform coupling (i.e., different waveforms jointly contribute to DC), and high-order objective function. To make an efficient use of the rectifier nonlinearity, we superpose a multi-carrier unmodulated power waveform (deterministic multisine) to a multi-carrier modulated information waveform and evaluate the performance under the TS and PS receiving modes. The proposed joint waveform, active and passive beamforming architecture exploits the rectifier nonlinearity, the channel selectivity, and a beamforming gain across frequency and spatial domains to enlarge the achievable R-E region. This is the first paper to propose a joint waveform, active and passive beamforming architecture for IRS-aided SWIPT.
+
+	% 	\emph{Second,} we characterize each R-E boundary point by energy maximization under a rate constraint. The problem is solved by a Block Coordinate Descent (BCD) algorithm based on the Channel State Information at the Transmitter (CSIT). For active beamforming, we prove that the global optimal active information and power precoders coincide at Maximum-Ratio Transmission (MRT) even with rectifier nonlinearity. For passive beamforming, we propose a Successive Convex Approximation (SCA) algorithm and retrieve the IRS phase shift by eigen decomposition with optimality proof. Finally, the superposed waveform and the splitting ratio are optimized by the Geometric Programming (GP) technique. The IRS phase shift, active precoder, and waveform amplitude are updated iteratively until convergence. This is the first paper to jointly optimize waveform and active/passive beamforming in IRS-aided SWIPT.
+
+	% 	\emph{Third,} we introduce two closed-form adaptive waveform schemes to avoid the exponential complexity of the GP algorithm. To facilitate practical SWIPT implementation, the Water-Filling (WF) strategy for modulated waveform and the SMF strategy for multisine waveform are combined in time and power domains, respectively. The passive beamforming design is also adapted to accommodate the low-complexity waveform schemes. The proposed low-complexity BCD algorithm achieves a good balance between performance and complexity.
+
+	% 	\emph{Fourth,} we provide numerical results to evaluate the proposed algorithms. It is concluded that (i) IRS enables constructive reflection and flexible subchannel design in the frequency domain that is essential for SWIPT systems; (ii) IRS mainly affects the effective channel instead of the waveform design; (iii) multisine waveform is beneficial to energy transfer especially when the number of subbands is large; (iv) TS is preferred at low Signal-to-Noise Ratio (SNR) while PS is preferred at high SNR; (v) there exist two optimal IRS development locations, one close to the AP and one close to the UE; (vi) the output SNR scales linearly with the number of transmit antennas and quadratically with the number of IRS elements; (vii) due to the rectifier nonlinearity, the output DC scales quadratically with the number of transmit antennas and quartically with the number of IRS elements; (viii) for narrowband SWIPT, the optimal active and passive beamforming for any R-E point are also optimal for the whole R-E region; (ix) for broadband SWIPT, the optimal active and passive beamforming depend on specific R-E point and require adaptive designs; (x) the proposed algorithms are robust to practical impairments such as inaccurate cascaded CSIT and finite IRS reflection states.
+
+	% 	\emph{Organization:} Section~\ref{se:system_model} introduces the system model. Section~\ref{se:problem_formulation} formulates the problem and tackles the waveform, active and passive beamforming design. Section~\ref{se:performance_evaluation} provides simulation results. Section~\ref{se:conclusion_and_future_works} concludes the paper.
+
+	% 	\emph{Notations:} Scalars, vectors and matrices are denoted respectively by italic, bold lower-case, and bold upper-case letters. $j$ denotes the imaginary unit. $\boldsymbol{0}$ and $\boldsymbol{1}$ denote respectively zero and one vector or matrix. $\boldsymbol{I}$ denotes the identity matrix. $\mathbb{R}_+^{x \times y}$ and $\mathbb{C}^{x \times y}$ denote respectively the space of real nonnegative and complex $x \times y$ matrices. $\Re\{\cdot\}$ retrieves the real part of a complex entity. $[\cdot]_{(n)}$ denotes the $n$-th entry of a vector and $[\cdot]_{(1:n)}$ denotes the first $n$ entries of a vector. $(\cdot)^*$, $(\cdot)^T$, $(\cdot)^H$, $(\cdot)^+$, $\lvert{\cdot}\rvert$, $\lVert{\cdot}\rVert$ represent respectively the conjugate, transpose, conjugate transpose, ramp function, absolute value, and Euclidean norm. $\arg(\cdot)$, $\mathrm{rank}(\cdot)$, $\mathrm{tr}(\cdot)$, $\mathrm{diag}(\cdot)$ and $\mathrm{diag}^{-1}(\cdot)$ denote respectively the argument, rank, trace, a square matrix with input vector on the main diagonal, and a vector retrieving the main diagonal of the input matrix. $\odot$ denotes the Hadamard product. $\boldsymbol{S} \succeq \boldsymbol{0}$ means $\boldsymbol{S}$ is positive semi-definite. $\mathbb{A}\{\cdot\}$ extracts the DC component of a signal. $\mathbb{E}_X\{\cdot\}$ takes expectation w.r.t. random variable $X$ ($X$ is omitted for simplicity). The distribution of a CSCG random vector with mean $\boldsymbol{0}$ and covariance $\boldsymbol{\Sigma}$ is denoted by $\mathcal{CN}(\boldsymbol{0},\boldsymbol{\Sigma})$. $\sim$ means ``distributed as''. $(\cdot)^{(i)}$ and $(\cdot)^{\star}$ denote respectively the $i$-th iterated value and the stationary solution.
+	% \end{subsection}
+\end{section}
 
 
 %********************************** %Second Section  *************************************
@@ -52,7 +59,7 @@ CIF: \hspace*{5mm}F_0^j(a) = \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(z)}
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using `Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for `lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 %********************************** % Third Section  *************************************
-\section{Where does it come from?}  %Section - 1.3 
+\section{Where does it come from?}  %Section - 1.3
 \label{section1.3}
 
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -68,33 +75,3 @@ Section 1.10.32 of ``de Finibus Bonorum et Malorum", written by Cicero in 45 BC:
 Section 1.10.33 of ``de Finibus Bonorum et Malorum", written by Cicero in 45 BC: ``At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
 
 1914 translation by H. Rackham: ``On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-
-\nomenclature[z-DEM]{DEM}{Discrete Element Method}
-\nomenclature[z-FEM]{FEM}{Finite Element Method}
-\nomenclature[z-PFEM]{PFEM}{Particle Finite Element Method}
-\nomenclature[z-FVM]{FVM}{Finite Volume Method}
-\nomenclature[z-BEM]{BEM}{Boundary Element Method}
-\nomenclature[z-MPM]{MPM}{Material Point Method}
-\nomenclature[z-LBM]{LBM}{Lattice Boltzmann Method}
-\nomenclature[z-MRT]{MRT}{Multi-Relaxation 
-Time}
-\nomenclature[z-RVE]{RVE}{Representative Elemental Volume}
-\nomenclature[z-GPU]{GPU}{Graphics Processing Unit}
-\nomenclature[z-SH]{SH}{Savage Hutter}
-\nomenclature[z-CFD]{CFD}{Computational Fluid Dynamics}
-\nomenclature[z-LES]{LES}{Large Eddy Simulation}
-\nomenclature[z-FLOP]{FLOP}{Floating Point Operations}
-\nomenclature[z-ALU]{ALU}{Arithmetic Logic Unit}
-\nomenclature[z-FPU]{FPU}{Floating Point Unit}
-\nomenclature[z-SM]{SM}{Streaming Multiprocessors}
-\nomenclature[z-PCI]{PCI}{Peripheral Component Interconnect}
-\nomenclature[z-CK]{CK}{Carman - Kozeny}
-\nomenclature[z-CD]{CD}{Contact Dynamics}
-\nomenclature[z-DNS]{DNS}{Direct Numerical Simulation}
-\nomenclature[z-EFG]{EFG}{Element-Free Galerkin}
-\nomenclature[z-PIC]{PIC}{Particle-in-cell}
-\nomenclature[z-USF]{USF}{Update Stress First}
-\nomenclature[z-USL]{USL}{Update Stress Last}
-\nomenclature[s-crit]{crit}{Critical state}
-\nomenclature[z-DKT]{DKT}{Draft Kiss Tumble}
-\nomenclature[z-PPC]{PPC}{Particles per cell}

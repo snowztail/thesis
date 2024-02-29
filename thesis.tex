@@ -1,7 +1,7 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,numbered,print,index]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered,print]{PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -86,6 +86,10 @@
 % Thesis title and author information, refernce file for biblatex
 \input{thesis-info}
 
+% ******************* Glossaries and Nomenclatures *****************************
+% Glossaries can be defined in a separate file and can be included in the main
+\input{glossaries}
+
 % ***************************** Abstract Separate ******************************
 % To printout only the titlepage and the abstract with the PhD title and the
 % author name for submission to the Student Registry, use the `abstract' option in
@@ -102,9 +106,9 @@
 % Useful option to review a particular chapter or to send it to supervisior.
 % To use choose `chapter' option in the document class
 
-\ifdefineChapter
- \includeonly{Chapter3/chapter3}
-\fi
+% \ifdefineChapter
+%  \includeonly{Chapter3/chapter3}
+% \fi
 
 % ******************************** Front Matter ********************************
 \begin{document}
@@ -113,9 +117,9 @@
 
 \maketitle
 
-\include{Dedication/dedication}
+% \include{Dedication/dedication}
 \include{Declaration/declaration}
-\include{Acknowledgement/acknowledgement}
+% \include{Acknowledgement/acknowledgement}
 \include{Abstract/abstract}
 
 % *********************** Adding TOC and List of Figures ***********************
@@ -126,17 +130,19 @@
 
 \listoftables
 
-% \printnomenclature[space] space can be set as 2em between symbol and description
-%\printnomenclature[3em]
+\glsaddall
 
-\printnomenclature
+\printglossary[title={Abbreviations},style=custom]
+
+% \printnomenclature[space] space can be set as 2em between symbol and description
+\printnomenclature[5em]
 
 % ******************************** Main Matter *********************************
 \mainmatter
 
 \include{Chapter1/chapter1}
-\include{Chapter2/chapter2}
-\include{Chapter3/chapter3}
+% \include{Chapter2/chapter2}
+% \include{Chapter3/chapter3}
 %\include{Chapter4/chapter4}
 %\include{Chapter5/chapter5}
 %\include{Chapter6/chapter6}
@@ -155,8 +161,8 @@
 % Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
 % Reference styles: http://sites.stat.psu.edu/~surajit/present/bib.htm
 
-\bibliographystyle{apalike}
-%\bibliographystyle{unsrt} % Use for unsorted references  
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{unsrt} % Use for unsorted references
 %\bibliographystyle{plainnat} % use this to have URLs listed in References
 \cleardoublepage
 \bibliography{References/references} % Path to your References.bib file

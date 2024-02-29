@@ -17,8 +17,8 @@
 %\usepackage{enumitem}
 %\setlist[enumerate,itemize,description]{topsep=0em}
 
-% *****************************************************************************
-% ******************* Fonts (like different typewriter fonts etc.)*************
+% ******************************************************************************
+% ******************* Fonts (like different typewriter fonts etc.) *************
 
 % Add `customfont' in the document class option to use this section
 
@@ -41,15 +41,45 @@
   %  \newfontfamily\libertinesystemfont{Linux Libertine O}
 \fi
 
-% *****************************************************************************
-% **************************** Custom Packages ********************************
+% ******************************************************************************
+% **************************** Custom Packages *********************************
+
+% ******************************** Math ****************************************
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% \usepackage{mathtools}
+% \usepackage{fixmath}
+\usepackage[short]{optidef}
 
 % ************************* Algorithms and Pseudocode **************************
 
-%\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\algrenewcommand{\algorithmicrequire}{\textbf{Input:}}
+\algrenewcommand{\algorithmicensure}{\textbf{Output:}}
+\algrenewcommand{\algorithmicwhile}{\textbf{While}}
+\algrenewcommand{\algorithmicend}{\textbf{End}}
+\algrenewcommand{\algorithmicrepeat}{\textbf{Repeat}}
+\algrenewcommand{\algorithmicuntil}{\textbf{Until}}
+\algrenewcommand{\algorithmicfor}{\textbf{For}}
+\algrenewcommand{\algorithmicif}{\textbf{If}}
+\algrenewcommand{\algorithmicelse}{\textbf{Else}}
+\algrenewcommand{\algorithmicdo}{}
+\algrenewcommand{\algorithmicthen}{}
+\algnewcommand{\Initialize}[1]{%
+	\State \textbf{Initialize }{#1}
+}
 
 
-% ********************Captions and Hyperreferencing / URL **********************
+% ****************************** Layout ****************************************
+
+\usepackage{adjustbox}
+
+% ******************* Captions and Hyperreferencing / URL **********************
 
 % Captions: This makes captions of figures use a boldfaced small font.
 %\RequirePackage[small,bf]{caption}
@@ -73,6 +103,11 @@
 % This is for people stuck with older versions of texlive
 %\usepackage{sty/caption/subcaption}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[RPvoltages]{circuitikz}
+
+\pgfplotsset{compat=1.18}
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables
@@ -106,8 +141,31 @@
 %\usepackage[perpage]{footmisc} %Range of footnote options
 
 
-% *****************************************************************************
-% *************************** Bibliography  and References ********************
+% ****************************** Glossaries ************************************
+
+% \usepackage[acronym,nomain,nonumberlist,style=super]{glossaries-extra}
+
+
+
+% % \renewcommand*{\glossaryname}{Abbreviations}
+
+% \setabbreviationstyle[acronym]{long-short}
+% \makeglossaries
+% % \makenoidxglossaries
+
+
+
+
+
+
+
+
+
+
+
+
+
+% *************************** Bibliography and References **********************
 
 %\usepackage{cleveref} %Referencing without need to explicitly state fig /table
 
@@ -124,6 +182,7 @@
 
 % changes the default name `Bibliography` -> `References'
 \renewcommand{\bibname}{References}
+% \usepackage{cite}
 
 
 % ******************************************************************************
@@ -147,7 +206,7 @@
 
 % To change the name of the Nomenclature section, uncomment the following line
 
-%\renewcommand{\nomname}{Symbols}
+\renewcommand{\nomname}{Notation}
 
 
 % ********************************* Appendix ***********************************
@@ -157,7 +216,7 @@
 %\renewcommand{\appendixtocname}{List of appendices}
 %\renewcommand{\appendixname}{Appndx}
 
-% *********************** Configure Draft Mode **********************************
+% *********************** Configure Draft Mode *********************************
 
 % Uncomment to disable figures in `draft'
 %\setkeys{Gin}{draft=true}  % set draft to false to enable figures in `draft'
@@ -190,7 +249,7 @@
 
 % Example todo: \mynote{Hey! I have a note}
 
-% ******************************** Highlighting Changes **********************************
+% *************************** Highlighting Changes *****************************
 %% Uncomment the following lines to be able to highlight text/modifications.
 %\ifsetDraft
 %  \usepackage{color, soul}
@@ -205,6 +264,6 @@
 % Example highlight 2: \hlc[green]{Text to be highlighted in green colour}
 % Example highlight 3: \hlfix{Original Text}{Fixed Text}
 
-% *****************************************************************************
-% ******************* Better enumeration my MB*************
+% ******************************************************************************
+% ****************************** Better enumeration ****************************
 \usepackage{enumitem}
