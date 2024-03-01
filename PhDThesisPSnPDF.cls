@@ -278,11 +278,11 @@
 	\RequirePackage[pdftex]{graphicx}
 	\DeclareGraphicsExtensions{.png, .jpg, .pdf}
 	\pdfcompresslevel=9
-	\graphicspath{{Figs/Raster/}{Figs/}}
+	\graphicspath{{assets/}}
 \else
 	\RequirePackage{graphicx}
 	\DeclareGraphicsExtensions{.eps, .ps}
-	\graphicspath{{Figs/Vector/}{Figs/}}
+	\graphicspath{{assets/}}
 \fi
 
 
@@ -581,13 +581,9 @@
 	% If building with PDFLaTeX, use microtype spacing adjustments
 	\RequirePackage[final]{microtype}
 
-	\input{glyphtounicode}
-	\pdfglyphtounicode{f_f}{FB00}
-	\pdfglyphtounicode{f_i}{FB01}
-	\pdfglyphtounicode{f_l}{FB02}
-	\pdfglyphtounicode{f_f_i}{FB03}
-	\pdfglyphtounicode{f_f_l}{FB04}
-	\pdfgentounicode=1
+	\RequirePackage{cmap} % Make PDF files searchable and copyable
+	% \input{glyphtounicode}
+	% \pdfgentounicode=1
 
 	\RequirePackage{amsfonts}
 	\RequirePackage{amsmath}
