@@ -1052,6 +1052,7 @@
 \renewcommand{\nomgroup}[1]{%
 	\@namedef{case@#1}{\item[\textbf{\csname @nomenclature#1\endcsname}]}%
 	\@nameuse{case@#1}%
+	\vspace{1.5em}
 }
 
 % To add nomenclature in the header
