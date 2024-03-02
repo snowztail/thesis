@@ -14,7 +14,7 @@
 \newcommand\fileversion{2.4}
 \newcommand\filedate{2018/04/12}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{PhDThesisPSnPDF}[\filedate\space A PhD thesis class file
+\ProvidesClass{thesis}[\filedate\space A PhD thesis class file
 	by Krishna Kumar (v\fileversion)]
 \typeout{https://github.com/kks32/phd-thesis-template/}
 
@@ -581,7 +581,7 @@
 	% If building with PDFLaTeX, use microtype spacing adjustments
 	\RequirePackage[final]{microtype}
 
-	\RequirePackage{cmap} % Make PDF files searchable and copyable
+	% \RequirePackage{cmap} % Make PDF files searchable and copyable
 	% \input{glyphtounicode}
 	% \pdfgentounicode=1
 

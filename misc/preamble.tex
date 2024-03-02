@@ -46,13 +46,19 @@
 
 % ******************************** Math ****************************************
 
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
+% \usepackage{amsfonts}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
 \usepackage{amsthm}
 % \usepackage{mathtools}
 % \usepackage{fixmath}
 \usepackage[short]{optidef}
+
+% amsthm
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}[proposition]
 
 % ************************* Algorithms and Pseudocode **************************
 
@@ -102,12 +108,16 @@
 % uncommenting the following line
 % This is for people stuck with older versions of texlive
 %\usepackage{sty/caption/subcaption}
-\usepackage{subcaption}
+% \usepackage{subcaption}
+\usepackage[caption=false,font=footnotesize,subrefformat=parens,labelformat=parens]{subfig}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage[RPvoltages]{circuitikz}
 
 \pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots,patchplots}
+\usetikzlibrary{arrows,calc,matrix,patterns,plotmarks,positioning,shapes}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,shapes.geometric}
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables

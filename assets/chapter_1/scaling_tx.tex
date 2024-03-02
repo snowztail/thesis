@@ -1,0 +1,155 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.036in,
+height=1.531in,
+at={(0.677in,2.323in)},
+scale only axis,
+xmin=1,
+xmax=20,
+xtick={ 1,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20},
+ymin=25,
+ymax=35,
+ylabel style={font=\color{white!15!black}},
+ylabel={SNR [dB]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left, draw=white!15!black},
+title style={font=\huge}, label style={font=\huge}, ticklabel style={font=\LARGE}, legend style={font=\LARGE}
+]
+\addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	25.4114090912701\\
+2	27.2380228951407\\
+3	28.1806581890125\\
+4	29.0579705445501\\
+5	29.4765358391588\\
+6	30.1378186907448\\
+7	30.679947158175\\
+8	31.1807109572709\\
+9	31.4989826016408\\
+10	31.9754948092231\\
+11	32.2100547605094\\
+12	32.4793684081158\\
+13	32.6017479139679\\
+14	33.0455806994505\\
+15	33.2977363152879\\
+16	33.3793608838988\\
+17	33.6454245558489\\
+18	33.8188574644109\\
+19	34.0296394451643\\
+20	34.2013611372363\\
+};
+\addlegendentry{WF}
+
+\end{axis}
+
+\begin{axis}[%
+width=4.036in,
+height=1.531in,
+at={(0.677in,0.472in)},
+scale only axis,
+xmin=1,
+xmax=20,
+xtick={ 1,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20},
+xlabel style={font=\color{white!15!black}},
+xlabel={Number of transmit antennas},
+ymin=-80,
+ymax=-20,
+ytick={-100,  -80,  -60,  -40,  -20,    0},
+ylabel style={font=\color{white!15!black}},
+ylabel={DC [dBA]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend columns=3, legend cell align=left, align=left, draw=white!15!black},
+title style={font=\huge}, label style={font=\huge}, ticklabel style={font=\LARGE}, legend style={font=\LARGE}
+]
+\addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	-72.1640311093757\\
+2	-66.5715790324143\\
+3	-63.3793292727081\\
+4	-60.7012754464437\\
+5	-59.266736864924\\
+6	-57.0166388749873\\
+7	-54.9404042138719\\
+8	-53.2358069540989\\
+9	-52.1931096939026\\
+10	-50.5402642920901\\
+11	-49.7737174862002\\
+12	-48.6942616044043\\
+13	-48.3135677149876\\
+14	-46.6070871056972\\
+15	-45.6179653081741\\
+16	-45.4483986121797\\
+17	-44.4091788705729\\
+18	-43.8308588242839\\
+19	-43.0166726001883\\
+20	-42.3720905877998\\
+};
+\addlegendentry{LEH}
+
+\addplot [color=mycolor2, dashed, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	-54.8293278493535\\
+2	-48.5800689706095\\
+3	-45.0342330744972\\
+4	-42.1572086079209\\
+5	-40.5379337462381\\
+6	-38.1993090160679\\
+7	-35.9990333153406\\
+8	-34.1537239955202\\
+9	-33.0868304064636\\
+10	-31.3112830269043\\
+11	-30.4678953855246\\
+12	-29.3603051671117\\
+13	-28.9604248289287\\
+14	-27.1704462396604\\
+15	-26.214120462541\\
+16	-25.9957086131491\\
+17	-24.9246434665737\\
+18	-24.2341851437915\\
+19	-23.3987911541966\\
+20	-22.801745202018\\
+};
+\addlegendentry{SMF}
+
+\addplot [color=mycolor3, dotted, line width=2.0pt, mark=square, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+1	-54.5941100581416\\
+2	-48.3398061448139\\
+3	-44.7929632074622\\
+4	-41.9150112843405\\
+5	-40.2926274936065\\
+6	-37.9552739674627\\
+7	-35.7534247682157\\
+8	-33.9090703270243\\
+9	-32.8415639562783\\
+10	-31.0633765548807\\
+11	-30.2229596446913\\
+12	-29.1126774801063\\
+13	-28.7130714340961\\
+14	-26.9231116749848\\
+15	-25.96807932327\\
+16	-25.7475053662042\\
+17	-24.6769859070682\\
+18	-23.9860131480335\\
+19	-23.1509323056183\\
+20	-22.553989067624\\
+};
+\addlegendentry{GP}
+
+\end{axis}
+\end{tikzpicture}%

@@ -1,7 +1,7 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,numbered,print]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered,print]{misc/thesis}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -96,8 +96,8 @@
 % the document class.
 
 \ifdefineAbstract
- \pagestyle{empty}
- \includeonly{content/declaration, content/abstract}
+	\pagestyle{empty}
+	\includeonly{content/declaration, content/abstract}
 \fi
 
 % ***************************** Chapter Mode ***********************************
@@ -157,23 +157,23 @@
 % ********************************** Bibliography ******************************
 \begin{spacing}{0.9}
 
-% To use the conventional natbib style referencing
-% Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
-% Reference styles: http://sites.stat.psu.edu/~surajit/present/bib.htm
+	% To use the conventional natbib style referencing
+	% Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
+	% Reference styles: http://sites.stat.psu.edu/~surajit/present/bib.htm
 
-\bibliographystyle{IEEEtran}
-%\bibliographystyle{unsrt} % Use for unsorted references
-%\bibliographystyle{plainnat} % use this to have URLs listed in References
-\cleardoublepage
-\bibliography{misc/library} % Path to your References.bib file
+	\bibliographystyle{IEEEtran}
+	%\bibliographystyle{unsrt} % Use for unsorted references
+	%\bibliographystyle{plainnat} % use this to have URLs listed in References
+	\cleardoublepage
+	\bibliography{misc/library} % Path to your References.bib file
 
 
-% If you would like to use BibLaTeX for your references, pass `custombib' as
-% an option in the document class. The location of 'reference.bib' should be
-% specified in the preamble.tex file in the custombib section.
-% Comment out the lines related to natbib above and uncomment the following line.
+	% If you would like to use BibLaTeX for your references, pass `custombib' as
+	% an option in the document class. The location of 'reference.bib' should be
+	% specified in the preamble.tex file in the custombib section.
+	% Comment out the lines related to natbib above and uncomment the following line.
 
-%\printbibliography[heading=bibintoc, title={References}]
+	%\printbibliography[heading=bibintoc, title={References}]
 
 
 \end{spacing}
@@ -182,8 +182,8 @@
 
 \begin{appendices} % Using appendices environment for more functunality
 
-% \include{content/appendix1}
-% \include{content/appendix2}
+	% \include{content/appendix1}
+	% \include{content/appendix2}
 
 \end{appendices}
 
