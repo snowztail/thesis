@@ -272,6 +272,7 @@
 
 % *************************** Graphics and Figures *****************************
 \RequirePackage[usenames, dvipsnames]{color}
+\RequirePackage[table]{xcolor}
 \ifpdf
 	% Convert eps figures to pdf
 	\RequirePackage{epstopdf}

@@ -1,0 +1,116 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44706,0.74118}%
+\definecolor{mycolor2}{rgb}{0.85098,0.32549,0.09804}%
+\definecolor{mycolor3}{rgb}{0.92941,0.69412,0.12549}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=9.509cm,
+height=7.5cm,
+at={(0cm,0cm)},
+scale only axis,
+xmin=-20,
+xmax=20,
+xlabel style={font=\color{white!15!black}},
+xlabel={Transmit Power [dB]},
+ymin=0,
+ymax=50,
+ylabel style={font=\color{white!15!black}},
+ylabel={Achievable Rate [bit/s/Hz]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+-20	1.80821876007788\\
+-15	3.63754065418823\\
+-10	6.52397177287891\\
+-5	10.7375410087883\\
+0	16.0801140220357\\
+5	22.5773384000589\\
+10	29.3334425394153\\
+15	36.0021963018504\\
+20	42.6917330184181\\
+};
+\addlegendentry{D: $\kappa_\mathrm{F} = \kappa_\mathrm{B} = 0$}
+
+\addplot [color=mycolor1, dashed, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+-20	2.26507172145531\\
+-15	4.75770801019453\\
+-10	8.99003046555732\\
+-5	14.7118193453058\\
+0	20.9839343618143\\
+5	27.5050240775648\\
+10	34.1095125803414\\
+15	40.7408675077114\\
+20	47.3807680556974\\
+};
+\addlegendentry{BD: $\kappa_\mathrm{F} = \kappa_\mathrm{B} = 0$}
+
+\addplot [color=mycolor2, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+-20	3.35042591902828\\
+-15	5.13668237212932\\
+-10	7.72882256094737\\
+-5	11.3034247828302\\
+0	15.8185759560096\\
+5	21.0986699036873\\
+10	27.1640911636977\\
+15	33.6386180785618\\
+20	40.2353537199864\\
+};
+\addlegendentry{D: $\kappa_\mathrm{F} = \kappa_\mathrm{B} = 10$}
+
+\addplot [color=mycolor2, dashed, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+-20	3.38008248429671\\
+-15	5.24886942440445\\
+-10	7.98495739756983\\
+-5	11.7904129482671\\
+0	16.5603601097506\\
+5	22.2885132742307\\
+10	28.6366348668615\\
+15	35.1975720349819\\
+20	41.8146872560824\\
+};
+\addlegendentry{BD: $\kappa_\mathrm{F} = \kappa_\mathrm{B} = 10$}
+
+\addplot [color=mycolor3, line width=2.0pt, mark=square, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+-20	3.5341539120381\\
+-15	5.32663027748093\\
+-10	7.91783240648881\\
+-5	11.5025021870777\\
+0	16.0242740767472\\
+5	21.3232680679002\\
+10	27.2833878226791\\
+15	33.6787670451286\\
+20	40.2329094885052\\
+};
+\addlegendentry{{D: $\kappa_\mathrm{F} = \kappa_\mathrm{B} \to \infty$}}
+
+\addplot [color=mycolor3, dashed, line width=2.0pt, mark=square, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+-20	3.53634968366243\\
+-15	5.33057914284338\\
+-10	7.92426624828917\\
+-5	11.5073024887957\\
+0	16.0274673892275\\
+5	21.3283494881659\\
+10	27.3020235801385\\
+15	33.6812074348956\\
+20	40.2364830785231\\
+};
+\addlegendentry{{BD: $\kappa_\mathrm{F} = \kappa_\mathrm{B} \to \infty$}}
+
+\end{axis}
+\end{tikzpicture}%

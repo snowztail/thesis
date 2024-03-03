@@ -1,13 +1,8 @@
 %!TEX root = ../thesis.tex
-%*******************************************************************************
-%*********************************** First Chapter *****************************
-%*******************************************************************************
-
-\chapter{Getting started}  %Title of the First Chapter
 
 \graphicspath{{assets/chapter_1/}}
 
-%********************************** %First Section  **************************************
+\chapter{Getting started}
 
 \begin{section}{Introduction}
 	\begin{subsection}{\glsfmtlong{swipt}}
@@ -281,9 +276,9 @@
 			Any optimal solution $\boldsymbol{\Phi}^\star$ to the relaxed passive beamforming problem~\eqref{ob:irs}--\eqref{co:irs_sd} is rank-\num{1} such that \eqref{co:irs_rank} is tight and no loss is introduced by \gls{sdr}.
 		\end{proposition}
 
-		% \begin{proof}\label{pf:relaxation}
-		% 	Please refer to Appendix~\ref{ap:relaxation}.
-		% \end{proof}
+		\begin{proof}\label{pf:relaxation}
+			Please refer to Appendix~\ref{ap:relaxation}.
+		\end{proof}
 
 		In summary, we update $\boldsymbol{\Phi}^{(i)}$ until convergence, extract $\hat{\boldsymbol{\phi}}^\star$ by eigen decomposition, and retrieve the	\gls{ris} vector by $\boldsymbol{\phi}^{\star}=e^{j \arg\left([\hat{\boldsymbol{\phi}}^\star]_{(1:L)} \middle/ [\hat{\boldsymbol{\phi}}^\star]_{(L+1)}\right)}$. The passive beamforming design is summarized in the \gls{sca} Algorithm~\ref{al:sca}, where the relaxed problem \eqref{ob:irs}--\eqref{co:irs_sd} involves a $(L+1)$-order positive semi-definite matrix variable and $(L+2)$ linear constraints. Given a solution accuracy $\epsilon_{\mathrm{IPM}}$ for the interior-point method, the computational complexity of Algorithm~\ref{al:sca} is $\mathcal{O}\left(I_{\mathrm{\gls{sca}}}(L+2)^4 (L+1)^{0.5} \log(\epsilon_{\mathrm{IPM}}^{-1})\right)$, where $I_{\mathrm{\gls{sca}}}$ denotes the number of \gls{sca} iterations \cite{Luo2010b}.
 
@@ -313,9 +308,9 @@
 			For any feasible initial point with given waveform and splitting ratio, the \gls{sca} Algorithm~\ref{al:sca} is guaranteed to converge to local optimal points of the original problem~\eqref{op:original}.
 		\end{proposition}
 
-		% \begin{proof}\label{pf:sca}
-		% 	Please refer to Appendix~\ref{ap:sca}.
-		% \end{proof}
+		\begin{proof}\label{pf:sca}
+			Please refer to Appendix~\ref{ap:sca}.
+		\end{proof}
 	\end{subsection}
 
 	\begin{subsection}{Active Beamforming}
@@ -332,9 +327,9 @@
 			For single-user \gls{swipt}, the global optimal information and power precoders coincide at the \gls{mrt}.
 		\end{proposition}
 
-		% \begin{proof}\label{pf:mrt}
-		% 	Please refer to Appendix~\ref{ap:mrt}.
-		% \end{proof}
+		\begin{proof}\label{pf:mrt}
+			Please refer to Appendix~\ref{ap:mrt}.
+		\end{proof}
 	\end{subsection}
 
 
