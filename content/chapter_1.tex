@@ -5,7 +5,7 @@
 \chapter{Introduction}
 % \chapter{Summary of research problems and contribution}
 
-\begin{section}{Motivation}
+\begin{section}{Motivation and Aims}
 	The quest for reliable, high-speed, and ubiquitous wireless connectivity has been long-standing since Marconi's illuminating radio in 1895.
 	Great successes have been made at the transmitter and receiver sides over the past century, and the communications society is unprecedentedly close to the Shannon limit \cite{Shannon1948}.
 	Today we are witnessing a paradigm shift from \emph{connectivity} to \emph{intelligence}, where the wireless environment is no longer a chaotic medium but a conscious agent that can serve on demand.
@@ -25,20 +25,30 @@
 	These applications have distinctive requirements and trade-offs, but they are not mutually exclusive and may be evolved into a versatile tool, which blurs the boundary between the network and environment.
 	Imagine a future where everything can be ``smartened'' by coating with a metamaterial layer and attaching a microcontroller tag.
 	Only a few electromagnetic sources are needed, while most objects can exploit the surrounding waves to energize themselves, sense the environment, communicate with others, and help those in need when idle.
-	To realize this vision, we need to:
+	This vision motivates us to explore the fundamental limits of \gls{ris} and integrate it with state-of-the-art wireless technologies.
+	In particular, Chapters \ref{ch:ris_aided_swipt}--\ref{ch:channel_shaping} respectively aim to:
 	\begin{itemize}
-		\item investigate the impact of \gls{ris} on various wireless applications and propose effective configurations for enhanced performance trade-off;
-		\item compare the principles of \gls{ris} with other scatter-based technologies and develop a novel protocol for beamforming-modulation integration;
-		\item rethink the architecture and modeling of \gls{ris} and explore its ultimate performance limits for further design evolution;
+		\item Investigate the impact of \gls{ris} on wireless information and power transfer and propose effective configurations for enhanced performance trade-off;
+		\item Compare the principles of \gls{ris} with various backscatter applications and develop a novel protocol for beamforming-modulation integration;
+		\item Rethink the architecture and modeling of \gls{ris} and characterize its ultimate channel shaping capabilities for further design reference.
 	\end{itemize}
-	which are the motivations for Chapters \ref{ch:ris_aided_swipt}--\ref{ch:channel_shaping} of this thesis, respectively.
 \end{section}
 
-\begin{section}{Objectives}
+\begin{section}{Summary of Contributions}
+	The key contributions of Chapter \ref{ch:ris_aided_swipt} are summarized as follows:
+	\begin{itemize}
+		\item Introduce \gls{ris} to a multi-antenna multi-carrier \gls{swipt} system with various receiver architectures;
+		\item Consider joint waveform and beamforming design for the proposed system under a practical energy harvester model;
+		\item Characterize the \gls{r-e} performance trade-off and provide insights into the transceiver design;
+		\item Formulate the optimization problem as harvested energy maximization subject to minimum communication rate constraints;
+		\item Propose local-optimal and low-complexity algorithms and evaluate their performance through numerical simulations;
+		\item Discuss the array gain for communication and the scaling order for power transfer in terms of the number of transmit antennas and \gls{ris} elements.
+	\end{itemize}
 
+	The key contributions of Chapter \ref{ch:ris_modulation} are summarized as follows:
 \end{section}
 
-\begin{section}{Outline and Contributions}
+\begin{section}{Outline}
 
 \end{section}
 
