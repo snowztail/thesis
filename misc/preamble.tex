@@ -94,7 +94,6 @@
 \RequirePackage[labelsep=space,tableposition=top]{caption}
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
 
-
 % *************************** Graphics and figures *****************************
 
 %\usepackage{rotating}
@@ -185,6 +184,9 @@
 % *************************** Bibliography and References **********************
 
 %\usepackage{cleveref} %Referencing without need to explicitly state fig /table
+% \usepackage[natbib=true,style=numeric,sorting=none]{biblatex}
+\usepackage{bibentry}
+\nobibliography*
 
 % Add `custombib' in the document class option to use this section
 \ifuseCustomBib
