@@ -101,7 +101,7 @@
 
 % Uncomment the following two lines to force Latex to place the figure.
 % Use [H] when including graphics. Note 'H' instead of 'h'
-%\usepackage{float}
+\usepackage{float}
 %\restylefloat{figure}
 
 % Subcaption package is also available in the sty folder you can use that by
@@ -115,9 +115,9 @@
 \usepackage[RPvoltages]{circuitikz}
 
 \pgfplotsset{compat=1.18}
-\usepgfplotslibrary{groupplots,patchplots}
-\usetikzlibrary{arrows,calc,matrix,patterns,plotmarks,positioning,shapes}
-\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,shapes.geometric}
+\usepgfplotslibrary{fillbetween,groupplots,patchplots}
+\usetikzlibrary{arrows,arrows.meta,automata,backgrounds,calc,math,matrix,patterns,plotmarks,positioning,shapes,angles,quotes}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,decorations.markings,decorations.shapes,shapes.geometric}
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables
@@ -217,8 +217,8 @@
 
 % ********************** TOC depth and numbering depth *************************
 
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 
 % ******************************* Nomenclature *********************************

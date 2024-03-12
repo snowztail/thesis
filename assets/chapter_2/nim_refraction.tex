@@ -1,0 +1,86 @@
+\colorlet{glasscol}{blue!10}
+\tikzstyle{glass}=[top color=glasscol,bottom color=glasscol,shading angle=0]
+
+\newcommand\rightAngle[4]{
+	\pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
+	\coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
+	\draw[white,line width=0.6] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+	\draw[blue!40!black] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+}
+
+% WAVEFRONT
+\def\p{0.03}
+\def\r{0.25}
+\tikzset{
+wavefront/.pic={
+		\tikzset{/wavefront/.cd,#1}
+		\fill (0,0) circle (\p);
+		\draw (\wang:\r) arc(\wang:-\wang:\r);
+	}
+/wavefront/.search also={/tikz},
+/wavefront/.cd,
+ang/.store in=\wang, ang={60},
+}
+
+\tikzset{
+	photon/.style={
+			draw=black,decorate,
+			decoration={snake, segment length=3mm, amplitude=1mm,post length=2mm}
+		}
+}
+
+
+% REFLECTION & REFRACTION
+\begin{tikzpicture}
+	\def\L{7}   % width interface
+	\def\l{2}   % length ray
+	\def\t{2}   % depth glass gradient
+	\def\x{3}   % spacing between plots
+	\def\h{1.5}   % bisector height
+	\def\f{0.3}   % fraction of interface to the left
+	%   \def\na{1.0}  % air
+	%   \def\ng{-2}  % glass
+	\def\n{-0.5}
+	\def\anga{45} % angle of incident ray
+	%   \def\angg{asin(\na/\ng*sin(\anga))}
+	\def\angg{asin(\n*sin(\anga))}
+	\coordinate (O) at (0,0);            % point of contact
+	\coordinate (I) at (90+\anga:\l);    % point incident (top left)
+	\coordinate (M) at (90-\anga:\l);    % point reflected (top right)
+	\coordinate (F) at ({-90+\angg}:\l); % point refracted (bottom)
+	\coordinate (L) at (-\f*\L,0);       % left point interface
+	\coordinate (R) at ({0.5*\L},0);  % right point interface
+	\coordinate (T) at (0,\h);           % top middle point (bisector)
+	\coordinate (B) at (0,-1.0*\h);      % bottom middle point (bisector)
+
+	\coordinate (T1) at ([shift={(\x,0)}] T);
+	\coordinate (B1) at ([shift={(\x,0)}] B);
+	\coordinate (I1) at ([shift={(\x,0)}] I);
+	\coordinate (O1) at ([shift={(\x,0)}] O);
+	\coordinate (F1) at ([shift={(\x,0)}] F);
+
+	% MEDIUM
+	\fill[glass] (L) rectangle++ (\L,-\t); % glass gradient
+	%   \node[below left=2] at (R) {$n=-2$};
+	\node at (1.2,-1.7) {$n=-2$};
+
+	% LINES
+	\draw[dashed] (T) -- (B); % bisector
+	\draw[-latex,black,semithick] (I) -- (O); % incoming ray
+	\draw[-latex,black,semithick] (O) -- (F); % refracted ray
+
+	\draw[dashed] (T1) -- (B1); % refracted ray
+	\draw[-latex,photon,blue,semithick] (I1) -- (O1); % incoming ray
+	\draw[-latex,photon,blue,semithick] (F1) -- (O1); % refracted ray
+
+	% ANGLES
+	\draw pic["$\theta_1$",draw=black,angle radius=28,angle eccentricity=1.3] {angle = T--O--I};
+	\draw pic["$\theta_2$",draw=black,angle radius=35,angle eccentricity=1.25] {angle = F--O--B};
+
+	% TEXTS
+	\node[align=center,below right] at (O) {Rays\\(energy flow)};
+	\node[align=center,below right,blue] at (O1) {Wave\\vectors};
+	%   \draw pic["$\theta_1$",draw=black,angle radius=28,angle eccentricity=1.3] {angle = T1--O1--I1};
+	%   \draw pic["$\theta_2$",draw=black,angle radius=35,angle eccentricity=1.25] {angle = F1--O1--B1};
+
+\end{tikzpicture}

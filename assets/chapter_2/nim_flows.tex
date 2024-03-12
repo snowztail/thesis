@@ -1,0 +1,14 @@
+\begin{tikzpicture}[background rectangle/.style={fill=blue!10}, show background rectangle]
+
+	\def\f{1/exp(((\x)^2)/2)}
+
+	\begin{axis}[thick,ticks=none,domain=-pi:pi,samples=100,axis x line*=middle,axis y line=none,xlabel=\empty,xmin=-4,xmax=4,ymax=4,ymin=-2]
+
+		\addplot[smooth, color=blue] (\x,{sin((9*(deg(x))) )*\f}) coordinate[pos=0.42] (W);
+		\addplot[smooth, color=black] (\x,\f) coordinate[pos=0.6] (E);
+		\addplot[smooth, color=black] (\x,-\f);
+
+	\end{axis}
+	\draw[-latex,thick] (E) to ++(1,0) node[anchor=west] {energy flow};
+	\draw[-latex,thick,blue] (W) to ++(-1,0) node[anchor=east,blue] {wave direction};
+\end{tikzpicture}
