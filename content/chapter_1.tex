@@ -9,7 +9,7 @@
 	The quest for better wireless connectivity has been long-standing since Marconi's illuminating radio in 1895.
 	Great successes have been made at the transmitter and receiver sides over the past century, and the communications society is unprecedentedly close to the Shannon limit \cite{Shannon1948}.
 	By 2025, global mobile data traffic is expected to reach {607} exabytes per year \cite{Tariq2020} while the number of connected devices may exceed {75} billion \cite{Georgiev2024}.
-	At the same time, wireless applications are also evolving in various forms to address world-changing incidents like COVID-19, climate change, and \gls{ai} revolution.
+	At the same time, wireless applications are also evolving in various forms to address world-changing incidents like COVID-19, climate change, geopolitical tensions, and \gls{ai} revolution.
 	An initial attempt was made in 5G where the network prioritizes among high-throughput, ubiquitous-coverage, high-reliability, low-latency, massive-connectivity, and energy-efficient services \cite{Shafi2017}.
 	However, the desire of human and machine for better communication shows no signs of slowing down.
 	Emerging applications such as smart cities, autonomous driving, telemedicine, extended reality, federated learning, and generative intelligence are calling for a stronger and smarter wireless infrastructure.
@@ -20,50 +20,76 @@
 		\item \emph{Reliability}: A success rate of 99.9999\% would be guaranteed for ultra-reliable applications like industrial automation and cooperative robotics.
 		\item \emph{Connectivity}: The number of connected devices per kilometer square would be increased to 10 million for supporting \gls{ioe}.
 		\item \emph{Mobility}: Commercial airlines with a maximal velocity of 1000 km/h would be the target application scenario.
-		\item \emph{Energy efficiency}: Power consumption has been a major criticism for 5G. It is expected that energy per bit would be reduced by 90\% in 6G to reduce the carbon footprint.
+		\item \emph{Energy efficiency}: Power consumption has been a major criticism for 5G. It is expected that energy per bit would be reduced by over 90\% in 6G to reduce carbon footprints.
 		\item \emph{Positioning accuracy}: Thanks to THz base stations, a 3D positioning accuracy of centimeter level may be achieved for indoor and outdoor environments.
-		\item \emph{Coverage}: A terrestrial-satellite-aerial integrated network would be able to provide a ubiquitous and uniform coverage for urban, rural, and remote areas.
+		\item \emph{Coverage}: Poor coverage has been another bottleneck for 5G. A terrestrial-satellite-aerial integrated network would provide a ubiquitous and uniform coverage for urban, rural, and remote areas.
 		\item \emph{Security and privacy}: Physical-layer security can be improved with narrower beams at higher frequencies and destructive scattering at the environment. Privacy can be enhanced with federated learning and homomorphic encryption.
 		% \item \emph{Superintelligent}: The network may integrate human, machine, environment, and \gls{ai} into a superintelligent system that can sense, communicate, and act in a coordinated manner.
 	\end{itemize}
 
-	% From Wireless Research for IoT to Integrating Human, Generative AI and Communications Network for Superintelligent Systems
-	% Enabling Effective and Efficient Federated Learning at Future Network Edge
-	% Today we are witnessing a paradigm shift from \emph{connectivity} to \emph{intelligence}, where the wireless environment is no longer a chaotic medium but a conscious agent that can serve on demand.
-	% This is made possible by the latest advances in machine learning and programmable metamaterials --- the former enables the network to learn from the environment while the latter allows the environment to adapt to the network.
-	% Together, they form a symbiotic relationship that can revolutionize the way we communicate, sense, and interact with the world.
-	% One promising candidate to fulfill this vision is \gls{ris}, a programmable metasurface that recycles and redistributes the electromagnetic waves in the air for improved wireless performance.
-	% This disruptive technology can be integrated into the next-generation wireless systems for signal enhancement, interference suppression, scattering enrichment, blockage bypassing, coverage extension, and security control.
-	% Compared with traditional multi-antenna techniques, \gls{ris} has the potential to achieve a similar performance using fewer active components, lower power consumption, and lower hardware complexity.
-	% \gls{ris} is also different from conventional relays as it features no \gls{rf} chains, no symbol dependency, minimum signal processing, and negligible additional noise.
-	% Moreover, it can be easily deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments.
-	% These unique characteristics make \gls{ris} a ubiquitous and cost-effective solution for future communication, sensing, and power transfer systems.
+	Beyond the statistical requirements above, the next-generation wireless network is desired to integrate human, machine, environment, and \gls{ai} seamlessly for a harmonic ecosphere.
+	This paradigm shift from \emph{connectivity} to \emph{intelligence} is fueled by the latest advances in machine learning (theory) and programmable metamaterials (hardware).
+	The former enables the network to understand the environment while the latter evolves the environment from a chaotic medium to a conscious agent that can serve on demand.
+	Together, they form a symbiotic relationship with the potential to revolutionize how the world energize, sense, communicate, and interact.
+
+	One promising candidate within this 6G vision is \gls{ris}, a programmable metasurface that recycles and redistributes the electromagnetic waves in the air for improved wireless performance.
+	It could be incorporated into the transmitter and receiver for \emph{beamforming}, employed as a free-rider information source for \emph{modulation}, or simply placed in space as a standalone device for \emph{channel shaping}.
+	These applications have distinctive requirements and trade-offs, but the operation principles are the same and those roles are not mutually exclusive.
+	Imagine a future where everything can be ``smartened'' by coating with a metamaterial layer and attaching a microcontroller tag.
+	Only a few active radiating sources (like the sun) are needed, while most objects (like the universe) can exploit the surrounding waves to energize themselves, sense the environment, communicate with others, and help those in need when idle.
+	This vision motivates three research questions to be addressed in this thesis:
+	\begin{itemize}
+		\item \emph{How does \gls{ris} impact different wireless applications such as communication and far-field power transfer?}
+		\item \emph{Is it possible to integrate \gls{ris} with \gls{bc} into a versatile tool that blurs the boundary between the network and environment?}
+		\item \emph{What is the ultimate limit of channel reshaping through passive \gls{ris} and what are the implications on transceiver designs?}
+	\end{itemize}
+
+	Before delving into these questions, we first provide a short overview of \gls{ris} and introduce some potential applications in the next section.
+	A detailed literature review and technical discussion on \gls{ris} and other topics will be reserved for Chapter \ref{ch:background}.
+\end{section}
+
+\begin{section}{Overview on \glsfmtfull{ris}}
+	% and may be evolved into a versatile tool, which blurs the boundary between the network and environment.
+	% This vision motivates us to explore the fundamental limits of \gls{ris} and integrate it with state-of-the-art wireless technologies.
 
 	% Despite the great possibilities, the prototyping of \gls{ris} is still in its infancy and no commercial product has been released by the first quarter of 2024.
 	% The transition from theory to practice is hindered by many challenges, such as channel acquisition, response resolution, out-of-band response mitigation, placement optimization, and integration with existing systems.
 	% Most importantly, a comprehensive understanding of its potential is still missing and the precise role it shall play in 6G remains ambiguous.
-	% For example, \gls{ris} could be incorporated into the transmitter and receiver for \emph{beamforming}, employed as a free-rider information source for \emph{modulation}, or placed in space as a standalone device for \emph{channel shaping}.
-	% These applications have distinctive requirements and trade-offs, but they are not mutually exclusive and may be evolved into a versatile tool, which blurs the boundary between the network and environment.
-	% Imagine a future where everything can be ``smartened'' by coating with a metamaterial layer and attaching a microcontroller tag.
-	% Only a few electromagnetic sources are needed, while most objects can exploit the surrounding waves to energize themselves, sense the environment, communicate with others, and help those in need when idle.
-	% This vision motivates us to explore the fundamental limits of \gls{ris} and integrate it with state-of-the-art wireless technologies.
-\end{section}
-
-\begin{section}{Overview on \glsfmtfull{ris}}
-	\begin{subsection}{Background}
-
-	\end{subsection}
 
 	\begin{subsection}{Concept}
-
+		\gls{ris} is commonly known as a planar surface involving numerous wave scattering elements (a.k.a. unit cells, reflective patches), whose amplitude and phase responses can be engineered in real-time to achieve a desired radiation pattern.
+		As shown in Fig. \ref{fg:ris_architecture}, its typical architecture consists of three stacked layers and a controller \cite{Wu2020}.
+		The top layer is a two-dimensional array of scattering elements printed on a dielectric substrate.
+		The elements directly interact with the impinging waves, which are usually fabricated from metamaterial or patch/dipole antennas with sub-wavelength dimension and spacing.
+		The middle layer is a copper ground plate that provides voltage reference and avoids signal leakage.
+		The bottom later is a circuit board that associate each element with adjustable components like varactor and \gls{pin} diodes \cite{Dai2020}.
+		It also hosts a \gls{fpga} controller that controls the circuit and coordinate with other devices in the network.
+		By adjusting the scatter response of each element, the \gls{ris} can effectively manipulate the wavefront and thus improve the ambient wireless environment.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\textwidth]{ris_architecture.pdf}
+			\caption{A typical architecture of \gls{ris} \cite{Wu2020}.}
+			\label{fg:ris_architecture}
+		\end{figure}
 	\end{subsection}
 
 	\begin{subsection}{Characteristics}
-
+		The key characteristics of \gls{ris} are summarized as follows:
+		\begin{itemize}
+			\item \emph{Passive and environmental-friendly:} \gls{ris} reflects the incident waves in a passive manner and does not require dedicated \gls{rf} chains.\footnote{The controller may be implemented with low-power components and powered by ambient energy.} This is different from \gls{af} relays that require power-hungry oscillators and introduces additional thermal noise.
+			\item \emph{Flexible:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
+			\item \emph{Full-duplex and universal:} This physical-layer solution can simultaneously benefit downlink and uplink thanks to channel reciprocity \cite{Wu2021}, and simultaneously support communication, sensing, and power transfer without self-interference. This is different from \gls{df} relays that are designed for a specific communication link and suffers from packet delays.
+			\item \emph{Low-cost and conformal:} It can be manufactured from low-cost materials and deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments. This is different from conventional multi-antenna systems that features complex hardware and bulky structures.
+		\end{itemize}
 	\end{subsection}
 
 	\begin{subsection}{Applications}
 
+	% Compared with traditional multi-antenna techniques, \gls{ris} has the potential to achieve a similar performance using fewer active components, lower power consumption, and lower hardware complexity.
+	% It also features no \gls{rf} chains, no symbol dependency, minimum signal processing, negligible additional noise, and can be deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments.
+	% These unique characteristics make \gls{ris} a ubiquitous and cost-effective solution for future wireless communication, sensing, and power transfer systems.
+
+	% This disruptive technology can be introduced to legacy networks for signal enhancement, interference suppression, scattering enrichment, blockage bypassing, coverage extension, and security control.
 	\end{subsection}
 \end{section}
 
