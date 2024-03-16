@@ -44,11 +44,16 @@
 		\item \emph{What is the ultimate limit of channel reshaping through passive \gls{ris} and what are the implications on transceiver designs?}
 	\end{itemize}
 
-	Before delving into these questions, we first provide a short overview of \gls{ris} and introduce some potential applications in the next section.
+	Before delving into these questions, we first provide a short overview of \gls{ris} and introduce some potential applications.
 	A detailed literature review and technical discussion on \gls{ris} and other topics will be reserved for Chapter \ref{ch:background}.
 \end{section}
 
 \begin{section}{Overview on \glsfmtfull{ris}}
+
+	% Compared with traditional multi-antenna techniques, \gls{ris} has the potential to achieve a similar performance using fewer active components, lower power consumption, and lower hardware complexity.
+	% It also features no \gls{rf} chains, no symbol dependency, minimum signal processing, negligible additional noise, and can be deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments.
+	% These unique characteristics make \gls{ris} a ubiquitous and cost-effective solution for future wireless communication, sensing, and power transfer systems.
+
 	% and may be evolved into a versatile tool, which blurs the boundary between the network and environment.
 	% This vision motivates us to explore the fundamental limits of \gls{ris} and integrate it with state-of-the-art wireless technologies.
 
@@ -62,13 +67,13 @@
 		The top layer is a two-dimensional array of scattering elements printed on a dielectric substrate.
 		The elements directly interact with the impinging waves, which are usually fabricated from metamaterial or patch/dipole antennas with sub-wavelength dimension and spacing.
 		The middle layer is a copper ground plate that provides voltage reference and avoids signal leakage.
-		The bottom later is a circuit board that associate each element with adjustable components like varactor and \gls{pin} diodes \cite{Dai2020}.
-		It also hosts a \gls{fpga} controller that controls the circuit and coordinate with other devices in the network.
-		By adjusting the scatter response of each element, the \gls{ris} can effectively manipulate the wavefront and thus improve the ambient wireless environment.
+		The bottom later is a circuit board that associate each element with adjustable components, such as varactor and \gls{pin} diodes \cite{Dai2020}.
+		It also hosts a \gls{fpga} controller that controls the circuit and coordinate with transceivers in the network.
+		By adjusting the scatter response of all elements, the \gls{ris} can effectively manipulate the wavefront for a constructive or destructive superposition and thus improve the ambient wireless environment.
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.9\textwidth]{ris_architecture.pdf}
-			\caption{A typical architecture of \gls{ris} \cite{Wu2020}.}
+			\caption{A typical architecture of \gls{ris}. Modified from \cite{Wu2020}.}
 			\label{fg:ris_architecture}
 		\end{figure}
 	\end{subsection}
@@ -77,27 +82,30 @@
 		The key characteristics of \gls{ris} are summarized as follows:
 		\begin{itemize}
 			\item \emph{Passive and environmental-friendly:} \gls{ris} reflects the incident waves in a passive manner and does not require dedicated \gls{rf} chains.\footnote{The controller may be implemented with low-power components and powered by ambient energy.} This is different from \gls{af} relays that require power-hungry oscillators and introduces additional thermal noise.
-			\item \emph{Flexible:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
-			\item \emph{Full-duplex and universal:} This physical-layer solution can simultaneously benefit downlink and uplink thanks to channel reciprocity \cite{Wu2021}, and simultaneously support communication, sensing, and power transfer without self-interference. This is different from \gls{df} relays that are designed for a specific communication link and suffers from packet delays.
+			\item \emph{Flexible:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from conventional reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
+			\item \emph{Full-duplex and universal:} This physical-layer solution can simultaneously support communication, sensing, and power transfer without self-interference. Thanks to channel reciprocity, the optimal configuration for downlink and uplink coincide with each other \cite{Wu2021}. This is different from \gls{df} relays that are designed for a specific communication link and suffers from packet delays.
 			\item \emph{Low-cost and conformal:} It can be manufactured from low-cost materials and deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments. This is different from conventional multi-antenna systems that features complex hardware and bulky structures.
 		\end{itemize}
 	\end{subsection}
 
 	\begin{subsection}{Applications}
+		The channel manipulation capability of \gls{ris} unlocks a wide range of unprecedented applications, such as signal enhancement \cite{Wu2019}, interference suppression \cite{Jiang2022}, blockage bypassing \cite{Ghatak2021}, coverage extension \cite{Zeng2021}, and security control \cite{Almohamad2020}.
+		It also has the potential to convey additional information \cite{Ye2022}, compensate for the Doppler effect \cite{Basar2021}, transform frequency-selective channels into frequency-flat \cite{Arslan2022}, improve the spatial diversity for multi-antenna systems \cite{Ozdogan2020a}, and create artificial time diversity for multi-user orthogonal \cite{Yang2019} and non-orthogonal \cite{Chen2023} multiple accesses.
 
-	% Compared with traditional multi-antenna techniques, \gls{ris} has the potential to achieve a similar performance using fewer active components, lower power consumption, and lower hardware complexity.
-	% It also features no \gls{rf} chains, no symbol dependency, minimum signal processing, negligible additional noise, and can be deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments.
-	% These unique characteristics make \gls{ris} a ubiquitous and cost-effective solution for future wireless communication, sensing, and power transfer systems.
-
-	% This disruptive technology can be introduced to legacy networks for signal enhancement, interference suppression, scattering enrichment, blockage bypassing, coverage extension, and security control.
+		Those fancy characteristics and applications of \gls{ris} have also attracted significant attention from the industry.
+		The first public testing attempt was made in 2018 by NTT Docomo and Metawave, which demonstrated a metasurface reflectarray in the FR2 band of 5G can boost a downlink data rate from \qty{60}{Mbps} to \qty{560}{Mbps} \cite{Liu2022b}.
+		Later in 2020, NTT Docomo developed a transparent dynamic \gls{ris} that can allows 28GHz signals to reflect or pass through with negligible power loss.
+		A regional ``\gls{ris} alliance'' was formed in 2021 by Chinese companies and institutes including ZTE, China Mobile, and CAICT, which soon released a white paper \cite{Rista2023} to promote the technology and standardization.
+		In December 2022, ITU-R drafted a recommendation report for IMT-2030 (6G) \cite{Itu2022} that marks \gls{ris} as a key technology to enhance the radio interface for multiple physical dimension transmission.
+		These developments showcase the rapid progress of \gls{ris} from theoretical concept to practical implementation, paving the way for its integration into the next-generation network.
 	\end{subsection}
 \end{section}
 
 \begin{section}{Outline and Contributions}
 	The thesis is outlined as follows:
 	\begin{itemize}
-		\item Chapter \ref{ch:introduction} introduces \gls{ris} as a promising technology for ambient wave redirection and highlights its potential benefits in future wireless networks. It discusses the motivation, objectives, and contributions of each research chapter. A list of publications is also provided.
-		\item Chapter \ref{ch:background} provides the necessary background knowledge for the subsequent chapters, including the fundamental concepts, operating principles, hardware implementation, signal and system models, performance metrics, and design challenges for \gls{ris}, \gls{wpt}, \gls{swipt}, \gls{bc}, and \gls{mimo} systems. It also reviews the state-of-the-art research in relevant topics and raise critical questions to be addressed in the following chapters.
+		\item Chapter \ref{ch:introduction} provides an overview of the thesis. It introduces the background and motivation, discusses the characteristics and applications of \gls{ris}, and summarizes the objectives and contributions of each research chapter. A list of publications is also provided.
+		\item Chapter \ref{ch:background} provides the necessary background knowledge for the subsequent chapters, including the fundamental principles, hardware implementation, signal and system models, performance metrics, and design challenges for \gls{ris}, \gls{wpt}, \gls{swipt}, \gls{bc}, and \gls{mimo} systems. It also reviews the state-of-the-art research in relevant topics and raise critical questions to be addressed in the following chapters.
 		\item Chapter \ref{ch:ris_aided_swipt} investigate the impact of \gls{ris} on wireless information and power transfer. The key contributions include:
 		\begin{itemize}
 			\item Introduce \gls{ris} to a multi-antenna multi-carrier \gls{swipt} system with different receiver architectures;
