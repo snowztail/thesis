@@ -17,7 +17,7 @@
 	\def\f{0.3}   % fraction of interface to the left
 	%   \def\na{1.0}  % air
 	%   \def\ng{-2}  % glass
-	\def\n{-0.5}
+	\def\n{0.5}
 	\def\anga{45} % angle of incident ray
 	%   \def\angg{asin(\na/\ng*sin(\anga))}
 	\def\angg{asin(\n*sin(\anga))}
@@ -39,7 +39,7 @@
 	% MEDIUM
 	\fill[glass] (L) rectangle++ (\L,-\t); % glass gradient
 	%   \node[below left=2] at (R) {$n=-2$};
-	\node at (1.2,-1.7) {$n=-2$};
+	\node at (1.5,-1.7) {$n=2$};
 
 	% LINES
 	\draw[dashed] (T) -- (B); % bisector
@@ -48,15 +48,15 @@
 
 	\draw[dashed] (T1) -- (B1); % refracted ray
 	\draw[-latex,photon,blue,semithick] (I1) -- (O1); % incoming ray
-	\draw[-latex,photon,blue,semithick] (F1) -- (O1); % refracted ray
+	\draw[-latex,photon,blue,semithick] (O1) -- (F1); % refracted ray
 
 	% ANGLES
 	\draw pic["$\theta_1$",draw=black,angle radius=28,angle eccentricity=1.3] {angle = T--O--I};
-	\draw pic["$\theta_2$",draw=black,angle radius=35,angle eccentricity=1.25] {angle = F--O--B};
+	\draw pic["$\theta_2$",draw=black,angle radius=35,angle eccentricity=1.25] {angle = B--O--F};
 
 	% TEXTS
-	\node[align=center,below right] at (O) {Rays\\(energy flow)};
-	\node[align=center,below right,blue] at (O1) {Wave\\vectors};
+	\node[align=center,below right] at ([shift={(0.3,0)}] O) {Rays\\(energy flow)};
+	\node[align=center,below right,blue] at ([shift={(0.3,0)}] O1) {Wave\\vectors};
 	%   \draw pic["$\theta_1$",draw=black,angle radius=28,angle eccentricity=1.3] {angle = T1--O1--I1};
 	%   \draw pic["$\theta_2$",draw=black,angle radius=35,angle eccentricity=1.25] {angle = F1--O1--B1};
 

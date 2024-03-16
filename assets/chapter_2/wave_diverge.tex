@@ -1,0 +1,37 @@
+\tikzstyle{glass}=[color=blue!10]
+\tikzset{
+	light beam/.style={decoration={markings,
+					mark=at position 0.5 with {\arrow[xshift=3pt]{latex}}},
+			postaction={decorate}},
+	light beam/.default=0.5}
+
+
+% REFLECTION & REFRACTION
+\begin{tikzpicture}
+	\def\L{4}     % width interface
+	\def\l{1.5}   % length ray
+	\def\t{1}     % depth glass gradient
+	\def\h{2}     % bisector height
+	\def\f{0.5}   % fraction of interface to the left
+	\def\na{1.0}  % air
+	\def\ng{2}    % glass
+	\def\anga{35} % angle of incident ray
+	\def\angg{asin(\na/\ng*sin(\anga))}
+	\def\angm{2*asin(\ng/\na*sin(\angg))}
+
+	\coordinate (I) at (0,0);                                         % 1st boundary
+	\coordinate (O) at ({-90+\angg}:{\t/cos(\angg)});                 % 2nd boundary
+	\coordinate (S) at (90+\anga:\l);                                  % incident
+	\coordinate (E) at ($ (O) + ({-90+\anga}:\l)$);                  % ordinary refraction tail
+	\coordinate (L) at (-\f*\L,0);                                     % left point interface
+	\coordinate (R) at ({(1-\f)*\L},0);                                % right point interface
+
+	% MEDIUM
+	\fill[glass] (L) rectangle++ (\L,-\t); % glass gradient
+
+	% LINES
+	\draw[light beam,black] (S) -- (I);    % incoming ray
+	\draw[light beam,blue] (I) -- (O);    % refracted ray
+	\draw[light beam,blue] (O) -- (E);    % ordinary refraction
+
+\end{tikzpicture}

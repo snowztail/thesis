@@ -1,0 +1,32 @@
+\begin{tikzpicture}[pics/v/.style={code={\draw (0,-#1) -- (0,#1);}}]
+	\begin{scope}
+		\clip[overlay] (-5,0) rectangle (5,5);
+		\path[rotate=30,overlay=false,very thick]
+		foreach \x in {0,...,9}
+			{(-2,-2+0.6*\x) coordinate (L\x) edge[blue,name path global=p\x] ++ (4,0) coordinate (R\x)}
+		(-2,-2) edge[gray!30] ++(0,6)
+		(2,-2) edge[gray!30] ++(0,6)
+		(0,-2) edge[gray!30] ++(0,7)
+		(0,4.5) edge[blue,thick,dashed,-latex] ++ (0,-3);
+	\end{scope}
+	\begin{scope}
+		\clip[overlay] (-5,0) rectangle (5,-5);
+		\pgfmathsetmacro{\myx}{2*cos(20)/cos(30)}
+		\path[rotate=200,overlay=false,very thick]
+		foreach \x in {0,...,5}
+			{(-\myx,0.8+0.4*\x) coordinate (L-\x) edge[green!70!black] ++ (2*\myx,0) coordinate (R-\x)}
+		(-\myx,-2) edge[gray!30] ++(0,6)
+		(\myx,-2) edge[gray!30] ++(0,6)
+		(0,-2) edge[gray!30] ++(0,7)
+		(0,3.6) edge[green!70!black,thick,dashed,latex-] ++ (0,-2);
+	\end{scope}
+	\path[name path=h] (-5,0) coordinate (L) -- (5,0) coordinate (R);
+	\foreach \x in {2,3,4,5}
+		{\path[name intersections={of=h and p\x,by=i\x}] (i\x);
+			\foreach \y in {1,...,\the\numexpr\x-1}
+				{\pgfmathtruncatemacro{\myf}{50/(\x-\y)}
+					\draw[thick,gray!\myf] (i\x) ++ (-0.18+\y*0.41,0)
+					arc[start angle=0,end angle=-180,radius=-0.18+0.41*\y];}}
+	\draw (L) -- (R);
+	\path foreach \x in {2,3,4,5} {(i\x) node[circle,fill,yellow,inner sep=2pt]{}};
+\end{tikzpicture}

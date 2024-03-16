@@ -5,50 +5,63 @@
 \chapter{Background and Literature Review}\label{ch:background}
 
 \begin{section}{\glsfmtfull{ris}}
-	% \begin{subsection}{Programmable Metamaterials}
-
-	% \end{subsection}
-
-	\begin{subsection}{Hardware Implementation}
-		\begin{subsubsection}{Programmable Metamaterials}
-			Metamaterials refer to artificial structures engineered for unusual properties that may not be found in nature.
-			The concept was initially proposed by Victor Veselago in 1967, who conjectured the existence of mediums with negative dielectric constant $\epsilon < 0$ and negative permeability $\mu < 0$ \cite{Veselago1968}.
-			Such metamaterials are known as ``negative-index'' because the refraction index is defined as the \emph{negative} square root $n = - \sqrt{\epsilon \mu} < 0$, in order to be consistent with Maxwell's equations.
-			It was not until 1999 that their feasibility was experimentally demonstrated by John Pendry at Imperial College using split-ring resonators \cite{Pendry1999}.
-			Since then, metamaterials have attracted significant interests due to their counterintuitive properties, to name a few:
-			\begin{itemize}
-				\item \emph{Negative refraction:} As shown in Fig. \ref{fg:nim_refraction}, the incident and refracted rays stay at the same side of the normal axis. This phenomenon is in contrast to the usual refraction but can still be predicted from Snell's law
-				\begin{equation}
-					\frac{\sin \theta_1}{\sin \theta_2} = n.
-				\end{equation}
-				\begin{figure}[H]
-					\centering
-					\resizebox{0.5\columnwidth}{!}{
+	\begin{subsection}{Programmable Metamaterials}
+		Metamaterials refer to artificial structures engineered for unusual properties that may not be found in nature.
+		The concept was initially proposed by Victor Veselago in 1967, who conjectured the existence of mediums with negative dielectric constant $\epsilon < 0$ and negative permeability $\mu < 0$ \cite{Veselago1968}.
+		Such metamaterials are known as ``negative-index'' because the refraction index is defined as the \emph{negative} square root $n = - \sqrt{\epsilon \mu} < 0$, in order to be consistent with Maxwell's equations.
+		It was not until 1999 that their feasibility was experimentally demonstrated by John Pendry at Imperial College using split-ring resonators \cite{Pendry1999}.
+		Since then, metamaterials have attracted significant interests due to their counterintuitive properties, to name a few:
+		\begin{itemize}
+			\item \emph{Negative refraction:} As shown in Fig. \ref{fg:nim_refraction}, the incident and refracted rays stay at the same side of the normal axis. This phenomenon is in contrast to the usual refraction but can still be predicted from Snell's law
+			\begin{equation}
+				\frac{\sin \theta_1}{\sin \theta_2} = n.
+			\end{equation}
+			\begin{figure}[H]
+				\centering
+				\subfloat[Negative Index Material\label{fg:nim_refraction}]{
+					\resizebox{0.45\columnwidth}{!}{
 						\input{assets/chapter_2/nim_refraction.tex}
 					}
-					\caption{Refraction of electromagnetic waves at the interface between a positive-index and a negative-index material.}
-					\label{fg:nim_refraction}
-				\end{figure}
-				\item \emph{Opposite wave direction:} As shown in Fig. \ref{fg:nim_flows}, the wave vector and energy flow (indicated by the Poynting vector) are opposite to each other in a negative-index material. This can be inferred from the electric field equation
-				\begin{equation}
-					\vec{E} = \vec{E}_0 \exp(\jmath k z - \jmath \omega t)
-				\end{equation}
-				where $k = k_0 n < 0$ is the wavenumber, $\vec{E}_0$ and $k_0$ are the free-space reference, $z$ is the propagation distance, $\omega$ is the angular frequency, and $t$ is the time.
-				Negative-index materials are thus also called ``left-hand'' because the propagation direction of the electric and magnetic fields can be determined by a left-hand rule.
-				\begin{figure}[H]
-					\centering
-					\resizebox{0.5\columnwidth}{!}{
-						\input{assets/chapter_2/nim_flows.tex}
+				}
+				\subfloat[Positive Index Material\label{fg:pim_refraction}]{
+					\resizebox{0.45\columnwidth}{!}{
+						\input{assets/chapter_2/pim_refraction.tex}
 					}
-					\caption{Wave and energy flows in a negative-index material.}
-					\label{fg:nim_flows}
-				\end{figure}
-			\end{itemize}
-		\end{subsubsection}
+				}
+				\caption{Refraction in negative and positive index materials. Incident and refracted rays stay at the same side of the normal axis in a negative-index material.}
+			\end{figure}
+			\item \emph{Opposite wave direction:} As shown in Fig. \ref{fg:nim_flows}, the wave vector and energy flow (indicated by the Poynting vector) are opposite to each other in a negative-index material. This can be inferred from the electric field equation
+			\begin{equation}
+				\vec{E} = \vec{E}_0 \exp(\jmath k z - \jmath \omega t)
+			\end{equation}
+			where $k = k_0 n < 0$ is the wavenumber, $\vec{E}_0$ and $k_0$ are the free-space electric field and wavenumber reference, $z$ is the propagation distance, $\omega$ is the angular frequency, and $t$ is the time.
+			Negative-index materials are thus also called ``left-hand'' because the propagation direction of the electric and magnetic fields can be determined by a left-hand rule.
+			\begin{figure}[H]
+				\centering
+				\resizebox{0.5\columnwidth}{!}{
+					\input{assets/chapter_2/nim_flows.tex}
+				}
+				\caption{Wave and energy have opposite directions in a negative-index material.}
+				\label{fg:nim_flows}
+			\end{figure}
 
-		\begin{subsubsection}{Physical Architecture}
+		\end{itemize}
 
-		\end{subsubsection}
+		% TODO Programmable
+		\begin{figure}[H]
+			\centering
+			\subfloat[Incident Wave\label{fg:wave_incident}]{
+				\resizebox{!}{4.04cm}{
+					\input{assets/chapter_2/wave_incident.tex}
+				}
+			}
+			\subfloat[Reflected Wave\label{fg:wave_reflected}]{
+				\resizebox{!}{4cm}{
+					\input{assets/chapter_2/wave_reflected.tex}
+				}
+			}
+			\caption{Incident and reflected waves in a programmable metamaterial.}
+		\end{figure}
 	\end{subsection}
 
 	\begin{subsection}{Wave Scattering Model}

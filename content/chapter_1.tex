@@ -5,7 +5,7 @@
 \chapter{Introduction}\label{ch:introduction}
 % \chapter{Summary of research problems and contribution}
 
-\begin{section}{Background and Motivation}
+\begin{section}{Motivation}
 	The quest for better wireless connectivity has been long-standing since Marconi's illuminating radio in 1895.
 	Great successes have been made at the transmitter and receiver sides over the past century, and the communications society is unprecedentedly close to the Shannon limit \cite{Shannon1948}.
 	By 2025, global mobile data traffic is expected to reach {607} exabytes per year \cite{Tariq2020} while the number of connected devices may exceed {75} billion \cite{Georgiev2024}.
@@ -63,6 +63,7 @@
 
 	\begin{subsection}{Concept}
 		\gls{ris} is commonly known as a planar surface involving numerous wave scattering elements (a.k.a. unit cells, reflective patches), whose amplitude and phase responses can be engineered in real-time to achieve a desired radiation pattern.
+		It behaves like a delicate \gls{rf} mirror with adjustable curvature and orientation, which allows the incident signals to be focused and redirected in a particular direction.
 		As shown in Fig. \ref{fg:ris_architecture}, its typical architecture consists of three stacked layers and a controller \cite{Wu2020}.
 		The top layer is a two-dimensional array of scattering elements printed on a dielectric substrate.
 		The elements directly interact with the impinging waves, which are usually fabricated from metamaterial or patch/dipole antennas with sub-wavelength dimension and spacing.
@@ -104,7 +105,7 @@
 \begin{section}{Outline and Contributions}
 	The thesis is outlined as follows:
 	\begin{itemize}
-		\item Chapter \ref{ch:introduction} provides an overview of the thesis. It introduces the background and motivation, discusses the characteristics and applications of \gls{ris}, and summarizes the objectives and contributions of each research chapter. A list of publications is also provided.
+		\item Chapter \ref{ch:introduction} provides an overview of the thesis. It introduces the motivation and objectives, discusses the characteristics and applications of \gls{ris}, and summarizes the topics and contributions of each research chapter. A list of publications is also provided.
 		\item Chapter \ref{ch:background} provides the necessary background knowledge for the subsequent chapters, including the fundamental principles, hardware implementation, signal and system models, performance metrics, and design challenges for \gls{ris}, \gls{wpt}, \gls{swipt}, \gls{bc}, and \gls{mimo} systems. It also reviews the state-of-the-art research in relevant topics and raise critical questions to be addressed in the following chapters.
 		\item Chapter \ref{ch:ris_aided_swipt} investigate the impact of \gls{ris} on wireless information and power transfer. The key contributions include:
 		\begin{itemize}
