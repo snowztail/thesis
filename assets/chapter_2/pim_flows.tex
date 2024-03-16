@@ -1,4 +1,4 @@
-\begin{tikzpicture}[background rectangle/.style={fill=red!10}, show background rectangle]
+\begin{tikzpicture}[background rectangle/.style={fill=blue!10}, show background rectangle]
 
 	\def\f{1/exp(((\x)^2)/2)}
 
@@ -10,5 +10,5 @@
 
 	\end{axis}
 	\draw[-latex,thick] (E) to ++(1,0) node[anchor=west] {energy flow};
-	\draw[-latex,thick,blue] (W) to ++(-1,0) node[anchor=east,blue] {wave direction};
+	\draw[-latex,thick,blue] (W) to ++(1,0) node[anchor=west,blue] {wave direction};
 \end{tikzpicture}
