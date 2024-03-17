@@ -12,25 +12,26 @@
 		It was not until 1999 that their feasibility was experimentally demonstrated by John Pendry at Imperial College using split-ring resonators \cite{Pendry1999}.
 		Since then, metamaterials have attracted significant interests due to their counterintuitive properties, to name a few:
 		\begin{itemize}
-			\item \emph{Negative refraction:} As shown in Fig. \ref{fg:nim_refraction}, the incident and refracted rays stay at the same side of the normal axis. This phenomenon is in contrast to the usual refraction but can still be predicted from Snell's law
+			\item \emph{Negative refraction:} As shown in Fig. \ref{fg:nim_refraction}, the incident and refracted rays stay at the same side of the normal axis \cite{Veselago1968}. This phenomenon is in contrast to the usual refraction but can still be predicted from Snell's law
 			\begin{equation}
 				\frac{\sin \theta_1}{\sin \theta_2} = n.
 			\end{equation}
+			It is worth mentioning that a generalized law of refraction and refraction has been proposed in \cite{Yu2011}, which has become a standard reference for the design and analysis of metamaterials.
 			\begin{figure}[H]
 				\centering
-				\subfloat[Negative Index Material\label{fg:nim_refraction}]{
+				\subfloat[Negative-Index Material\label{fg:nim_refraction}]{
 					\resizebox{0.45\columnwidth}{!}{
 						\input{assets/chapter_2/nim_refraction.tex}
 					}
 				}
-				\subfloat[Positive Index Material\label{fg:pim_refraction}]{
+				\subfloat[Positive-Index Material\label{fg:pim_refraction}]{
 					\resizebox{0.45\columnwidth}{!}{
 						\input{assets/chapter_2/pim_refraction.tex}
 					}
 				}
-				\caption{Refraction in negative and positive index materials. Incident and refracted rays stay at the same side of the normal axis in a negative-index material.}
+				\caption{Refraction in negative and positive-index materials. Incident and refracted rays stay at the same side of the normal axis in a negative-index material.}
 			\end{figure}
-			\item \emph{Opposite wave direction:} As shown in Fig. \ref{fg:nim_flows}, the wave vector and energy flow (indicated by the Poynting vector) are opposite to each other in a negative-index material. This can be inferred from the electric field equation
+			\item \emph{Opposite wave direction:} As shown in Fig. \ref{fg:nim_flows}, the wave vector and energy flow (indicated by the Poynting vector) are opposite to each other in a negative-index material \cite{Pendry2004}. This can be inferred from the electric field equation
 			\begin{equation}
 				\vec{E} = \vec{E}_0 \exp(\jmath k z - \jmath \omega t)
 			\end{equation}
@@ -38,37 +39,48 @@
 			Negative-index materials are thus also called ``left-hand'' because the propagation direction of the electric and magnetic fields can be determined by a left-hand rule.
 			\begin{figure}[H]
 				\centering
-				\subfloat[Negative Index Material\label{fg:nim_flows}]{
+				\subfloat[Negative-Index Material\label{fg:nim_flows}]{
 					\resizebox{!}{2cm}{
 							\input{assets/chapter_2/nim_flows.tex}
 					}
 				}
-				\subfloat[Positive Index Material\label{fg:pim_flows}]{
+				\subfloat[Positive-Index Material\label{fg:pim_flows}]{
 					\resizebox{!}{2cm}{
 						\input{assets/chapter_2/pim_flows.tex}
 					}
 				}
 				\caption{Wave and energy have opposite directions in a negative-index material.}
 			\end{figure}
-
-			\begin{figure}[H]
-				\centering
-				\subfloat[Negative Index Material\label{fg:nim_focus}]{
-					\resizebox{0.45\columnwidth}{!}{
-							\input{assets/chapter_2/nim_focus.tex}
-					}
-				}
-				\subfloat[Positive Index Material\label{fg:pim_diverge}]{
-					\resizebox{0.45\columnwidth}{!}{
-						\input{assets/chapter_2/pim_diverge.tex}
-					}
-				}
-				\caption{Beams diverging from a point source is set in reverse and converges back to a point.}
-			\end{figure}
-
 		\end{itemize}
 
-		% TODO Programmable
+		Conventional metamaterials have fixed properties that depend on the geometry and arrangement of their constituent elements.
+		Once fabricated, these properties cannot be easily changed unless the structure is physically altered.
+		This limits their early usage to military and defense, with applications such as invisibility cloaks and optical illusions.
+		In 2014, the concept of ``coding'' and ``programmable'' metamaterials was validated by researchers at Southeast University \cite{Cui2014}, who realized digital control of radar cross-section using biased diodes and \gls{fpga}.
+		With a proper model of the target properties and external citation, the metamaterial can be reconfigured in real-time for desired behaviors.
+		For example, a self-adaptive metasurface equipped with motion and light sensors have been developed in \cite{Ma2019} for single- and multi-beam steering.
+
+		Next, we discuss the principles of electromagnetic wave redirection via refraction and reflection:
+		\begin{itemize}
+			\item \emph{Refraction:} As shown in Fig. \ref{fg:nim_focus}, the negative-index material can re-focus the beams diverging from a point source to another point behind the material \cite{Padilla2006}. This could be helpful for wireless applications where the transmitter and receiver are at different sides of the material.
+			\item \emph{Reflection:} As shown in Fig. \ref{fg:wave_reflected}, the scattering elements cooperatively alter the phase of the incident wave for a constructive (or destructive) superposition of the reflected waves in the target direction \cite{Poulakis2022}. This could be helpful for wireless applications where the transmitter and receiver are at the same side of the material.
+		\end{itemize}
+		% electromagnetic wave refraction and reflection.
+
+		\begin{figure}[H]
+			\centering
+			\subfloat[Negative-Index Material\label{fg:nim_focus}]{
+				\resizebox{0.45\columnwidth}{!}{
+						\input{assets/chapter_2/nim_focus.tex}
+				}
+			}
+			\subfloat[Positive-Index Material\label{fg:pim_diverge}]{
+				\resizebox{0.45\columnwidth}{!}{
+					\input{assets/chapter_2/pim_diverge.tex}
+				}
+			}
+			\caption{Refraction through metamaterials. For negative-index material, beams diverging from a point source is set in reverse and converges back to another point.}
+		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\subfloat[Incident Wave\label{fg:wave_incident}]{
@@ -81,8 +93,10 @@
 					\input{assets/chapter_2/wave_reflected.tex}
 				}
 			}
-			\caption{Incident and reflected waves in a programmable metamaterial.}
+			\caption{Reflection through metamaterials. Yellow dots represent scattering elements. Solid and dashed lines denote wavefronts and rays, respectively. The scattering elements work together to manipulate the phases of incident waves, resulting in a focused beam steered in the intended direction.}
 		\end{figure}
+		It is worth noticing that refraction and reflection can be regarded as different forms of \emph{passive beamforming} where the phase and amplitude of the ambient signal are altered by the metamaterial for a desired net effect.
+		In the next subsection, we will some typical \gls{ris} scattering models and their assumptions.
 	\end{subsection}
 
 	\begin{subsection}{Wave Scattering Model}
