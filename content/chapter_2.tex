@@ -95,26 +95,121 @@
 			}
 			\caption{Reflection through metamaterials. Yellow dots represent scattering elements. Solid and dashed lines denote wavefronts and rays, respectively. The scattering elements work together to manipulate the phases of incident waves, resulting in a focused beam steered in the intended direction.}
 		\end{figure}
-		It is worth noticing that refraction and reflection can be regarded as different forms of \emph{passive beamforming} where the phase and amplitude of the ambient signal are altered by the metamaterial for a desired net effect.
-		In the next subsection, we will some typical \gls{ris} scattering models and their assumptions.
+		It is worth noticing that refraction and reflection are different implementations of \emph{passive beamforming} where the phase and amplitude of the ambient signal are altered by the metamaterial for a desired net effect.
+		In the next subsection, we will some typical \gls{ris} scattering models and their physical architecture.
 	\end{subsection}
 
-	\begin{subsection}{Wave Scattering Model}
-		\begin{subsubsection}{Active and Passive Elements}
+	\begin{subsection}{Wave Scattering Models}
+		\begin{subsection}{Principles}
+			\label{sc:principles}
+			\gls{rf} wave can be manipulated by scattering elements made from \emph{programmable metamaterials} or \emph{passive antennas} \cite{Liang2022}.
+			As discussed above, the former refracts or reflects the incident signals at the air-cell boundary and mainly applies a phase shift.
+			In contrast, the latter allows the wave to feed into and collect from the antenna port such that some energy can be absorbed by the circuit and the rest is reradiated to the space.
+			An interesting observation is that when excited by an external wave, a scattering element can simultaneously function as an object and a radiator.
+			The corresponding scattered field is \cite{Hansen1989}
+			\begin{equation}
+				\vec{E}_\text{scatter}(Z_\mathrm{L}) = \underbrace{\vec{E}_\text{structural}}_\text{structural component} + \underbrace{\Gamma I_\mathrm{M} \vec{E}_\text{antenna}}_\text{antenna component},
+			\end{equation}
+			where $Z_\mathrm{L}$ is the load impedance, $\vec{E}_\text{structural}$ is the residual field under perfect matching (i.e., modelling as an object), $\vec{E}_\text{antenna}$ is the radiated field with unit current at the terminal and no external excitation (i.e., modelling as a radiator), $I_\mathrm{M}$ is the current under perfect matching, and $\Gamma$ is the reflection coefficient
+			\begin{equation}
+				\Gamma = \frac{Z_\mathrm{L} - Z_0^*}{Z_\mathrm{L} + Z_0},
+				\label{eq:reflection_coefficient}
+			\end{equation}
+			and $Z_0$ is the characteristic impedance for programmable metamaterials or the input impedance for passive antennas.
+			It is worth mentioning that
+			\begin{itemize}
+				\item \emph{Structural component:} Depends on the geometry and material of the scatterer. It is usually modelled as part of the environment multipath \cite{Thomas2012,Liang2020} or simply regarded a \gls{dc} offset when the impinging signal is \gls{cw} \cite{Boyer2014}.
+				\item \emph{Antenna component:} Depends on the reflection coefficient that can be altered by load impedance. This is widely exploited for various scattering applications, such as backscatter modulation in \gls{bc} and passive beamforming in \gls{ris} \cite{Zhao2022a}.
+			\end{itemize}
+			We then introduce two canonical \gls{ris} models that will be adopted in the work chapters.
+			More accurate models based on field equations (e.g., \cite{Ozdogan2020,Najafi2020}) and measurement fitting (e.g., \cite{Abeywickrama2020}) are also available in the literature.
+			% physics-based (e.g., \cite{Ozdogan2020,Najafi2020}) and practical (e.g., \cite{Abeywickrama2020}) models
+		\end{subsection}
 
-		\end{subsubsection}
+		\begin{subsection}{Diagonal Phase Shift Model}
+			A straightforward way to model the \gls{ris} scattering effect is to consider independent scattering elements with purely reactive load impedance \cite{Wu2018}.
+			The reflection coefficient of the $n$-th element is thus
+			\begin{equation}
+				\theta_n = \frac{\jmath X_n - Z^*}{\jmath X_n + Z} = \exp(\jmath \phi_n),
+			\end{equation}
+			where $X_n$ is the reactance and $\phi_n$ is the phase shift on the scattered wave.
+			For a total of $N_\mathrm{S}$ elements, the \gls{ris} scattering matrix is \emph{diagonal with complex unit-magnitude entries}
+			\begin{equation}
+				\mathbf{\Theta} = \mathrm{diag}(\theta_1, \ldots, \theta_{N_\mathrm{S}}) =
+				\begin{bmatrix}
+					\theta_1 & 0 & \cdots & 0 \\
+					0 & \theta_2 & \cdots & 0 \\
+					\vdots & \vdots & \ddots & \vdots \\
+					0 & 0 & \cdots & \theta_{N_\mathrm{S}}
+				\end{bmatrix}.
+			\end{equation}
+			Despite the strong assumptions, this diagonal phase shift model is widely used for the analysis of \gls{ris} systems due to its simplicity and analytical tractability.
+		\end{subsection}
 
-		\begin{subsubsection}{Independent Scattering: Diagonal Model}
+		\begin{subsection}{\glsfmtfull{bd} Model}
+			How to model the \gls{ris} response if the passive scattering elements can be cooperative instead of independent?
+			This question has been answered by \cite{Shen2020a} where a \gls{bd} model was proposed.
+			From a network theory perspective \cite{Ivrlac2010}, the interaction between the scattering elements can be modelled as lossless (but not necessarily symmetric) in-group connections in an $N_\mathrm{S}$-port circuit network, as shown in Figs. \ref{fg:bd_ris_architecture_1} and \ref{fg:bd_ris_architecture_2} \cite{Shen2020a}.
+			This architecture allows wave impinging on any element to propagate within the circuit and depart partially from other elements in the same group.
+			\begin{figure}[H]
+				\centering
+				\resizebox{0.75\columnwidth}{!}{
+					\includegraphics{assets/chapter_2/bd_ris_architecture_1.eps}
+				}
+				\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. The figure is from \cite{Shen2020a}.}
+				\label{fg:bd_ris_architecture_1}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\resizebox{0.75\columnwidth}{!}{
+					\includegraphics{assets/chapter_2/bd_ris_architecture_2.eps}
+				}
+				\caption{Network model of an 8-element \gls{ris} with group-wise cooperative scattering of group size (a) 2 and (b) 4. The group size is a design parameter to balance the circuit complexity and scattering performance. The figure is from \cite{Shen2020a}.}
+				\label{fg:bd_ris_architecture_2}
+			\end{figure}
 
-		\end{subsubsection}
+			A general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
+			With symmetric components (e.g., capacitors and inductors), the scattering matrix of group $g \in \mathcal{G} \triangleq \{1, \ldots, G\}$ is \cite{Shen2020a}
+			\begin{equation}
+				\mathbf{\Theta}_g = (\jmath \mathbf{X}_g + Z_0 \mathbf{I})^{-1} (\jmath \mathbf{X}_g - Z_0 \mathbf{I}),
+			\end{equation}
+			which satisfies both \emph{symmetric} and \emph{unitary} properties
+			\begin{subequations}
+				\begin{equation}
+					\mathbf{\Theta}_g = \mathbf{\Theta}_g^\mathsf{T},
+					\label{eq:symmetric_property}
+				\end{equation}
+				\begin{equation}
+					\mathbf{\Theta}_g^\mathsf{H} \mathbf{\Theta}_g = \mathbf{I}.
+					\label{eq:unitary_property}
+				\end{equation}
+			\end{subequations}
+			On the other hand, lossless networks may also be built over asymmetric passive components (e.g., ring hybrids and branch-line hybrids) \cite{Ahn2006} such that the symmetric constraint \eqref{eq:symmetric_property} can be relaxed.
+			This corresponds to the ultimate passive model where energy conservation \eqref{eq:unitary_property} is the only constraint for each group, as widely considered in quantum physics.
+			The overall scattering matrix of asymmetric \gls{bd}-\gls{ris} is thus \emph{block-diagonal with unitary blocks}
+			\begin{equation}
+				\mathbf{\Theta} = \mathrm{diag}(\mathbf{\Theta}_1,\ldots,\mathbf{\Theta}_G) =
+				\begin{bmatrix}
+					\mathbf{\Theta}_1 & \mathbf{0} & \cdots & \mathbf{0} \\
+					\mathbf{0} & \mathbf{\Theta}_2 & \cdots & \mathbf{0} \\
+					\vdots & \vdots & \ddots & \vdots \\
+					\mathbf{0} & \mathbf{0} & \cdots & \mathbf{\Theta}_G
+				\end{bmatrix},
+				\label{eq:bd_scattering_matrix}
+			\end{equation}
+			where \eqref{eq:unitary_property} is equivalently denoted as $\mathbf{\Theta}_g \in \mathbb{U}^{L \times L}$.
+			The group size $L$ is a design parameter to balance the circuit complexity and scattering performance.
+			Diagonal (single-connected) and unitary (fully-connected) \gls{ris} can be viewed as extreme cases with group size $L=1$ and $L=N_\mathrm{S}$, respectively.
+			Therefore, the \gls{bd} model \eqref{eq:bd_scattering_matrix} is envisioned to be the next-generation theoretical foundation for passive \gls{ris}, which grants more design freedom and stronger signal processing capability.
 
-		\begin{subsubsection}{Cooperative Scattering: \glsfmtfull{bd} Model}
+			It is also worth mentioning that each group can be abstracted as a mathematical graph with $L$ vertices and a variable number of edges \cite{Nerini2023a}.
+			One element is in the same group with another if and only if there is at least one path (via edges) between them.
+			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
+			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
+			This has motivated the concept of \gls{star}-\gls{ris} \cite{Mu2021,Liu2021} and multi-sector \gls{ris} \cite{Li2023c} where incident wave is partially steered to various directions for different users.
 
-		\end{subsubsection}
+		\end{subsection}
 
-		\begin{subsubsection}{Impact of Radiation Pattern and Circuit Topology}
-
-		\end{subsubsection}
 	\end{subsection}
 
 \end{section}
