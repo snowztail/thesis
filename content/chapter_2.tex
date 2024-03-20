@@ -207,16 +207,35 @@
 			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
 			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
 			This has motivated the concept of \gls{star}-\gls{ris} \cite{Mu2021,Liu2021} and multi-sector \gls{ris} \cite{Li2023c} where incident wave is partially steered to various directions for different users.
-
 		\end{subsection}
-
 	\end{subsection}
-
 \end{section}
 
 \begin{section}{\glsfmtfull{wpt}}
-	\begin{subsection}{Near- and Far-Field Techniques}
+	\begin{subsection}{Introduction}
+		Wireless devices are becoming smarter as well as more energy-efficient and eco-friendly.
+		Koomey's law \citep{Koomey2011} predicts the computing efficiency roughly doubles every 19 months and the amount of power needed for the same operation decreases to 1\% in a decade.
+		Over the past 15 years, the rise of low-power technologies like \gls{wsn} and \gls{iot} have hatched life-changing applications including smart homes, digital healthcare, and industrial automation.
+		% This low-power trend has been accelerated by the rise of \gls{iot} and \gls{wsn} technologies, which enabled revolutionary applications including smart homes, digital healthcare, and industrial automation.
+		Today, \gls{rfid} tags and basic sensors (e.g., thermometer and proximeter) can operate on microwatts of power \cite{Huang2019,Hao2018}, while communication protocols like \gls{ble} and \gls{lorawan} only consume tens of milliwatts \cite{Correia2017b}.
+		This low-power trend together with the upsurge of mobile devices is calling for a \emph{truly wireless} energy solution that eliminates the need for periodic cable plugging or battery replacement.
+		% While solutions like solar and piezoelectric offer benefits in specific scenarios, their bulky components, unpredictable power sources, and limited range make them unsuitable for most wireless applications.
+		While great successes have been witnessed for candidates like solar and piezoelectric, their prospects in wireless systems remain unclear due to the bulky converter, unpredictable source, and limited operation range.
+		One promising solution on the horizon is \gls{wpt} through electromagnetic waves.
+		It can be classified into two categories based on the operation principle \cite{Zhou2022}:
+		\begin{itemize}
+			\item \emph{Non-radiative near-field:} Power is transferred over a short distance (typically a few centimeters) by inductive coupling between coils or capacitive coupling between electrodes in a field-to-field manner. The former has been widely standardized (e.g., Qi 2.0) and commercialized (e.g., wireless charging pads), while the latter is still in the research stage.
+			\item \emph{Radiative far-field:} Power is transferred over a long distance (typically a few meters) by directional microwave or laser beams between antennas in a point-to-point manner. It shares many similarities with \gls{rf} communication (e.g., infrastructure and wireless environment) but suffers from lower energy efficiency than non-radiative \gls{wpt} due to pathloss.
+		\end{itemize}
 
+		Radiative \gls{wpt}\footnote{In the following part of the thesis, \gls{wpt} refers to radiative \gls{wpt}.} brings numerous opportunities to future wireless networks.
+		First, it completely eliminates wired connections and can be integrated into existing wireless systems with minimum modifications.
+		Those properties translate to simple deployment, high scalability, and low maintenance cost.
+		Second, the power can be simultaneously radiated to multiple devices on demand in a predictable, sustainable and reliable manner.
+		This supports our initial vision and is different from other uncontrollable and intermittent energy sources.
+		Third and most importantly, radio waves carries power and information simultaneously such that \gls{wpt} can be jointly designed with \gls{wit} to make the most of radiation, spectrum and infrastructures.
+		However, energy efficiency and safety concerns have been two major obstacles that limit the practical development of \gls{wpt}.
+		We will discuss how \gls{ris} can help address these issues in Section \ref{sc:swipt}
 	\end{subsection}
 
 	\begin{subsection}{Modules and Coupling Effect}
@@ -244,7 +263,7 @@
 	\end{subsection}
 \end{section}
 
-\begin{section}{\glsfmtfull{swipt}}
+\begin{section}{\glsfmtfull{swipt}}\label{sc:swipt}
 	\begin{subsection}{\glsfmtfull{r-e} Tradeoff}
 
 	\end{subsection}
