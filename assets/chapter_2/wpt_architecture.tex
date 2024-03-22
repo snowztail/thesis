@@ -1,0 +1,34 @@
+\begin{circuitikz}[transform shape,align=center,font=\footnotesize]
+	\draw(0,0) node[draw](rf){\gls{rf}\\source};
+	\draw(rf.east) node[txantenna]{};
+	\draw(1,1) node{Tx};
+	\draw(4.875,2) node[draw]{\gls{ris}};
+	\draw(4.875,1) node[draw]{Channel};
+	\draw(10,0) node[draw](mc){Matching\\network};
+	\draw(mc.west) node[rxantenna,xscale=-1]{};
+	\draw(8.7,1) node{Rx};
+	\draw(mc.east) to ++(0.85,0) node[anchor=west,draw](d){Diode};
+	\draw(d.east) to ++(0.85,0) node[anchor=west,draw](lpf){Low-pass\\filter};
+	\draw(lpf.east) to ++(1,0) node[anchor=west,draw](dd){\gls{dc}-\gls{dc}\\converter};
+	\draw(dd.east) to ++(1,0) node[anchor=west,draw](s){Storage};
+
+	\draw [dashed] (-0.95,-0.75) rectangle (3.75,2.75);
+	\draw (1.4,3) node[]{Energy transmitter};
+	\draw [dotted] (6.25,-0.5) rectangle (15.6,2.5);
+	\draw (10.925,2) node[]{Rectenna};
+	\draw [dotted] (16,-0.5) rectangle (20.5,1.25);
+	\draw (18.25,0.875) node[]{Power management unit};
+	\draw [dashed] (6,-0.75) rectangle (20.75,2.75);
+	\draw (13.375,3) node[]{Energy receiver};
+
+	\draw (-0.95,-1) node[]{$P_{\mathrm{DC}}^{\mathrm{T}}$};
+	\draw (3.75,-1) node[]{$P_{\mathrm{RF}}^{\mathrm{T}}$};
+	\draw (6,-1) node[]{$P_{\mathrm{RF}}^{\mathrm{R}}$};
+	\draw (15.8,-1) node[]{$P_{\mathrm{DC}}^{\mathrm{R}}$};
+	\draw (20.5,-1) node[]{$P_{\mathrm{DC}}^{\mathrm{S}}$};
+
+	\draw[gray,dashdotted,-latex] (10.925,-0.5) to ++(0,-1.5) to ++(-1,0) node[anchor=east,draw](c){Channel\\feedback};
+	\draw[gray,dashdotted,latex-] (1.4,-0.75) to ++(0,-1.25) to ++(1,0) node[anchor=west,draw](s){Signal\\optimization};
+	\draw[gray,dashdotted,-latex] (c.west) to (s.east);
+	\draw[gray] (6.45,-2) node[]{Reverse\\communication link};
+\end{circuitikz}

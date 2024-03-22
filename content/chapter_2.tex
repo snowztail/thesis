@@ -100,7 +100,7 @@
 	\end{subsection}
 
 	\begin{subsection}{Wave Scattering Models}
-		\begin{subsection}{Principles}
+		\begin{subsubsection}{Principles}
 			\label{sc:principles}
 			\gls{rf} wave can be manipulated by scattering elements made from \emph{programmable metamaterials} or \emph{passive antennas} \cite{Liang2022}.
 			As discussed above, the former refracts or reflects the incident signals at the air-cell boundary and mainly applies a phase shift.
@@ -124,9 +124,9 @@
 			We then introduce two canonical \gls{ris} models that will be adopted in the work chapters.
 			More accurate models based on field equations (e.g., \cite{Ozdogan2020,Najafi2020}) and measurement fitting (e.g., \cite{Abeywickrama2020}) are also available in the literature.
 			% physics-based (e.g., \cite{Ozdogan2020,Najafi2020}) and practical (e.g., \cite{Abeywickrama2020}) models
-		\end{subsection}
+		\end{subsubsection}
 
-		\begin{subsection}{Diagonal Phase Shift Model}
+		\begin{subsubsection}{Diagonal Phase Shift Model}
 			A straightforward way to model the \gls{ris} scattering effect is to consider independent scattering elements with purely reactive load impedance \cite{Wu2018}.
 			The reflection coefficient of the $n$-th element is thus
 			\begin{equation}
@@ -144,9 +144,9 @@
 				\end{bmatrix}.
 			\end{equation}
 			Despite the strong assumptions, this diagonal phase shift model is widely used for the analysis of \gls{ris} systems due to its simplicity and analytical tractability.
-		\end{subsection}
+		\end{subsubsection}
 
-		\begin{subsection}{\glsfmtfull{bd} Model}
+		\begin{subsubsection}{\glsfmtfull{bd} Model}
 			How to model the \gls{ris} response if the passive scattering elements can be cooperative instead of independent?
 			This question has been answered by \cite{Shen2020a} where a \gls{bd} model was proposed.
 			From a network theory perspective \cite{Ivrlac2010}, the interaction between the scattering elements can be modelled as lossless (but not necessarily symmetric) in-group connections in an $N_\mathrm{S}$-port circuit network, as shown in Figs. \ref{fg:bd_ris_architecture_1} and \ref{fg:bd_ris_architecture_2} \cite{Shen2020a}.
@@ -207,7 +207,7 @@
 			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
 			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
 			This has motivated the concept of \gls{star}-\gls{ris} \cite{Mu2021,Liu2021} and multi-sector \gls{ris} \cite{Li2023c} where incident wave is partially steered to various directions for different users.
-		\end{subsection}
+		\end{subsubsection}
 	\end{subsection}
 \end{section}
 
@@ -233,32 +233,118 @@
 		Those properties translate to simple deployment, high scalability, and low maintenance cost.
 		Second, the power can be simultaneously radiated to multiple devices on demand in a predictable, sustainable and reliable manner.
 		This supports our initial vision and is different from other uncontrollable and intermittent energy sources.
-		Third and most importantly, radio waves carries power and information simultaneously such that \gls{wpt} can be jointly designed with \gls{wit} to make the most of radiation, spectrum and infrastructures.
+		Third and most importantly, radio waves carries power and information simultaneously.
+		\gls{wpt} can therefore be jointly designed with \gls{wit} to make the most of radiation, spectrum and infrastructures.
 		However, energy efficiency and safety concerns have been two major obstacles that limit the practical development of \gls{wpt}.
-		We will discuss how \gls{ris} can help address these issues in Section \ref{sc:swipt}
+		In Section \ref{sc:swipt}, we will discuss how \gls{ris} can help address these issues.
 	\end{subsection}
 
 	\begin{subsection}{Modules and Coupling Effect}
-		\begin{subsubsection}{Block Diagram}
+		\begin{figure}[H]
+			\centering
+			\resizebox{\columnwidth}{!}{
+				\input{assets/chapter_2/wpt_architecture.tex}
+			}
+			\caption{Block diagram of a closed-loop \gls{ris}-aided \gls{wpt}.}
+			\label{fg:wpt_architecture}
+		\end{figure}
 
-		\end{subsubsection}
-
-		\begin{subsubsection}{Blockwise Coupling}
-
-		\end{subsubsection}
+		The block diagram a closed-loop \gls{ris}-aided \gls{wpt} system is illustrated in Fig. \ref{fg:wpt_architecture}.
+		The \gls{rf} signal is generated and radiated by the energy transmitter, propagated through a wireless channel in the presence of a \gls{ris}, captured by the antenna(s) at the receiver, converted to \gls{dc} power by rectifier(s), then passed to the power management unit.
+		Upon successful harvesting, the \gls{dc} power is either delivered directly to the device or stored in a battery/super capacitor for future operations.
+		When a feedback link is available, one can acquire \gls{csi} at the energy transmitter and exploit it for signal optimization.
+		Such a closed-loop \gls{ris}-aided \gls{wpt} system can provide a complete control of transmitter, channel, and receiver, which is essential for maximizing the end-to-end power transfer efficiency
+		\begin{equation}
+			\eta = \frac{P_{\mathrm{DC}}^\mathrm{S}}{P_{\mathrm{DC}}^\mathrm{T}} = \underbrace{\frac{P_{\mathrm{RF}}^\mathrm{T}}{P_{\mathrm{DC}}^\mathrm{T}}}_{\eta_1} \underbrace{\frac{P_{\mathrm{RF}}^\mathrm{R}}{P_{\mathrm{RF}}^\mathrm{T}}}_{\eta_2} \underbrace{\frac{P_{\mathrm{DC}}^\mathrm{R}}{P_{\mathrm{RF}}^\mathrm{R}}}_{\eta_3} \underbrace{\frac{P_{\mathrm{DC}}^\mathrm{S}}{P_{\mathrm{DC}}^\mathrm{R}}}_{\eta_4},
+		\end{equation}
+		where $P_{\mathrm{DC}}^\mathrm{T}$ is the transmitted \gls{dc} power, $P_{\mathrm{RF}}^\mathrm{T}$ is the transmitted \gls{rf} power, $P_{\mathrm{RF}}^\mathrm{R}$ is the received \gls{rf} power, $P_{\mathrm{DC}}^\mathrm{R}$ is the received \gls{dc} power, and $P_{\mathrm{DC}}^\mathrm{S}$ is the stored \gls{dc} power.
+		The power conversion efficiencies are specified below:
+		\begin{itemize}
+			\item $\eta_1$: Transmitter \gls{dc}-to-\gls{rf} conversion efficiency\footnote{This is different from \gls{pae} used in amplifier rating, which takes into account both \gls{dc} power and input waveform power \cite{Joung2015}.} that depends on the \gls{rf} power amplifier and transmit antenna. It is also called ``drain efficiency'' and state-of-the-art designs can achieve $\eta_1 \ge 70\%$ \cite{Alizadeh2020}.
+			\item $\eta_2$: Channel \gls{rf}-to-\gls{rf} conversion efficiency that depends on the wireless environment and \gls{ris} configuration. This is the major bottleneck of \gls{wpt} since the radiated power is inversely proportional to the propagation distance squared.
+			\item $\eta_3$: Receiver \gls{rf}-to-\gls{dc} conversion efficiency that depends on the impedance matching and rectifier design. We will discuss its behavior and modelling in the next subsection.
+			\item $\eta_4$: Storage \gls{dc}-to-\gls{dc} conversion efficiency that depends on the converter circuit and battery characteristics. Modern power management units can achieve a charging efficiency $\eta_4 \ge 90\%$ \cite{Tan2012}.
+		\end{itemize}
+		It is worth mentioning that $\eta_1$ and $\eta_3$ also depend on the characteristics of input waveform like power level, carrier frequency, and \gls{papr} \cite{Clerckx2016a}.
+		Extensive efforts have been contributed from \gls{rf}, wireless communications, and power electronic communities to improve the conversion efficiency of individual modules.
+		However, it is often overlooked in the literature that a practical \gls{wpt} system is highly \emph{non-linear} since the amplifier and rectifier are very sensitive to the input waveform.
+		This non-linear behavior can lead to a \emph{coupling effect} between the modules, such that optimizing $\eta_1$ to $\eta_4$ independently does not necessarily maximize the end-to-end power efficiency $\eta$ \cite{Clerckx2016a}.
+		Besides, the system modeling and analysis are subject to practical constraints like diode threshold and reverse-breakdown voltages, device parasitics, impedance mismatch, and harmonic generation  \citep{Valenta2014}.
 	\end{subsection}
 
 	\begin{subsection}{Non-Linear Harvester Behavior}
-		\begin{subsubsection}{Rectifier Circuits}
-
+		\begin{subsubsection}{Equivalent Circuits}
+			\begin{figure}[H]
+				\centering
+				\subfloat[Rectenna]{
+					\resizebox{0.45\columnwidth}{!}{
+						\input{assets/chapter_2/rectenna.tex}
+					}
+					\label{fg:rectenna}
+				}
+				\subfloat[Half-wave rectifier]{
+					\resizebox{0.45\columnwidth}{!}{
+						\input{assets/chapter_2/halfwave_rectifier.tex}
+					}
+					\label{fg:halfwave_rectifier}
+				}
+				\caption{
+					Equivalent circuit of (a) rectenna and (b) single-diode half-wave rectifier.
+				}
+				\label{fg:harvester_circuit}
+			\end{figure}
+			The rectifier is a nonlinear circuit that converts the \gls{rf} signal to \gls{dc} power by rectifying and filtering the input signal.
+			Figs. \ref{fg:harvester_circuit} illustrates the equivalent circuits of a rectenna (antenna and rectifier) and a single-diode half-wave rectifier, where $v_{\mathrm{S}}$ is the source voltage on the receive antenna, $Z_{\mathrm{A}} = R_{\mathrm{A}} + \jmath X_{\mathrm{A}}$ is the antenna impedance, $Z_{\mathrm{in}} = R_{\mathrm{in}} + \jmath X_{\mathrm{in}}$ is the total impedance of the matching network and rectifier, $v_{\mathrm{in}}$ is input voltage on the matching network and rectifier, $v_{\mathrm{D}}$ is the diode voltage, $C$ is the buffer capacitance, $R_{\mathrm{L}}$ is the rectifier load resistance, and $v_{\mathrm{out}}$ is the output voltage.
+			It is worth mentioning that the half-wave rectifier is the most popular choice in \gls{wpt} literature due to its simple behavior and low cost.
+			Other rectifier topologies like full-wave, bridge, and voltage doubler can potentially improve the \gls{rf}-to-\gls{dc} conversion efficiency \cite{Rotenberg2020}, but their modeling and analysis are much more complicated.
 		\end{subsubsection}
 
 		\begin{subsubsection}{Operation Regions and Signal Models}
+			The diode is the key non-linear component that determines to the harvested energy.
+			Generally speaking, the behavior of any rectenna can be separated into three operation regions \cite{Clerckx2016a}:
+			\begin{itemize}
+				\item \emph{Linear region:} When the input power level is relatively low, the output power is proportional to the input and the \gls{rf}-to-\gls{dc} conversion efficiency $\eta_3$ is a constant. Most early \gls{wpt} research (especially from communications society) assume the rectenna works in this region. For a received signal $y(t)$, the harvested \gls{dc} power in this region can be modelled as
+				\begin{equation}
+					P_\mathrm{DC}^\mathrm{R} = \eta_3 P_\mathrm{RF}^\mathrm{R} = \eta_3 \mathbb{E}\bigl\{ \lvert y(t) \rvert^2 \bigr\},
+					\label{eq:dc_power_linear}
+				\end{equation}
+				which suggests that maximizing the received \gls{rf} signal power is sufficient to maximize the harvested \gls{dc} power.
+				\item \emph{Non-linear (transition) region:} When the input power level is moderate, the output power increases \emph{exponentially} with the input and $\eta_3$ is significantly higher than the linear region. This is the most interesting region that can be exploited to improve the overall power efficiency.
+				For a tractable model, consider a perfectly matched ($Z_\mathrm{in} = Z_\mathrm{A}^*$) half-wave rectifier in Fig.~\subref*{fg:halfwave_rectifier} and assume the voltage across the matching network is negligible. The received \gls{rf} power is totally transferred to the rectifier input $P_\mathrm{RF}^\mathrm{R} = \mathbb{E}\bigl\{ \lvert y(t) \rvert^2 \bigr\} = \mathbb{E}\bigl\{ \lvert v_\mathrm{in}(t) \rvert^2 / R_\mathrm{in} \bigr\} = \mathbb{E}\bigl\{ \lvert v_\mathrm{in}(t) \rvert^2 / R_\mathrm{A} \bigr\}$ such that the voltage sources can be expressed in terms of the received signal \cite{Clerckx2016a}
+				\begin{equation}
+					v_\mathrm{in}(t) = y(t) \sqrt{R_\mathrm{A}}, \quad v_\mathrm{S}(t) = 2 y(t) \sqrt{R_\mathrm{A}}.
+				\end{equation}
+				The current passing through the diode is given by the characteristic equation $i_\mathrm{D}(t) = I_\mathrm{S} \bigl( \exp(v_\mathrm{D}(t) / n v_\mathrm{T}) - 1 \bigr)$, where $I_\mathrm{S}$ is the reverse bias saturation current, $v_\mathrm{T}$ is the thermal voltage, and $n$ is the ideality factor. Its Taylor expansion around the steady point $-v_\mathrm{out}$ is \cite{Clerckx2016a}
+				\begin{equation}
+					i_\mathrm{D}(t) = \sum_{i=0}^\infty k_i \bigl(v_\mathrm{D}(t)+v_\mathrm{out}\bigr)^i = \sum_{i=0}^\infty k_i v_\mathrm{in}^i(t) = \sum_{i=0}^\infty k_i R_\mathrm{A}^{i/2} y^i(t),
+				\end{equation}
+				where $k_0 = I_\mathrm{S} \bigl(\exp(-{v_\mathrm{out}}/{n v_\mathrm{T}})-1\bigr)$, $k_i = I_\mathrm{S} \frac{\exp(-v_\mathrm{out}/n v_\mathrm{T})}{i!(n v_\mathrm{T})^i}$ for $k \in \mathbb{N}$.
+				The rectifier output \gls{dc} current can be written as a function of the received signal
+				\begin{equation}
+					i_\mathrm{out} = \sum_{i=0}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{E}\bigl\{ y^i(t) \bigr\} = \sum_{i=0,\text{even}}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{E}\bigl\{ y^i(t) \bigr\}
+					\label{eq:dc_current_expansion}
+				\end{equation}
+				where the second equality is because $\mathbb{E}\bigl\{y^i(t)\bigr\} = 0$ for odd $i$. Note that the dependency of $k_i$ on $-v_\mathrm{out}=-i_\mathrm{out} R_\mathrm{L}$ makes it nontrivial to formulate a closed-form expression for the harvested \gls{dc} power.
+				Fortunately, it is shown in \cite{Clerckx2016a} that maximizing the harvested \gls{dc} power is equivalent to maximizing the quantity
+				\begin{equation}
+					z = \sum_{i=2,\text{even}}^\infty \beta_i \mathbb{E}\bigl\{ y^i(t) \bigr\},
+					\label{eq:dc_power_nonlinear}
+				\end{equation}
+				where $\beta_i = I_\mathrm{S} \frac{R_\mathrm{A}^{i/2}}{i!(n v_\mathrm{T})^i}$ is a constant. Truncating \eqref{eq:dc_power_nonlinear} at the second order yields the same result as \eqref{eq:dc_power_linear}, which suggests that the linear model is a special case of the more accurate non-linear model. For a moderate excitation, the contribution of higher-order terms is significant and should be modelled in the harvested \gls{dc} power.
+				\item \emph{Saturation region:} When the input power level is too high, the diode works in the reverse breakdown region, the rectifier is saturated, and the output power is a constant. This is the region where the $\eta_3$ significantly drops and should be avoided by circuit design.
+				For a fixed rectenna with Gaussian input signal, a parametric model was proposed in \cite{Boshkovska2015}
+				\begin{equation}
+					P_{\mathrm{DC}}^\mathrm{R} = \frac{\Psi_{\mathrm{DC}}-P_{\text{sat}}\Omega}{1-\Omega}, \quad \Psi_{\mathrm{DC}} = \frac{P_{\text{sat}}}{1+\exp\bigl(-a(P_{\mathrm{RF}}^\mathrm{R}-b)\bigr)}, \quad \Omega = \frac{1}{1 + \exp(ab)},
+					\label{eq:saturation_model}
+				\end{equation}
+				where the constant $P_{\text{sat}}$ denotes the maximum harvested power when the rectifier is saturated, and the constants $a$ and $b$ model the nonlinear charging rate with respect to input power and the minimum turn-on voltage of the rectifier, respectively.
+				Parameters $P_{\text{sat}}$, $a$, and $b$ can be obtained by curve fitting over measurement results.
+			\end{itemize}
 
-		\end{subsubsection}
-
-		\begin{subsubsection}{Impact on Waveform Selection}
-
+			The exact boundaries between those regions depend on the rectifier circuit and input waveform \citep{Zeng2017}.
+			Signals with a higher \gls{papr} usually exhibit the nonlinear and saturation effects at lower input power levels.
+			For example, the nonlinear region is typically $[-20,0]$ dBm for a \gls{cw} and $[-30,-10]$ dBm for a multisine \citep{DelPrete2016}.
+			This not only motivates adaptive multi-carrier waveform designs \cite{Clerckx2016a,Zeng2017,Huang2017,Shen2021} but also calls for a joint optimization of the transmitter, channel (via \gls{ris}), and receiver to improve the end-to-end power efficiency.
 		\end{subsubsection}
 	\end{subsection}
 \end{section}

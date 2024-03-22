@@ -1,7 +1,7 @@
-This is makeindex, version 2.17 [TeX Live 2023] (kpathsea + Thai support).
+This is makeindex, version 2.17 [TeX Live 2024] (kpathsea + Thai support).
 Scanning style file ./thesis.ist...........................done (27 attributes redefined, 0 ignored).
-Scanning input file thesis.acn....done (210 entries accepted, 0 rejected).
-Sorting entries.....done (1761 comparisons).
-Generating output file thesis.acr....done (268 lines written, 0 warnings).
+Scanning input file thesis.acn....done (269 entries accepted, 0 rejected).
+Sorting entries.....done (2300 comparisons).
+Generating output file thesis.acr....done (280 lines written, 0 warnings).
 Output written in thesis.acr.
 Transcript written in thesis.alg.
