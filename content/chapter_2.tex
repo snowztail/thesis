@@ -377,7 +377,7 @@
 			\item \emph{Channel:} In a \gls{mimo} scenario, \gls{wit} favors full-rank \gls{nlos} with high spatial diversity while \gls{wpt} prefers rank-deficient \gls{los} with high spatial correlation \cite{Wu2022a}.
 			\item \emph{Receiver:} The power sensitivity is usually in the range of -40 to -80 dBm for information receivers and -10 to -30 dBm for energy harvesters \cite{Lu2015}.
 		\end{itemize}
-		Those disparities translate to a fundamental tradeoff between information and power transfer in \gls{swipt} systems, which is often quantified by a convex \emph{\gls{r-e} region}.
+		Those disparities translate to a fundamental tradeoff between information and power transfer in \gls{swipt} systems, which is often quantified by a \emph{\gls{r-e} region}.
 		\begin{equation}
 			\mathcal{C}_\mathrm{R-E}(P) \triangleq \Bigl\{ (r,e) : 0 \le r \le \log(1 + \gamma), \ 0 \le e \le z \Bigr\},
 		\end{equation}
@@ -386,54 +386,94 @@
 		It is worth mentioning that different transceive strategies (e.g., waveform and receiver design) can lead to totally different \gls{r-e} regions (instead of different points in the same region), which motivates a joint optimization of the transmitter, channel, and receiver.
 	\end{subsection}
 
-	\begin{subsection}{System Architecture}
-
+	\begin{subsection}{Modules and Operation Modes}
 		\begin{subsubsection}{Information and Energy Flows}
-
+			In \gls{swipt}, the information and energy are always transmitted from the same source while their receivers can be either co-located or separated, as shown in Figs. \subref*{fg:swipt_colocated} and \subref*{fg:swipt_separated}.
+			This is different from \gls{bc} where the energy is delivered in the downlink and the information is sent in the uplink, as shown in Figs. \subref*{fg:backcom_monostatic} and \subref*{fg:backcom_bistatic}.
+			\begin{figure}[H]
+				\centering
+				\subfloat[\gls{swipt} with co-located receiver]{
+					\resizebox{7cm}{!}{
+						\input{assets/chapter_2/swipt_colocated.tex}
+					}
+					\label{fg:swipt_colocated}
+				}
+				\subfloat[\gls{swipt} with separated receivers]{
+					\resizebox{7cm}{!}{
+						\input{assets/chapter_2/swipt_separated.tex}
+					}
+					\label{fg:swipt_separated}
+				}
+				\\
+				\subfloat[Monostatic backscatter]{
+					\resizebox{7cm}{!}{
+						\input{assets/chapter_2/backcom_monostatic.tex}
+					}
+					\label{fg:backcom_monostatic}
+				}
+				\subfloat[Bistatic backscatter]{
+					\resizebox{7cm}{!}{
+						\input{assets/chapter_2/backcom_bistatic.tex}
+					}
+					\label{fg:backcom_bistatic}
+				}
+				\caption{
+					Information and energy flows in \gls{swipt} and \gls{bc} systems. Blue and black parts denote information and power subsystems, respectively.
+				}
+				\label{fg:wipt_schemes}
+			\end{figure}
+			From a design perspective, co-located \gls{swipt} receiver is a more general model since it can exploit the received signal for either purpose or a mixture in between.
+			We thus focus on this model in the following context.
 		\end{subsubsection}
 
 		\begin{subsubsection}{Receiver Architectures}
+			Figure \ref{fg:swipt_receiver_architectures} illustrates four potential architectures for a co-located \gls{swipt} receiver \cite{Clerckx2022}:
+			\begin{figure}[H]
+				\centering
+				\subfloat[Ideal receiver]{
+					\resizebox{0.6\columnwidth}{!}{
+						\input{assets/chapter_2/receiver_ideal.tex}
+					}
+					\label{fg:receiver_ideal}
+				}
+				\\
+				\subfloat[Time switching receiver]{
+					\resizebox{0.6\columnwidth}{!}{
+						\input{assets/chapter_2/receiver_ts.tex}
+					}
+					\label{fg:receiver_ts}
+				}
+				\\
+				\subfloat[Power splitting receiver]{
+					\resizebox{0.6\columnwidth}{!}{
+						\input{assets/chapter_2/receiver_ps.tex}
+					}
+					\label{fg:receiver_ps}
+				}
+				\\
+				\subfloat[Integrated receiver]{
+					\resizebox{0.6\columnwidth}{!}{
+						\input{assets/chapter_2/receiver_integrated.tex}
+					}
+					\label{fg:receiver_integrated}
+				}
+				\caption{
+					Architectures of a co-located \gls{swipt} receiver.
+				}
+				\label{fg:swipt_receiver_architectures}
+			\end{figure}
 
+			\begin{itemize}
+				\item \emph{Ideal receiver:} The received signal is used for both information decoding and energy harvesting. This is theoretically the most efficient design with a rectangle \gls{r-e} region but is unimplementable in practice due to hardware constraints.
+				\item \emph{\gls{ts} receiver:} Each time frame is divided into individual \gls{wit} and \gls{wpt} phases, where the receiver switches between information decoder and energy harvester, respectively. The transmitted waveform and \gls{ris} response are optimized independently for each phase, and the resulting \gls{r-e} region is a triangle with two vertices corresponding to \gls{wit}-only and \gls{wpt}-only.
+				\item \emph{\gls{ps} receiver:} The received signal is split into two parts with power ratio $\rho$ and $1{-}\rho$. The former is fed into the energy harvester and the latter is used for information decoding. The transmitter and \gls{ris} are jointly optimized for both purposes with the knowledge of splitting ratio, and the resulting \gls{r-e} region may be non-convex.
+				\item \emph{Integrated receiver \cite{Kim2021a}:} The transmit signal is modulated in properties that can be well-preserved after rectification (e.g., pulse position) such that information can be decoded from the energy harvester output.
+			\end{itemize}
+
+			The most popular architectures in the literature are \gls{ts} and \gls{ps} due to their practicality and tractability.
+			The \gls{r-e} region of the former can be inferred from that of the latter, since the \gls{wit}-only and \gls{wpt}-only vertices in \gls{ts} correspond to $\rho=1$ and $\rho=0$ in \gls{ps}, respectively.
+			Integrated receiver eliminates the need of \gls{rf} chains and advanced architectures, but experiences information degradation and works better for low-throughput applications.
 		\end{subsubsection}
-		As shown in Figs. \subref*{fg:swipt_colocated} and \subref*{fg:swipt_separated}, \gls{swipt} can be classified into two categories based on the receiver configuration:
-		% \begin{itemize}
-		% 	\item \emph{\gls{swipt}:} Energy and information are simultaneously delivered in the downlink to co-located and/or separated information receiver(s) and energy receiver(s);
-		% 	\item \emph{\gls{wpcn}:} Energy is delivered in the downlink to active device(s) that generate and transmit information-bearing signals in the uplink;
-		% 	\item \emph{\gls{wpbc}:} Energy is delivered in the downlink to passive node(s) that reflect part of incoming waves and embed information in the uplink.
-		% \end{itemize}
-		\begin{figure}[H]
-			\centering
-			\subfloat[\gls{swipt} with co-located receiver]{
-				\resizebox{7cm}{!}{
-					\input{assets/chapter_2/swipt_colocated.tex}
-				}
-				\label{fg:swipt_colocated}
-			}
-			\subfloat[\gls{swipt} with separated receivers]{
-				\resizebox{7cm}{!}{
-					\input{assets/chapter_2/swipt_separated.tex}
-				}
-				\label{fg:swipt_separated}
-			}
-			\\
-			\subfloat[Monostatic backscatter]{
-				\resizebox{7cm}{!}{
-					\input{assets/chapter_2/backcom_monostatic.tex}
-				}
-				\label{fg:backcom_monostatic}
-			}
-			\subfloat[Bistatic backscatter]{
-				\resizebox{7cm}{!}{
-					\input{assets/chapter_2/backcom_bistatic.tex}
-				}
-				\label{fg:backcom_bistatic}
-			}
-			\caption{
-				Information and energy flows in different WIPT schemes. Dashed and dotted lines denote energy and information flows, respectively.
-			}
-			\label{fg:wipt_schemes}
-		\end{figure}
-
 	\end{subsection}
 \end{section}
 
