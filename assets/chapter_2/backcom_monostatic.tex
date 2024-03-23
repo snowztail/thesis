@@ -1,0 +1,5 @@
+\begin{tikzpicture}[align=center,thick]
+	\draw (0,0) node[draw,minimum width=2cm](t){ET+{\color{blue}IR}};
+	\draw[-latex](t.north east) -- ++(2.5,0) node[draw,solid,anchor=north west,minimum width=2cm](r){ER+{\color{blue}IT}};
+	\draw[-latex,blue,decorate,decoration=snake](r.south west) -- (t.south east);
+\end{tikzpicture}
