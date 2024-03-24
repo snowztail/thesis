@@ -4,6 +4,8 @@
 
 \chapter{Background}\label{ch:background}
 
+This chapter provides essential background for topics covered in the thesis. A detailed literature review will be presented within each research chapter.
+
 \begin{section}{\glsfmtfull{ris}}
 	\begin{subsection}{Programmable Metamaterials}
 		Metamaterials refer to artificial structures engineered for unusual properties that may not be found in nature.
@@ -418,7 +420,7 @@
 					\label{fg:backcom_bistatic}
 				}
 				\caption{
-					Information and energy flows in \gls{swipt} and \gls{bc} systems. Blue and black parts denote information and power subsystems, respectively.
+					Information and energy flows in \gls{swipt} and \gls{bc} systems. The blue and black parts denote information and power subsystems, respectively.
 				}
 				\label{fg:wipt_schemes}
 			\end{figure}
@@ -552,20 +554,69 @@
 	\end{subsection}
 
 	\begin{subsection}{Applications}
-		\begin{subsubsection}{\glsfmtfull{mbc}}
+		\begin{figure}[!t]
+			\centering
+			\subfloat[Monostatic backscatter]{
+				\resizebox{0.48\linewidth}{!}{
+					\input{assets/chapter_2/mbc.tex}
+				}
+				\label{fg:mbc}
+			}
+			\subfloat[Bistatic backscatter]{
+				\resizebox{0.48\linewidth}{!}{
+					\input{assets/chapter_2/bbc.tex}
+				}
+				\label{fg:bbc}
+			}
+			\\
+			\subfloat[Ambient backscatter]{
+				\resizebox{0.48\linewidth}{!}{
+					\input{assets/chapter_2/ambc.tex}
+				}
+				\label{fg:ambc}
+			}
+			\subfloat[Symbiotic radio]{
+				\resizebox{0.48\linewidth}{!}{
+					\input{assets/chapter_2/sr.tex}
+				}
+				\label{fg:sr}
+			}
+			\caption{
+				Illustration of scattering applications.
+				The blue flows denote the primary link while the magenta flows denote the backscatter link.
+			}
+		\end{figure}
 
+		\begin{subsubsection}{\glsfmtfull{mbc}}
+			\gls{mbc} is the most common architecture where the carrier emitter and reader are integrated into one device called interrogator.
+			As shown in \subref*{fg:backcom_monostatic} and \subref*{fg:mbc}, the interrogator transmits a \gls{cw} in the downlink and receives the reflected information-bearing signal in the uplink.
+			The node varies its load impedance over time to switch between two states.
+			Ideally, a full absorption (perfect matching, $\Gamma_0 = 0$) maps to bit ``0'' where energy is harvested, and a full reflection (perfect mismatch, $\lvert \Gamma_1 \rvert = 1$) maps to bit ``1'' where \gls{snr} is determined.
+			\gls{mbc} is widely used in \gls{rfid} systems.
+			The integrated transceiver design reduces the hardware cost but suffers from strong self-interference and limited coverage.
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{bbc}}
-
+			\gls{bbc} separates the carrier emitter and reader into two individual devices, as illustrated in \subref*{fg:backcom_bistatic} and \subref*{fg:bbc}.
+			This helps to combat self-interference and extend the operation range, but the system involves three devices and requires more complex coordination and synchronization.
+			It is more popular in more complicated scenarios like \gls{wsn} and \gls{iot} with potentially moving nodes.
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{ambc}}
-
+			\gls{ambc} has been recognized as a revolutionary technology since its debut in 2013 \cite{Liu2013b}.
+			As shown in \subref*{fg:ambc}, it gets rid of dedicated \gls{rf} sources and relies on ambient signals (e.g., TV, FM, and Wi-Fi) for both energy harvesting and information transfer.
+			Compared with \gls{mbc} and \gls{bbc}, its carrier waveform is no longer a \gls{cw} but a mixture of already modulated signals with different frequencies and amplitudes, which makes the detection more challenging.
+			Therefore, it often employs \gls{fsk} modulation to shift the scattered signals to a different band for reduced interference on both coexisting systems.
+			\gls{ambc} is a plug-and-play and environmental-friendly \gls{iot} solution, but its practical deployment is limited by the availability and quality of ambient signals.
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{sr}}
-
+			\gls{sr} is a relatively new concept proposed in 2019 that introduced itself as ``cooperative \gls{ambc}'' \cite{Guo2019b}.
+			As shown in \subref*{fg:sr}, it shares not only the transmitter, \gls{rf} source, but also the receiver with a primary transmission.
+			This is different from traditional \gls{ambc} where the legacy system can be unaware of the backscatter link and the node wants to minimize its footprint.
+			Such a symbiotic interaction can improve the reliability of the backscatter link as well as the energy efficiency of the primary link, but unavoidably challenges the system design.
+			For example, the acquisition of backscatter \gls{csi} can be difficult due to its passive characteristic, the detection of node message may involve complicated signal processing like \gls{sic}, and the synchronization of both links can be nontrivial due to the load-switching constraints.
+			If those issues can be mitigated, \gls{sr} would be a win-win solution that supercharges resource-constrained devices by leveraging the existing network infrastructure.
 		\end{subsubsection}
 	\end{subsection}
 \end{section}
