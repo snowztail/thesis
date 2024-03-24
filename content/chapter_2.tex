@@ -156,7 +156,7 @@
 				\resizebox{0.75\columnwidth}{!}{
 					\includegraphics{assets/chapter_2/bd_ris_architecture_1.eps}
 				}
-				\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. The figure is from \cite{Shen2020a}.}
+				\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. Source: Modified from \cite{Shen2020a}.}
 				\label{fg:bd_ris_architecture_1}
 			\end{figure}
 			\begin{figure}[H]
@@ -164,7 +164,7 @@
 				\resizebox{0.75\columnwidth}{!}{
 					\includegraphics{assets/chapter_2/bd_ris_architecture_2.eps}
 				}
-				\caption{Network model of an 8-element \gls{ris} with group-wise cooperative scattering of group size (a) 2 and (b) 4. The group size is a design parameter to balance the circuit complexity and scattering performance. The figure is from \cite{Shen2020a}.}
+				\caption{Network model of an 8-element \gls{ris} with group-wise cooperative scattering of group size (a) 2 and (b) 4. The group size is a design parameter to balance the circuit complexity and scattering performance. Source: Modified from \cite{Shen2020a}.}
 				\label{fg:bd_ris_architecture_2}
 			\end{figure}
 
@@ -478,20 +478,95 @@
 \end{section}
 
 \begin{section}{\glsfmtfull{bc}}
-	\begin{subsection}{\glsfmtfull{mbc}}
+	\begin{subsection}{Introduction}
+		The scattered waves from any object inherently contain some information about the object.
+		This contributed to the great success of radar in the World War II, where the ``objective'' information about the target (e.g., size, speed, and position) can be extracted from the reflected signal.
+		Soon after the war in 1948, Stockman demonstrated the concept of \gls{bc} where the target is no longer a dumb wave scatterer but part of the communication system that is willing to modulates its ``subjective'' information over the reflected signal \cite{Stockman1948}.
+		The communication society quickly realized its potential to separate the power-hungry \gls{rf} carrier emitter with the low-power information modulator, which is essential for miniaturizing wireless devices and increasing the network scale.
+		As shown in Figs. \subref*{fg:backcom_monostatic} and \subref*{fg:backcom_bistatic} on Page \pageref{fg:wipt_schemes}, the backscatter node (a.k.a. tag) is activated by an energy signal (also functions as carrier) in the downlink and modulates over the scattered signal in the uplink. The energy transmitter (a.k.a. carrier emitter) and information receiver (a.k.a. reader) can be either co-located or separated, known respectively as monostatic and bistatic \gls{bc}.
 
+		One of the most well-known \gls{bc} applications is \gls{rfid} which made its debut in the 1970s \cite{Landt2005}.
+		\gls{rfid} readers sends a query signal and exploit the reflected signal from nodes (attached to objects) to identify and track them.
+		The nodes can be powered wirelessly by the impinging wave and does not have to be in the vicinity of the reader.
+		It has been standardized in ISO/IEC 18000 and EPC Gen2 \cite{Abbasi2021a} and widely used in supply chain management, access control, and asset tracking.
+		On the other hand, \gls{bc} also plays an important role in emerging applications like \gls{iot}, \gls{wsn}, and \gls{m2m} communications.
+		Their main difference to \gls{rfid} is that the message is no longer a static identifier but can be dynamically sensed from the environment or generated on demand.
+		This enables a new paradigm of self-sustainable, intelligent, and pervasive sensing and communication, which is a key building block for our initial vision.
+
+		Nevertheless, low throughput and limited coverage are acknowledged as two critical problems for conventional \gls{bc} systems.
+		Those are inevitably inherited from the nature of wave scattering --- the radiated signal has to travel a round trip (emitter-node-reader) with double pathloss, while the scatter response is frequency-dependent and usually results in a narrow bandwidth.
+		Monostatic \gls{bc} is also subject to a strong self-interference that further degrades the error performance and achievable rate.
+		Finally, the nodes are idle most of the time and only respond when externally inquired.
+		This is in sharp contrast to \gls{ris} where the elements are contributing for channel enhancement all the time.
+		To mitigate those issues, multi-antenna techniques and special modulation schemes are two promising solutions in the literature.
+		For example, a multi-antenna carrier emitter can perform energy beamforming \cite{Yang2015b}, a multi-antenna node can perform energy combining with spatial modulation \cite{Chen2020,Goudeli2020} or space-time coding \cite{Liu2021a}, and a multi-antenna reader can perform coherent \cite{He2020d,Wang2021b} or non-coherent \cite{Devineni2021} detection.
+		We will discuss some popular modulation and coding techniques for \gls{bc} in the following subsection.
 	\end{subsection}
 
-	\begin{subsection}{\glsfmtfull{bbc}}
+	\begin{subsection}{Modulation and Coding Schemes}
+		\gls{bc} and \gls{ris} share the same wave scattering model in Section \ref{sc:principles}, but the reflection coefficient $\Gamma$ in \eqref{eq:reflection_coefficient} is exploited in different manners.
+		The difference is two-fold:
+		\begin{itemize}
+			\item \emph{Modulation requires variation:} \gls{bc} relies on dynamically changing the reflection coefficient over time to encode information. This is different from \gls{ris} where the optimal configuration (and reflection coefficient) is fixed for a given channel realization.
+			\item \emph{Harvesting requires absorption:} Part of the impinging wave should be fed into the node to power its operation. This is different from \gls{ris} where a full reflection is desired to maximize its channel control capability.
+		\end{itemize}
+		Denote the amplitude scattering ratio of the \gls{bc} node as $\alpha$, i.e., the power absorption ratio is $(1-\alpha)^2$. Some popular modulation schemes are summarized below:
+		\begin{itemize}
+			\item \emph{\gls{qam} \cite{Thomas2012a}:} The reflection coefficient corresponding to the $m$-th symbol is
+			\begin{equation}
+				\Gamma_m = \alpha \frac{c_m}{\max_{m'} \lvert c_{m'} \rvert}
+			\end{equation}
+			where $c_m$ is the corresponding constellation point.
+			This scheme is simple but exhibits a low detection \gls{snr} especially when the constellation size is large.
+			\item \emph{\gls{fsk} \cite{Abbasi2021a}:} For 2-\gls{fsk}, the reflection coefficient is
+			\begin{equation}
+				\Gamma(t) =
+				\begin{cases}
+					\alpha, & t \in \bigl[\frac{n}{\Delta f},\frac{2n+1}{2 \Delta f}\bigr) \\
+					-\alpha, & t \in \bigl[\frac{2n+1}{2 \Delta f},\frac{n+1}{\Delta f}\bigr)
+				\end{cases}
+				= \frac{\pi}{4} \sum_{m=1,\text{odd}}^\infty \frac{1}{m} \sin\bigl(2\pi m \Delta f t\bigr),
+			\end{equation}
+			where $n \in \mathbb{N}$.
+			If the incident wave is a \gls{cw} at frequency $f_0$, the reflected signal is dominated by its first harmonic
+			% \begin{equation}
+			% 	y(t) = \sum_{m=1,\text{odd}}^\infty \frac{\pi}{4m} \cos(2 \pi f_0 t) \sin\bigl(2\pi m \Delta f t\bigr),
+			% \end{equation}
+			\begin{equation}
+				s_1(t) = \frac{\pi}{2} \Bigl(\sin\bigl(2 \pi (f_0 {+} \Delta f) t\bigr) - \sin\bigl(2 \pi (f_0 {-} \Delta f) t\bigr)\Bigr).
+			\end{equation}
+			That is, periodically switching the reflection coefficient at rate $\Delta f$ results in a frequency shift $\pm \Delta f$ on the reflected signal.
+			Practical implementations have been demonstrated on a variety of license-free protocols (e.g., HitchHike \cite{Zhang2016a}, Inter-Technology \cite{Iyer2016}, Passive Wi-Fi \cite{Kellogg2017}, \gls{ble}-Backscatter \cite{Ensworth2017}) where the mirror copy can be suppressed.
+			\item \emph{\gls{css} \cite{Talla2017}:} A chirp is a signal whose frequency increases or decreases over time.
+			\gls{css} uses wideband linear-frequency modulated chirps to encode information, which is from \gls{dsss} and \gls{fsss} with pseudo-random sequences and \gls{fsk} with discrete frequencies.
+			In particular, $N+1$ reflection coefficients of the same envelope are sequentially selected at a regular rate $\Delta f$, given by
+			\begin{equation}
+				\Gamma_n = \alpha \exp(\jmath \phi_n), \quad n \in \{0, 1, \ldots, N\},
+			\end{equation}
+			where $\phi_n = \frac{2 \pi}{\Delta f}(A n^2 + B n)$ and $A$, $B$ are constants.
+			As the core modulation scheme in \gls{lora}, it is more robust to noise and interference (with a reception sensitivity of -149 dBm), harder to be detected by eavesdroppers, and can be used for ranging and localization \cite{Abbasi2021a}.
 
+			Common \gls{bc} channel coding schemes include unipolar \gls{rz} and \gls{nrz}, Manchester, differential, pulse-pause and FM0.
+			They are not the focus of the thesis and the readers are referred to \cite[Chapter 2.3]{Hoang2020} for details.
+		\end{itemize}
 	\end{subsection}
 
-	\begin{subsection}{\glsfmtfull{ambc}}
+	\begin{subsection}{Applications}
+		\begin{subsubsection}{\glsfmtfull{mbc}}
 
-	\end{subsection}
+		\end{subsubsection}
 
-	\begin{subsection}{\glsfmtfull{sr}}
+		\begin{subsubsection}{\glsfmtfull{bbc}}
 
+		\end{subsubsection}
+
+		\begin{subsubsection}{\glsfmtfull{ambc}}
+
+		\end{subsubsection}
+
+		\begin{subsubsection}{\glsfmtfull{sr}}
+
+		\end{subsubsection}
 	\end{subsection}
 \end{section}
 
@@ -499,12 +574,12 @@
 
 % \end{section}
 
-\begin{section}{\glsfmtfull{mimo}}
-	\begin{subsection}{\glsfmtfull{pc}: Channel Shaping}
+% \begin{section}{\glsfmtfull{mimo}}
+% 	\begin{subsection}{\glsfmtfull{pc}: Channel Shaping}
 
-	\end{subsection}
+% 	\end{subsection}
 
-	\begin{subsection}{\glsfmtfull{ic}: Interference Alignment}
+% 	\begin{subsection}{\glsfmtfull{ic}: Interference Alignment}
 
-	\end{subsection}
-\end{section}
+% 	\end{subsection}
+% \end{section}
