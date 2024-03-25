@@ -241,7 +241,7 @@
          y="102.0263"
          x="78.016258"
          id="tspan12889"
-         sodipodi:role="line">$\boldsymbol{h}_{\text{D}}^\mathsf{H}$</tspan></text>
+         sodipodi:role="line">$\mathbf{h}_{\text{D}}^\mathsf{H}$</tspan></text>
     <text
        id="text43858"
        y="97.268135"
@@ -252,7 +252,7 @@
          y="97.268135"
          x="79.216652"
          id="tspan43856"
-         sodipodi:role="line">$\boldsymbol{h}_{\text{F},k}^\mathsf{H}$</tspan></text>
+         sodipodi:role="line">$\mathbf{h}_{\text{F},k}^\mathsf{H}$</tspan></text>
     <text
        id="text47600"
        y="100.39132"

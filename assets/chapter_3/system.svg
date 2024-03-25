@@ -385,7 +385,7 @@
          y="-33.741104"
          x="-13.074192"
          id="tspan1992"
-         sodipodi:role="line">IRS</tspan></text>
+         sodipodi:role="line">RIS</tspan></text>
     <text
        id="text1998"
        y="4.3124642"
@@ -407,7 +407,7 @@
          y="-5.5972643"
          x="-8.9982386"
          id="tspan2042"
-         sodipodi:role="line">$\boldsymbol{h}_{\mathrm{D},n}^H$</tspan></text>
+         sodipodi:role="line">$\mathbf{h}_{\mathrm{D},n}^\mathsf{H}$</tspan></text>
     <text
        id="text2048"
        y="-18.046551"
@@ -418,7 +418,7 @@
          y="-18.046551"
          x="9.8021317"
          id="tspan2046"
-         sodipodi:role="line">$\boldsymbol{h}_{\mathrm{R},n}^H$</tspan></text>
+         sodipodi:role="line">$\mathbf{h}_{\mathrm{B},n}^\mathsf{H}$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:1.41111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -429,7 +429,7 @@
          id="tspan2046-7"
          x="-27.704838"
          y="-29.423557"
-         style="font-size:1.41111px;stroke-width:0.264583">$\boldsymbol{H}_{\mathrm{I},n}$</tspan></text>
+         style="font-size:1.41111px;stroke-width:0.264583">$\mathbf{H}_{\mathrm{F},n}$</tspan></text>
     <circle
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none"
        id="path1251"

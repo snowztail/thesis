@@ -5,89 +5,89 @@
 
 \begin{section}{Proofs for Chapter 1}
 	\begin{subsection}{Proof of Proposition~\ref{pr:relaxation}}\label{ap:relaxation}
-		For any feasible $\boldsymbol{\Phi}$ to problem~\eqref{op:irs}, $\mathrm{tr}(\boldsymbol{\Phi})=L+1$ always holds because of the modulus constraint~\eqref{co:irs_modulus}. Therefore, we add a constant term $-\mathrm{tr}(\boldsymbol{\Phi})$ to \eqref{ob:irs} and recast problem~\eqref{op:irs} as
+		For any feasible $\mathbf{\Phi}$ to problem~\eqref{op:irs}, $\mathrm{tr}(\mathbf{\Phi})=L+1$ always holds because of the modulus constraint~\eqref{co:irs_modulus}. Therefore, we add a constant term $-\mathrm{tr}(\mathbf{\Phi})$ to \eqref{ob:irs} and recast problem~\eqref{op:irs} as
 		\begin{maxi!}
-			{\scriptstyle{\boldsymbol{\Phi}}}{-\mathrm{tr}(\boldsymbol{\Phi})+\tilde{z}(\boldsymbol{\Phi})}{\label{op:irs_equivalent}}{\label{ob:irs_equivalent}}
-			\addConstraint{R(\boldsymbol{\Phi}) \ge \bar{R}}\label{co:irs_equivalent_rate}
-			\addConstraint{\mathrm{diag}^{-1}(\boldsymbol{\Phi})=\boldsymbol{1}}\label{co:irs_equivalent_modulus}
-			\addConstraint{\boldsymbol{\Phi}\succeq{\boldsymbol{0}}}\label{co:irs_equivalent_sd}
-			\addConstraint{\mathrm{rank}(\boldsymbol{\Phi})=1.\label{co:irs_equivalent_rank}}
+			{\scriptstyle{\mathbf{\Phi}}}{-\mathrm{tr}(\mathbf{\Phi})+\tilde{z}(\mathbf{\Phi})}{\label{op:irs_equivalent}}{\label{ob:irs_equivalent}}
+			\addConstraint{R(\mathbf{\Phi}) \ge \bar{R}}\label{co:irs_equivalent_rate}
+			\addConstraint{\mathrm{diag}^{-1}(\mathbf{\Phi})=\mathbf{1}}\label{co:irs_equivalent_modulus}
+			\addConstraint{\mathbf{\Phi}\succeq{\mathbf{0}}}\label{co:irs_equivalent_sd}
+			\addConstraint{\mathrm{rank}(\mathbf{\Phi})=1.\label{co:irs_equivalent_rank}}
 		\end{maxi!}
-		By applying SDR, problem~\eqref{ob:irs_equivalent}--\eqref{co:irs_equivalent_sd} is convex w.r.t. $\boldsymbol{\Phi}$ and satisfies the Slater's condition \cite{Boyd2004}, and strong duality holds. The corresponding Lagrangian function at iteration $i$ is given by \eqref{eq:lagrangian}, where $\mu$, $\boldsymbol{\nu}$, $\boldsymbol{\Upsilon}$ denote respectively the scalar, vector and matrix Lagrange multiplier associated with constraint~\eqref{co:irs_equivalent_rate}, \eqref{co:irs_equivalent_modulus} and \eqref{co:irs_equivalent_sd}, and $\zeta$ collects all terms irrelevant to $\boldsymbol{\Phi}^{(i)}$.
+		By applying SDR, problem~\eqref{ob:irs_equivalent}--\eqref{co:irs_equivalent_sd} is convex w.r.t. $\mathbf{\Phi}$ and satisfies the Slater's condition \cite{Boyd2004}, and strong duality holds. The corresponding Lagrangian function at iteration $i$ is given by \eqref{eq:lagrangian}, where $\mu$, $\mathbf{\nu}$, $\mathbf{\Upsilon}$ denote respectively the scalar, vector and matrix Lagrange multiplier associated with constraint~\eqref{co:irs_equivalent_rate}, \eqref{co:irs_equivalent_modulus} and \eqref{co:irs_equivalent_sd}, and $\zeta$ collects all terms irrelevant to $\mathbf{\Phi}^{(i)}$.
 		\begin{figure*}[!b]
 			\hrule
 			\begin{align}\label{eq:lagrangian}
 				\mathcal{L}
-				& = \mathrm{tr}\left(\boldsymbol{\Phi}^{(i)}\right) - \frac{1}{2} \beta_2 \rho \mathrm{tr}\Bigl(
-						(\boldsymbol{C}_{\mathrm{I},0} + \boldsymbol{C}_{\mathrm{P},0}) \boldsymbol{\Phi}^{(i)}
+				& = \mathrm{tr}\left(\mathbf{\Phi}^{(i)}\right) - \frac{1}{2} \beta_2 \rho \mathrm{tr}\Bigl(
+						(\mathbf{C}_{\mathrm{I},0} + \mathbf{C}_{\mathrm{P},0}) \mathbf{\Phi}^{(i)}
 					\Bigr) - \frac{3}{4} \beta_4 \rho^2 \Biggl(
 						2 t_{\mathrm{I},0}^{(i-1)} \mathrm{tr}\Bigl(
-							\boldsymbol{C}_{\mathrm{I},0} \boldsymbol{\Phi}^{(i)}
+							\mathbf{C}_{\mathrm{I},0} \mathbf{\Phi}^{(i)}
 						\Bigr) + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(i-1)})^* \mathrm{tr}\Bigl(
-							\boldsymbol{C}_{\mathrm{P},k} \boldsymbol{\Phi}^{(i)}
+							\mathbf{C}_{\mathrm{P},k} \mathbf{\Phi}^{(i)}
 						\Bigr)\nonumber\\
 				& \quad + 2 t_{\mathrm{P},0}^{(i-1)} \mathrm{tr}\Bigl(
-						\boldsymbol{C}_{\mathrm{I},0} \boldsymbol{\Phi}^{(i)}
+						\mathbf{C}_{\mathrm{I},0} \mathbf{\Phi}^{(i)}
 					\Bigr) + 2 t_{\mathrm{I},0}^{(i-1)} \mathrm{tr}\Bigl(
-						\boldsymbol{C}_{\mathrm{P},0} \boldsymbol{\Phi}^{(i)}
+						\mathbf{C}_{\mathrm{P},0} \mathbf{\Phi}^{(i)}
 					\Bigr)
 					\Biggr) + \mu \Biggl(
 					2^{\bar{R}} - \prod_{n=1}^N \biggl(
 						1 + \frac{(1-\rho) \mathrm{tr}\Bigl(
-							\boldsymbol{C}_n \boldsymbol{\Phi}^{(i)}
+							\mathbf{C}_n \mathbf{\Phi}^{(i)}
 						\Bigr)}{\sigma_n^2}
 					\biggr)
 				\Biggr)\nonumber\\
 				& \quad + \mathrm{tr}\biggl(
-					\mathrm{diag}(\boldsymbol{\nu}) \odot \Bigl(
-						\boldsymbol{\Phi}^{(i)} \odot \boldsymbol{I} - \boldsymbol{I}
+					\mathrm{diag}(\mathbf{\nu}) \odot \Bigl(
+						\mathbf{\Phi}^{(i)} \odot \mathbf{I} - \mathbf{I}
 					\Bigr)
 				\biggr) - \mathrm{tr} \Bigl(
-					\boldsymbol{\Upsilon} \boldsymbol{\Phi}^{(i)}
+					\mathbf{\Upsilon} \mathbf{\Phi}^{(i)}
 				\Bigr) + \zeta.
 			\end{align}
 		\end{figure*}
 		The Karush–Kuhn–Tucker (KKT) conditions on the primal and dual solutions are
 		\begin{subequations}
 			\begin{equation}\label{eq:lagrange_multiplier}
-				\mu^\star \ge 0, \boldsymbol{\Upsilon}^\star \succeq \boldsymbol{0},
+				\mu^\star \ge 0, \mathbf{\Upsilon}^\star \succeq \mathbf{0},
 			\end{equation}
 			\begin{equation}\label{eq:complementary_slackness}
-				\boldsymbol{\nu}^\star \odot \mathrm{diag}^{-1}(\boldsymbol{\Phi}^\star) = \boldsymbol{0}, \boldsymbol{\Upsilon}^\star \boldsymbol{\Phi}^\star = \boldsymbol{0},
+				\mathbf{\nu}^\star \odot \mathrm{diag}^{-1}(\mathbf{\Phi}^\star) = \mathbf{0}, \mathbf{\Upsilon}^\star \mathbf{\Phi}^\star = \mathbf{0},
 			\end{equation}
 			\begin{equation}\label{eq:gradient}
-				\nabla_{\boldsymbol{\Phi}^\star} \mathcal{L} = 0.
+				\nabla_{\mathbf{\Phi}^\star} \mathcal{L} = 0.
 			\end{equation}
 		\end{subequations}
 		We then derive the gradient explicitly and rewrite \eqref{eq:gradient} as
 		\begin{equation}
-			\boldsymbol{\Upsilon}^\star = \boldsymbol{I} - \boldsymbol{\Delta}^\star,
+			\mathbf{\Upsilon}^\star = \mathbf{I} - \mathbf{\Delta}^\star,
 		\end{equation}
-		where $\boldsymbol{\Delta}^\star$ is given by \eqref{eq:delta}.
+		where $\mathbf{\Delta}^\star$ is given by \eqref{eq:delta}.
 		\begin{figure*}[!b]
 			\hrule
 			\begin{align}\label{eq:delta}
-				\boldsymbol{\Delta}^\star
-				& = \frac{1}{2} \beta_2 \rho (\boldsymbol{C}_{\mathrm{I},0}+\boldsymbol{C}_{\mathrm{P},0}) + \frac{3}{4} \beta_4 \rho^2
+				\mathbf{\Delta}^\star
+				& = \frac{1}{2} \beta_2 \rho (\mathbf{C}_{\mathrm{I},0}+\mathbf{C}_{\mathrm{P},0}) + \frac{3}{4} \beta_4 \rho^2
 					\Biggl(
-						2 t_{\mathrm{I},0}^{(i-1)} \boldsymbol{C}_{\mathrm{I},0} + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(i-1)})^* \boldsymbol{C}_{\mathrm{P},k} + 2 t_{\mathrm{P},0}^{(i-1)} \boldsymbol{C}_{\mathrm{I},0} + 2 t_{\mathrm{I},0}^{(i-1)} \boldsymbol{C}_{\mathrm{P},0}
+						2 t_{\mathrm{I},0}^{(i-1)} \mathbf{C}_{\mathrm{I},0} + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(i-1)})^* \mathbf{C}_{\mathrm{P},k} + 2 t_{\mathrm{P},0}^{(i-1)} \mathbf{C}_{\mathrm{I},0} + 2 t_{\mathrm{I},0}^{(i-1)} \mathbf{C}_{\mathrm{P},0}
 					\Biggr)\nonumber\\
-				& \quad + \mu^\star \sum_{n=1}^N \frac{(1-\rho) \boldsymbol{C}_n}{\sigma_n^2} \prod_{n'=1,n' \ne n}^N \Biggl(
+				& \quad + \mu^\star \sum_{n=1}^N \frac{(1-\rho) \mathbf{C}_n}{\sigma_n^2} \prod_{n'=1,n' \ne n}^N \Biggl(
 					1 + \frac{(1-\rho)\mathrm{tr}\Bigl(
-						\boldsymbol{C}_{n'} \boldsymbol{\Phi}^\star
+						\mathbf{C}_{n'} \mathbf{\Phi}^\star
 					\Bigr)}{\sigma_{n'}^2}
-				\Biggr) - \mathrm{diag}(\boldsymbol{\nu^\star}).
+				\Biggr) - \mathrm{diag}(\mathbf{\nu^\star}).
 			\end{align}
 		\end{figure*}
-		Note that \eqref{eq:complementary_slackness} suggests $\mathrm{rank}(\boldsymbol{\Upsilon}^\star)+\mathrm{rank}(\boldsymbol{\Phi}^\star) \le L+1$. By reusing the proof in \cite[Appendix~A]{Xu2020}, we conclude $\mathrm{rank}(\boldsymbol{\Upsilon}^\star) \ge L$. On the other hand, $\boldsymbol{\Phi}^\star$ cannot be zero matrix and $\mathrm{rank}(\boldsymbol{\Phi}^\star) \ge 1$. Therefore, any optimal solution $\boldsymbol{\Phi}^\star$ to the relaxed problem~\eqref{op:irs_equivalent} is rank-\num{1}. Due to the equivalence between \eqref{ob:irs} and \eqref{ob:irs_equivalent}, $\boldsymbol{\Phi}^\star$ is also optimal to the relaxed problem~\eqref{op:irs} and Proposition~\ref{pr:relaxation} holds.
+		Note that \eqref{eq:complementary_slackness} suggests $\mathrm{rank}(\mathbf{\Upsilon}^\star)+\mathrm{rank}(\mathbf{\Phi}^\star) \le L+1$. By reusing the proof in \cite[Appendix~A]{Xu2020}, we conclude $\mathrm{rank}(\mathbf{\Upsilon}^\star) \ge L$. On the other hand, $\mathbf{\Phi}^\star$ cannot be zero matrix and $\mathrm{rank}(\mathbf{\Phi}^\star) \ge 1$. Therefore, any optimal solution $\mathbf{\Phi}^\star$ to the relaxed problem~\eqref{op:irs_equivalent} is rank-\num{1}. Due to the equivalence between \eqref{ob:irs} and \eqref{ob:irs_equivalent}, $\mathbf{\Phi}^\star$ is also optimal to the relaxed problem~\eqref{op:irs} and Proposition~\ref{pr:relaxation} holds.
 	\end{subsection}
 
 	\begin{subsection}{Proof of Proposition~\ref{pr:sca}}\label{ap:sca}
-		The objective function \eqref{ob:irs} is non-decreasing over iterations because the solution to \eqref{ob:irs}--\eqref{co:irs_sd} at iteration $i-1$ is still feasible at iteration $i$. Also, the sequence $\{\tilde{z}(\boldsymbol{\Phi}^{(i)})\}_{i=1}^{\infty}$ is bounded above because of the unit-modulus constraint \eqref{co:irs_modulus}. Thus, Algorithm~\ref{al:sca} is guaranteed to converge. Besides, we notice that Algorithm~\ref{al:sca} is an inner approximation algorithm \cite{Marks1978a}, because $\tilde{z}(\boldsymbol{\Phi}) \le z(\boldsymbol{\Phi})$, $\partial\tilde{z}(\boldsymbol{\Phi}^{(i)})/\partial\boldsymbol{\Phi}=\partial z(\boldsymbol{\Phi}^{(i)})/\partial\boldsymbol{\Phi}$ and the approximation \eqref{eq:taylor_1}--\eqref{eq:taylor_3} are asymptotically tight as $i \to \infty$ \cite{Li2013}. Therefore, it is guaranteed to provide a local optimal $\boldsymbol{\Phi}^{\star}$ to the relaxed passive beamforming problem. According to Proposition~\ref{pr:relaxation}, $\boldsymbol{\Phi}^{\star}$ is rank-\num{1} such that $\boldsymbol{\phi}^{\star}$ can be extracted without performance loss and the local optimality inherits to the original problem~\eqref{op:original}.
+		The objective function \eqref{ob:irs} is non-decreasing over iterations because the solution to \eqref{ob:irs}--\eqref{co:irs_sd} at iteration $i-1$ is still feasible at iteration $i$. Also, the sequence $\{\tilde{z}(\mathbf{\Phi}^{(i)})\}_{i=1}^{\infty}$ is bounded above because of the unit-modulus constraint \eqref{co:irs_modulus}. Thus, Algorithm~\ref{al:sca} is guaranteed to converge. Besides, we notice that Algorithm~\ref{al:sca} is an inner approximation algorithm \cite{Marks1978a}, because $\tilde{z}(\mathbf{\Phi}) \le z(\mathbf{\Phi})$, $\partial\tilde{z}(\mathbf{\Phi}^{(i)})/\partial\mathbf{\Phi}=\partial z(\mathbf{\Phi}^{(i)})/\partial\mathbf{\Phi}$ and the approximation \eqref{eq:taylor_1}--\eqref{eq:taylor_3} are asymptotically tight as $i \to \infty$ \cite{Li2013}. Therefore, it is guaranteed to provide a local optimal $\mathbf{\Phi}^{\star}$ to the relaxed passive beamforming problem. According to Proposition~\ref{pr:relaxation}, $\mathbf{\Phi}^{\star}$ is rank-\num{1} such that $\mathbf{\phi}^{\star}$ can be extracted without performance loss and the local optimality inherits to the original problem~\eqref{op:original}.
 	\end{subsection}
 
 	\begin{subsection}{Proof of Proposition~\ref{pr:mrt}}\label{ap:mrt}
-		From the perspective of WIT, the MRT precoder maximizes $\lvert{\boldsymbol{h}_{n}^H \boldsymbol{w}_{\mathrm{I}, n}}\rvert = \lVert{\boldsymbol{h}_{n}}\rVert s_{\mathrm{I}, n}$ and maximizes the rate \eqref{eq:R}. From the perspective of WPT, the MRT precoder maximizes $(\boldsymbol{h}_{n}^H \boldsymbol{w}_{\mathrm{I/P}, n})(\boldsymbol{h}_{n}^H \boldsymbol{w}_{\mathrm{I/P}, n})^* = \lVert{\boldsymbol{h}_{n}}\rVert^2 s_{\mathrm{I/P}, n}^2$ and maximizes the second and fourth order DC terms \eqref{eq:y_I2}--\eqref{eq:y_P4}. Therefore, MRT is the global optimal information and power precoder.
+		From the perspective of WIT, the MRT precoder maximizes $\lvert{\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I}, n}}\rvert = \lVert{\mathbf{h}_{n}}\rVert s_{\mathrm{I}, n}$ and maximizes the rate \eqref{eq:R}. From the perspective of WPT, the MRT precoder maximizes $(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})^* = \lVert{\mathbf{h}_{n}}\rVert^2 s_{\mathrm{I/P}, n}^2$ and maximizes the second and fourth order DC terms \eqref{eq:y_I2}--\eqref{eq:y_P4}. Therefore, MRT is the global optimal information and power precoder.
 	\end{subsection}
 \end{section}
 
@@ -138,7 +138,7 @@
 			\hrule
 			\begin{equation}
 				J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr) \triangleq \sum_{m_{\mathcal{K}}} p(x_{m_{\mathcal{K}}})
-				\Biggl( \rho \log \Bigl(1 + \frac{\lvert \boldsymbol{h}^\mathsf{H}(x_{m_{\mathcal{K}}}) \boldsymbol{w} \rvert^2}{\sigma_v^2}\Bigr) + (1 - \rho) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log \frac{q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) p'(x_{m_{\mathcal{K}}})}{p'(\hat{x}_{m_{\mathcal{K}}'}) p(x_{m_{\mathcal{K}}})} \Biggr).
+				\Biggl( \rho \log \Bigl(1 + \frac{\lvert \mathbf{h}^\mathsf{H}(x_{m_{\mathcal{K}}}) \mathbf{w} \rvert^2}{\sigma_v^2}\Bigr) + (1 - \rho) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log \frac{q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) p'(x_{m_{\mathcal{K}}})}{p'(\hat{x}_{m_{\mathcal{K}}'}) p(x_{m_{\mathcal{K}}})} \Biggr).
 				\label{eq:intermediate_information_function}
 			\end{equation}
 		\end{figure*}

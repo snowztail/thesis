@@ -20,7 +20,7 @@
 %%   \import{<path to file>}{<filename>.pdf_tex}
 %% Alternatively, one can specify
 %%   \graphicspath{{<path to file>/}}
-%% 
+%%
 %% For more information, please see info/svg-inkscape on CTAN:
 %%   http://tug.ctan.org/tex-archive/info/svg-inkscape
 %%
@@ -55,10 +55,10 @@
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength]{system.eps}}%
     \put(-0.00020079,0.17648561){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AP\end{tabular}}}}%
-    \put(0.40247465,0.48648438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IRS\end{tabular}}}}%
+    \put(0.40247465,0.48648438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RIS\end{tabular}}}}%
     \put(0.97930298,0.05996617){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}UE\end{tabular}}}}%
-    \put(0.44815942,0.171038){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\boldsymbol{h}_{\mathrm{D},n}^H$\end{tabular}}}}%
-    \put(0.6588808,0.31057413){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\boldsymbol{h}_{\mathrm{R},n}^H$\end{tabular}}}}%
-    \put(0.23848906,0.43809175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\boldsymbol{H}_{\mathrm{I},n}$\end{tabular}}}}%
+    \put(0.44815942,0.171038){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{D},n}^\mathsf{H}$\end{tabular}}}}%
+    \put(0.6588808,0.31057413){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{B},n}^\mathsf{H}$\end{tabular}}}}%
+    \put(0.23848906,0.43809175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{H}_{\mathrm{F},n}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
