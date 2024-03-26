@@ -726,7 +726,7 @@
 		This is because the cascaded channel is around \qty{25}{dB} weaker than the direct channel.
 		Here, \gls{ris} ensures a constructive superposition of the direct and scattered components, while \gls{sr} only creates a quasi-static rich-scattering environment that marginally enhances the average primary rate.
 		When $N$ is moderate, the randomly scattered signals should be modelled as interference rather than stable multipath, and the \gls{sr} point should move vertically towards the \gls{ambc} point.
-		\emph{Third,} RIScatter enables a flexible primary-backscatter tradeoff with adaptive input distribution design.
+		\emph{Third,} RIScatter enables a flexible primary-backscatter trade-off with adaptive input distribution design.
 		In terms of maximum primary achievable rate, RIScatter coincides with \gls{ris} and outperforms the others by using the static reflection pattern that maximizes the primary \gls{snr} all the time.
 		On the other hand, its maximum backscatter achievable rate is higher than that of \gls{ambc}.
 		This is because the adaptive channel coding of RIScatter outperforms the equiprobable inputs of \gls{ambc}, especially at the low backscatter \gls{snr} caused by double fading.
@@ -890,7 +890,7 @@
 		\end{figure}
 		In this study, we choose $Q=4$, $K=8$, $M=2$, $N=20$, $\sigma_v^2=\qty{-40}{dBm}$ and $r=\qty{2}{m}$ as a reference, unless otherwise specified.
 		\begin{subsubsection}{Number of Nodes}
-			Fig.~\subref*{fg:region_tags} reveals how the number RIScatter nodes $K$ influences the primary-backscatter tradeoff.
+			Fig.~\subref*{fg:region_tags} reveals how the number RIScatter nodes $K$ influences the primary-backscatter trade-off.
 			Interestingly, we observe that increasing $K$ has a larger benefit on the total backscatter rate than primary.
 			This is because each RIScatter node not only affects the primary \gls{snr} but also influences the relative energy difference that other nodes can make.
 			To maximize the total backscatter rate, some nodes closer to the user may need to sacrifice their own rate and use the state that \emph{minimizes} the composite channel strength, in order to increase the backscatter rate of other nodes.
@@ -907,7 +907,7 @@
 
 		\begin{subsubsection}{Number of Transmit Antennas}
 			Fig.~\subref*{fg:region_txs} illustrates the impact of transmit antennas $Q$ on the average performance.
-			As $Q$ increases, more scattered paths become available and the channel diversity can be better exploited to improve the primary-backscatter tradeoff.
+			As $Q$ increases, more scattered paths become available and the channel diversity can be better exploited to improve the primary-backscatter trade-off.
 			It emphasizes the importance of multi-antenna RIScatter systems and demonstrate the effectiveness of the proposed \gls{pga} design.
 		\end{subsubsection}
 
@@ -953,7 +953,7 @@
 			Interestingly, Fig.~\subref*{fg:region_snr_primary} shows that increasing the primary \gls{snr} can improve the primary rate but degrade the backscatter rate.
 			The reason is that the relative strength of the scattered signal compared to the direct signal is weakened, such that the nodes cannot make enough difference to the energy detector.
 			This, together with Fig.~\subref*{fg:region_beamforming} and \subref*{fg:region_tags}, emphasizes the importance of balancing the primary and backscatter \gls{snr} in the design of active-passive coexisting networks.
-			% This, together with Fig.~\subref*{fg:region_beamforming} and \subref*{fg:region_tags}, emphasizes the importance of primary-backscatter tradeoff in active-passive coexisting networks.
+			% This, together with Fig.~\subref*{fg:region_beamforming} and \subref*{fg:region_tags}, emphasizes the importance of primary-backscatter trade-off in active-passive coexisting networks.
 		\end{subsubsection}
 
 		\begin{subsubsection}{Backscatter \gls{snr}}

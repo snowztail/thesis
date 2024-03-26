@@ -60,7 +60,7 @@
     \put(0.20060952,0.21919453){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RIS\end{tabular}}}}%
     \put(-0.00019095,0.02739621){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AP\end{tabular}}}}%
     \put(0.98031715,0.02749398){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}UE\end{tabular}}}}%
-    \put(0.1045645,0.10706673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{\mathrm{I}}$\end{tabular}}}}%
-    \put(0.64040854,0.10706673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{\mathrm{R}}$\end{tabular}}}}%
+    \put(0.1045645,0.10706673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{\mathrm{F}}$\end{tabular}}}}%
+    \put(0.64040854,0.10706673){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{\mathrm{B}}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

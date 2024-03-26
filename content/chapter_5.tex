@@ -111,7 +111,7 @@
 			\end{equation}
 			where $\mathbf{V}_{\mathrm{B},g} = \bigl[\mathbf{h}_{\mathrm{B},g}/\lVert \mathbf{h}_{\mathrm{B},g} \rVert, \mathbf{N}_{\mathrm{B},g}\bigr]$, $\mathbf{U}_{\mathrm{F},g} = \bigl[\mathbf{h}_{\mathrm{F},g}/\lVert \mathbf{h}_{\mathrm{F},g} \rVert, \mathbf{N}_{\mathrm{F},g}\bigr]$, and $\mathbf{N}_{\mathrm{B},g}, \mathbf{N}_{\mathrm{F},g} \in \mathbb{C}^{L \times (L-1)}$ are the orthonormal bases of the null spaces of $\mathbf{h}_{\mathrm{B},g}$ and $\mathbf{h}_{\mathrm{F},g}$, respectively.
 			Diagonal \gls{ris} is thus sufficient for perfect \gls{siso} phase matching (with empty null spaces), but its disadvantage in subspace alignment scales with \gls{mimo} dimensions, since each element can only apply a common phase shift to the ``pinhole'' indirect channel of size $N_\mathrm{R} \times N_\mathrm{T}$ passing through itself.
-			Even if the \gls{bd}-\gls{ris} is fully-connected, there still exists a tradeoff between the direct-indirect and backward-forward alignments.
+			Even if the \gls{bd}-\gls{ris} is fully-connected, there still exists a trade-off between the direct-indirect and backward-forward alignments.
 			% It suggests that diagonal \gls{ris} applying a phase shift to each indirect channel is sufficient for phase matching in \gls{siso}. but its disadvantage in subspace alignment scales with \gls{mimo} dimensions.
 			% It suggests that diagonal \gls{ris} applying a phase shift to each indirect channel is sufficient for phase matching in \gls{siso}, but its disadvantage in subspace alignment scales with \gls{mimo} dimensions.
 			% It is obvious that diagonal \gls{ris} is sufficient for perfect phase matching. However,
@@ -725,13 +725,13 @@
 			% Fig. \ref{fg:singular_pareto} shows the Pareto frontiers of channel singular values reshaped by \gls{bd}-\gls{ris}.
 			Fig. \ref{fg:singular_pareto} shows the Pareto singular values of a 2T2R \gls{mimo} reshaped by a \gls{ris}.
 			When the direct link is absent, the achievable regions in Fig. \subref*{fg:singular_pareto_sx32_nd} are shaped like pizza slices.
-			This is because $\sigma_1(\mathbf{H}) \ge \sigma_2(\mathbf{H}) \ge 0$ and there exists a tradeoff between aligning the two subspaces.
+			This is because $\sigma_1(\mathbf{H}) \ge \sigma_2(\mathbf{H}) \ge 0$ and there exists a trade-off between aligning the two subspaces.
 			%  since $\sigma_1(\mathbf{H}) \ge \sigma_2(\mathbf{H}) \ge 0$.
 			We observe that the smallest singular value is enhanced up to \num{2e-4} by diagonal \gls{ris} and \num{3e-4} by fully-connected \gls{bd}-\gls{ris}, corresponding to a \qty{50}{\percent} gain.
 			When the direct link is present, the shape of the singular value region depends heavily on the relative strength of the indirect link.
 			In Fig. \subref*{fg:singular_pareto_sx32}, a 32-element \gls{ris} is insufficient to compensate the \qty{35}{dB} path loss imbalance and results in a limited singular value region that is symmetric around the direct point.
 			As the group size $L$ increases, the shape of the region evolves from elliptical to square.
-			This transformation not only provides a better tradeoff in subchannel manipulation but also improves the dynamic range of $\sigma_1(\mathbf{H})$ and $\sigma_2(\mathbf{H})$ by \qty{22}{\percent} and \qty{38}{\percent}, respectively.
+			This transformation not only provides a better trade-off in subchannel manipulation but also improves the dynamic range of $\sigma_1(\mathbf{H})$ and $\sigma_2(\mathbf{H})$ by \qty{22}{\percent} and \qty{38}{\percent}, respectively.
 			The achievable singular value region also enlarges as the number of scattering elements $N_\mathrm{S}$ increases.
 			In particular, Fig. \subref*{fg:singular_pareto_sx128} shows that the equivalent channel can be completely nulled by a 128-element \gls{bd}-\gls{ris} but not by a diagonal one.
 			Those results demonstrate the superior channel shaping capability of \gls{bd}-\gls{ris} for better signal enhancement and interference suppression.
@@ -896,7 +896,7 @@
 		This implies that the \gls{ris}-transceiver design can be completely decoupled via channel shaping with marginal performance loss.
 		Figs. \subref*{fg:rate_txrx} and \subref*{fg:rate_sx} also confirm the advantage of \gls{bd}-\gls{ris} grows with the number of transmit, scatter, and receive antennas.
 		In the low power regime (\num{-20} to \qty{-10}{dB}), the slope of the achievable rate is significantly larger with \gls{bd}-\gls{ris}, suggesting that multiple streams can be activated at a much lower \gls{snr}.
-		This is because \gls{bd}-\gls{ris} not only spreads the channel singular values to a wider range, but also provides a better tradeoff between subchannels (c.f. Fig. \ref{fg:singular_pareto}).
+		This is because \gls{bd}-\gls{ris} not only spreads the channel singular values to a wider range, but also provides a better trade-off between subchannels (c.f. Fig. \ref{fg:singular_pareto}).
 		Finally, Fig. \subref*{fg:rate_kfactor} shows that the gap between diagonal and \gls{bd}-\gls{ris} narrows as the Rician $K$-factor increases and becomes indistinguishable in \gls{los} environment.
 		The observation is expected from previous studies \cite{Shen2020a,Li2023b,Nerini2023} and aligns with Corollary \ref{co:los}, which suggests that the \gls{bd}-\gls{ris} should be deployed in rich-scattering environments to exploit its channel shaping potential.
 	\end{subsection}
@@ -905,7 +905,7 @@
 \begin{section}{Conclusion}
 	This paper analyzes the channel shaping capability of \gls{ris} in terms of singular values redistribution.
 	We consider a general \gls{bd} architecture that allows elements within the same group to interact, enabling more sophisticated manipulation than diagonal \gls{ris}.
-	This translates to a wider dynamic range (with better tradeoff) of singular values and significant power and rate gains, especially in large-scale \gls{mimo} systems.
+	This translates to a wider dynamic range (with better trade-off) of singular values and significant power and rate gains, especially in large-scale \gls{mimo} systems.
 	We characterize the Pareto frontiers of channel singular values via optimization approach and provide analytical bounds in rank-deficient and fully-connected scenarios.
 	An efficient \gls{rcg} algorithm is proposed for smooth \gls{bd}-\gls{ris} optimization problems, which offers lower computation complexity and faster convergence than existing methods.
 	We also present two beamforming designs for rate maximization problem, one based on alternating optimization for optimal performance and the other decouples the \gls{ris}-transceiver design for lower complexity.

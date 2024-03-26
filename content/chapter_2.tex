@@ -102,8 +102,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 	\end{subsection}
 
 	\begin{subsection}{Wave Scattering Models}
-		\begin{subsubsection}{Principles}
-			\label{sc:principles}
+		\begin{subsubsection}{Principles}\label{sc:principles}
 			\gls{rf} wave can be manipulated by scattering elements made from \emph{programmable metamaterials} or \emph{passive antennas} \cite{Liang2022}.
 			As discussed above, the former refracts or reflects the incident signals at the air-cell boundary and mainly applies a phase shift.
 			In contrast, the latter allows the wave to feed into and collect from the antenna port such that some energy can be absorbed by the circuit and the rest is reradiated to the space.
@@ -133,6 +132,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			The reflection coefficient of the $n$-th element is thus
 			\begin{equation}
 				\theta_n = \frac{\jmath X_n - Z^*}{\jmath X_n + Z} = \exp(\jmath \phi_n),
+				\label{eq:reflection_coefficient_ris}
 			\end{equation}
 			where $X_n$ is the reactance and $\phi_n$ is the phase shift on the scattered wave.
 			For a total of $N_\mathrm{S}$ elements, the \gls{ris} scattering matrix is \emph{diagonal with complex unit-magnitude entries}
@@ -301,13 +301,13 @@ This chapter provides essential background for topics covered in the thesis. A d
 			Other rectifier topologies like full-wave, bridge, and voltage doubler can potentially improve the \gls{rf}-to-\gls{dc} conversion efficiency \cite{Rotenberg2020}, but their modeling and analysis are much more complicated.
 		\end{subsubsection}
 
-		\begin{subsubsection}{Operation Regions and Signal Models}
+		\begin{subsubsection}{Operation Regions and Signal Models}\label{sc:operation_regions}
 			The diode is the key non-linear component that determines to the harvested energy.
 			Generally speaking, the behavior of any rectenna can be separated into three operation regions \cite{Clerckx2016a}:
 			\begin{itemize}
 				\item \emph{Linear region:} When the input power level is relatively low, the output power is proportional to the input and the \gls{rf}-to-\gls{dc} conversion efficiency $\eta_3$ is a constant. Most early \gls{wpt} research (especially from communications society) assume the rectenna works in this region. For a received signal $y(t)$, the harvested \gls{dc} power in this region can be modelled as
 				\begin{equation}
-					P_\mathrm{DC}^\mathrm{R} = \eta_3 P_\mathrm{RF}^\mathrm{R} = \eta_3 \mathbb{E}\bigl\{ \lvert y(t) \rvert^2 \bigr\},
+					P_\mathrm{DC}^\mathrm{R} = \eta_3 P_\mathrm{RF}^\mathrm{R} = \eta_3 \mathbb{A}\bigl\{ \lvert y(t) \rvert^2 \bigr\},
 					\label{eq:dc_power_linear}
 				\end{equation}
 				which suggests that maximizing the received \gls{rf} signal power is sufficient to maximize the harvested \gls{dc} power.
@@ -323,16 +323,16 @@ This chapter provides essential background for topics covered in the thesis. A d
 				where $k_0 = I_\mathrm{S} \bigl(\exp(-{v_\mathrm{out}}/{n v_\mathrm{T}})-1\bigr)$, $k_i = I_\mathrm{S} \frac{\exp(-v_\mathrm{out}/n v_\mathrm{T})}{i!(n v_\mathrm{T})^i}$ for $k \in \mathbb{N}$.
 				The rectifier output \gls{dc} current can be written as a function of the received signal
 				\begin{equation}
-					i_\mathrm{out} = \sum_{i=0}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{E}\bigl\{ y^i(t) \bigr\} = \sum_{i=0,\text{even}}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{E}\bigl\{ y^i(t) \bigr\}
+					i_\mathrm{out} = \sum_{i=0}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{A}\bigl\{ y^i(t) \bigr\} = \sum_{i=0,\text{even}}^\infty k_i R_\mathrm{A}^{i/2} \mathbb{A}\bigl\{ y^i(t) \bigr\}
 					\label{eq:dc_current_expansion}
 				\end{equation}
-				where the second equality is because $\mathbb{E}\bigl\{y^i(t)\bigr\} = 0$ for odd $i$. Note that the dependency of $k_i$ on $-v_\mathrm{out}=-i_\mathrm{out} R_\mathrm{L}$ makes it nontrivial to formulate a closed-form expression for the harvested \gls{dc} power.
+				where the second equality is because $\mathbb{A}\bigl\{y^i(t)\bigr\} = 0$ for odd $i$. Note that the dependency of $k_i$ on $-v_\mathrm{out}=-i_\mathrm{out} R_\mathrm{L}$ makes it nontrivial to formulate a closed-form expression for the harvested \gls{dc} power.
 				Fortunately, it is shown in \cite{Clerckx2016a} that maximizing the harvested \gls{dc} power is equivalent to maximizing the quantity
 				\begin{equation}
-					z \triangleq \sum_{i=2,\text{even}}^\infty \beta_i \mathbb{E}\bigl\{ y^i(t) \bigr\},
+					z \triangleq \sum_{i=2,\text{even}}^{n_0} \beta_i \mathbb{A}\bigl\{ y^i(t) \bigr\},
 					\label{eq:dc_power_nonlinear}
 				\end{equation}
-				where $\beta_i = I_\mathrm{S} \frac{R_\mathrm{A}^{i/2}}{i!(n v_\mathrm{T})^i}$ is a constant. Truncating \eqref{eq:dc_power_nonlinear} at the second order yields the same result as \eqref{eq:dc_power_linear}, which suggests that the linear model is a special case of the more accurate non-linear model. For a moderate excitation, the contribution of higher-order terms is significant and should be modelled in the harvested \gls{dc} power.
+				where $\beta_i = I_\mathrm{S} \frac{R_\mathrm{A}^{i/2}}{i!(n v_\mathrm{T})^i}$ is a constant and $n_0$ is the truncation order. Selecting $n_0=2$ yields the same result as \eqref{eq:dc_power_linear}, which suggests that the linear model is a special case of the more accurate non-linear model. For a moderate excitation, the contribution of higher-order terms is significant and should be modelled in the harvested \gls{dc} power.
 				\item \emph{Saturation region:} When the input power level is too high, the diode works in the reverse breakdown region, the rectifier is saturated, and the output power is a constant. This is the region where the $\eta_3$ significantly drops and should be avoided by circuit design.
 				For a fixed rectenna with Gaussian input signal, a parametric model was proposed in \cite{Boshkovska2015}
 				\begin{equation}
@@ -379,7 +379,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			\item \emph{Channel:} In a \gls{mimo} scenario, \gls{wit} favors full-rank \gls{nlos} with high spatial diversity while \gls{wpt} prefers rank-deficient \gls{los} with high spatial correlation \cite{Wu2022a}.
 			\item \emph{Receiver:} The power sensitivity is usually in the range of -40 to -80 dBm for information receivers and -10 to -30 dBm for energy harvesters \cite{Lu2015}.
 		\end{itemize}
-		Those disparities translate to a fundamental tradeoff between information and power transfer in \gls{swipt} systems, which is often quantified by a \emph{\gls{r-e} region}.
+		Those disparities translate to a fundamental trade-off between information and power transfer in \gls{swipt} systems, which is often quantified by a \emph{\gls{r-e} region}.
 		\begin{equation}
 			\mathcal{C}_\mathrm{R-E}(P) \triangleq \Bigl\{ (r,e) : 0 \le r \le \log(1 + \gamma), \ 0 \le e \le z \Bigr\},
 		\end{equation}
@@ -428,7 +428,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			We thus focus on this model in the following context.
 		\end{subsubsection}
 
-		\begin{subsubsection}{Receiver Architectures}
+		\begin{subsubsection}{Receiver Architectures}\label{sc:receiver_architectures}
 			Figure \ref{fg:swipt_receiver_architectures} illustrates four potential architectures for a co-located \gls{swipt} receiver \cite{Clerckx2022}:
 			\begin{figure}[H]
 				\centering
@@ -467,7 +467,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 
 			\begin{itemize}
 				\item \emph{Ideal receiver:} The received signal is used for both information decoding and energy harvesting. This is theoretically the most efficient design with a rectangle \gls{r-e} region but is unimplementable in practice due to hardware constraints.
-				\item \emph{\gls{ts} receiver:} Each time frame is divided into individual \gls{wit} and \gls{wpt} phases, where the receiver switches between information decoder and energy harvester, respectively. The transmitted waveform and \gls{ris} response are optimized independently for each phase, and the resulting \gls{r-e} region is a triangle with two vertices corresponding to \gls{wit}-only and \gls{wpt}-only.
+				\item \emph{\gls{ts} receiver:} Each time block is divided into individual \gls{wit} and \gls{wpt} phases, where the receiver switches between information decoder and energy harvester, respectively. The transmitted waveform and \gls{ris} response are optimized independently for each phase, and the resulting \gls{r-e} region is a triangle with two vertices corresponding to \gls{wit}-only and \gls{wpt}-only.
 				\item \emph{\gls{ps} receiver:} The received signal is split into two parts with power ratio $\rho$ and $1{-}\rho$. The former is fed into the energy harvester and the latter is used for information decoding. The transmitter and \gls{ris} are jointly optimized for both purposes with the knowledge of splitting ratio, and the resulting \gls{r-e} region may be non-convex.
 				\item \emph{Integrated receiver \cite{Kim2021a}:} The transmit signal is modulated in properties that can be well-preserved after rectification (e.g., pulse position) such that information can be decoded from the energy harvester output.
 			\end{itemize}
@@ -527,7 +527,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 					\alpha, & t \in \bigl[\frac{n}{\Delta f},\frac{2n+1}{2 \Delta f}\bigr) \\
 					-\alpha, & t \in \bigl[\frac{2n+1}{2 \Delta f},\frac{n+1}{\Delta f}\bigr)
 				\end{cases}
-				= \frac{\pi}{4} \sum_{m=1,\text{odd}}^\infty \frac{1}{m} \sin\bigl(2\pi m \Delta f t\bigr),
+				= \frac{\pi}{4} \sum_{m=1,\text{odd}}^\infty \frac{\alpha}{m} \sin\bigl(2\pi m \Delta f t\bigr),
 			\end{equation}
 			where $n \in \mathbb{N}$.
 			If the incident wave is a \gls{cw} at frequency $f_0$, the reflected signal is dominated by its first harmonic
@@ -535,7 +535,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			% 	y(t) = \sum_{m=1,\text{odd}}^\infty \frac{\pi}{4m} \cos(2 \pi f_0 t) \sin\bigl(2\pi m \Delta f t\bigr),
 			% \end{equation}
 			\begin{equation}
-				s_1(t) = \frac{\pi}{2} \Bigl(\sin\bigl(2 \pi (f_0 {+} \Delta f) t\bigr) - \sin\bigl(2 \pi (f_0 {-} \Delta f) t\bigr)\Bigr).
+				s_1(t) = \frac{\alpha \pi}{2} \Bigl(\sin\bigl(2 \pi (f_0 {+} \Delta f) t\bigr) - \sin\bigl(2 \pi (f_0 {-} \Delta f) t\bigr)\Bigr).
 			\end{equation}
 			That is, periodically switching the reflection coefficient at rate $\Delta f$ results in a frequency shift $\pm \Delta f$ on the reflected signal.
 			Practical implementations have been demonstrated on a variety of license-free protocols (e.g., HitchHike \cite{Zhang2016a}, Inter-Technology \cite{Iyer2016}, Passive Wi-Fi \cite{Kellogg2017}, \gls{ble}-Backscatter \cite{Ensworth2017}) where the mirror copy can be suppressed.
