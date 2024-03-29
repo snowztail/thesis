@@ -205,7 +205,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			Diagonal (single-connected) and unitary (fully-connected) \gls{ris} can be viewed as extreme cases with group size $L=1$ and $L=N_\mathrm{S}$, respectively.
 			Therefore, the \gls{bd} model \eqref{eq:bd_scattering_matrix} is envisioned to be the next-generation theoretical foundation for passive \gls{ris}, which grants more design freedom and stronger signal processing capability.
 
-			It is also worth mentioning that each group can be abstracted as a mathematical graph with $L$ vertices and a variable number of edges \cite{Nerini2023a}.
+			It is also worth mentioning that each group can be abstracted as a mathematical graph with $L$ vertices and a variable number of edges \cite{Nerini2024}.
 			One element is in the same group with another if and only if there is at least one path (via edges) between them.
 			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
 			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
@@ -372,7 +372,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\gls{ris} can also be used to assist the information link by \gls{snr} enhancement and interference suppression, as mentioned in subsection \ref{sc:ris_applications}.
 	\end{subsection}
 
-	\begin{subsection}{\glsfmtfull{r-e} Tradeoff}
+	\begin{subsection}{\glsfmtfull{r-e} Trade-off}
 		Despite \gls{wit} and \gls{wpt} share many similarities, their difference in design objectives, system architectures, and practical constraints make a joint implementation of \gls{swipt} particularly challenging.
 		Some preference of \gls{wit} and \gls{wpt} are inherently conflicting, for example:
 		\begin{itemize}
@@ -539,7 +539,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 				s_1(t) = \frac{\alpha \pi}{2} \Bigl(\sin\bigl(2 \pi (f_0 {+} \Delta f) t\bigr) - \sin\bigl(2 \pi (f_0 {-} \Delta f) t\bigr)\Bigr).
 			\end{equation}
 			That is, periodically switching the reflection coefficient at rate $\Delta f$ results in a frequency shift $\pm \Delta f$ on the reflected signal.
-			Practical implementations have been demonstrated on a variety of license-free protocols (e.g., HitchHike \cite{Zhang2016a}, Inter-Technology \cite{Iyer2016}, Passive Wi-Fi \cite{Kellogg2017}, \gls{ble}-Backscatter \cite{Ensworth2017}) where the mirror copy can be suppressed.
+			Practical implementations have been demonstrated on a variety of license-free protocols (e.g., HitchHike \cite{Zhang2016a}, inter-technology \cite{Iyer2016}, Passive Wi-Fi \cite{Kellogg2017}, \gls{ble}-Backscatter \cite{Ensworth2017}) where the mirror copy can be suppressed.
 			\item \emph{\gls{css} \cite{Talla2017}:} A chirp is a signal whose frequency increases or decreases over time.
 			\gls{css} uses wideband linear-frequency modulated chirps to encode information, which is from \gls{dsss} and \gls{fsss} with pseudo-random sequences and \gls{fsk} with discrete frequencies.
 			In particular, $N+1$ reflection coefficients of the same envelope are sequentially selected at a regular rate $\Delta f$, given by

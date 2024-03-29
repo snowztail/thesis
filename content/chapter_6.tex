@@ -1,0 +1,41 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Conclusions and Future Works}\label{ch:conclusions}
+
+\begin{section}{Conclusions}
+	This thesis explored the versatile potential of \gls{ris} for augmenting future wireless networks from a physical-layer perspective.
+	After introducing the necessary background, we focused on three most promising directions (passive beamforming, backscatter modulation, channel shaping) and investigated those in different application scenarios:
+	\begin{itemize}
+		\item In the domain of \gls{swipt}, we unveiled new trade-offs and design insights by introducing \gls{ris} into multi-antenna, multi-carrier systems. Considering harvester nonlinearity, we characterize the achievable \gls{r-e} region through a joint optimization of waveform, active and passive beamforming based on the \gls{csit}. This problem is solved by \gls{bcd}, where we obtain the active precoder in closed form, the passive beamforming by \gls{sca}, and the waveform amplitude by \gls{gp}. To facilitate practical implementation, we also propose two low-complexity designs based on closed-form adaptive waveform schemes. Simulation results highlight a second-order array gain and a fourth-order power scaling order with respect to \gls{ris} elements, while being robust to \gls{csi} inaccuracy and \gls{ris} resolution.
+		\item The proposed RIScatter concept demonstrated the synergy between active and passive transmissions. RIScatter is a batteryless cognitive radio that recycles ambient signal in an adaptive and customizable manner, where dispersed or co-located scatter nodes partially modulate their information and partially engineer the wireless channel.
+		The key is to render the probability distribution of reflection states as a joint function of the information source, \gls{csi}, and relative priority of coexisting links.
+		This enables RIScatter to softly bridge \gls{bc} and \gls{ris}; reduce to either in special cases; or evolve in a mixed form for heterogeneous traffic control and universal hardware design.
+		We also propose a low-complexity \gls{sic}-free receiver that exploits the properties of RIScatter.
+		For a single-user multi-node network, we characterize the achievable primary-(total-)backscatter rate region by optimizing the input distribution at scatter nodes, the active beamforming at the \gls{ap}, and the energy decision regions at the user.
+		Simulation results demonstrate the received signal can be exploited for dual purposes and the nodes can shift smoothly between backscatter modulation and passive beamforming via input distribution control.
+		\item Finally, we investigated the fundamental limits of \gls{ris} for reshaping \gls{mimo} \gls{pc} and \gls{ic}. We depart from the widely-adopted diagonal phase shift model to a general \gls{bd} architecture with superior subspace alignment and subchannel rearrangement capabilities.
+		An efficient geodesic \gls{rcg} algorithm is tailored for smooth \gls{bd}-\gls{ris} optimization problems, which features lower complexity and faster convergence.
+		For \gls{mimo}-\gls{pc}, we characterize the achievable channel singular value region through numerical and analytical approaches, then tackle the rate maximization problem by a local-optimal \gls{ao} approach and a low-complexity shaping-inspired approach.
+		For \gls{mimo}-\gls{ic}, we extend the proposed algorithms to solve leakage interference minimization and \gls{wsr} maximization problems.
+		Simulation results suggest channel shaping offers a promising path to decouple the joint \gls{ris}-transceiver design with minor performance degradation and much lower computational complexity.
+	\end{itemize}
+\end{section}
+
+\begin{section}{Future Works}
+	Many interesting problems are countered during the research but not fully addressed due to time constraints, to name a few:
+	\begin{itemize}
+		\item \emph{\gls{ris}-aided multi-user \gls{swipt}:} Extension to multi-user scenario is non-trivial because (i) the waveform and passive beamforming are shared among users while the active beamforming and power splitting ratios are user-specific; (ii) the interference can be harvested for power purpose such that dedicated information and power precoders are desired; (iii) due to harvester nonlinearity, the optimal design is highly non-convex and depends heavily on the multiple access scheme; (iv) a proper criterion is needed to cover the \gls{r-e} trade-off and fairness among users.
+		\item \emph{Capacity region of RIScatter:} The current work considers a decoding order from backscatter to primary, corresponding to a primary-optimal point (but not a corner due to energy detector) in the capacity region.
+		If the primary message can be decoded first, it can be modelled as a spreading sequence that enhances the backscatter \gls{snr} by $N$ times (where $N$ is the symbol period ratio) \cite{Long2020a}, corresponding to a backscatter-optimal point.
+		Besides, the backscatter detection can be performed coherently in the signal domain to further improve the achievable rate.
+		\item \emph{RIScatter, index modulation, and rate splitting:} In RIScatter, the primary and backscatter symbols are superimposed by multiplicative coding, and the nodes usually have a finite number of reflection states. Instead of acting as a pure channel controller or individual information source, a \gls{ris} can be integrated into the \gls{rf} transmitter as an additional index modulator to enhance the spectral efficiency \cite{Basar2020}.
+		The transmitted message is thus split into an amplitude-phase modulated component and an index-modulated component, which can be decoded separately at the receiver \cite{Zhong2018}. This could further improve the capacity of \gls{ris}-aided \gls{mimo} systems \cite{Ye2022}, or make a low-complexity realization of \gls{rsma} \cite{Mao2018} in a multi-user system where the reflection pattern conveys the common message.
+		\item \emph{RIScatter and sensing:} The proposed RIScatter concept can be extended to sensing applications, where the scatter nodes are equipped with sensors to monitor the environment and report the information to the \gls{ap}. The challenge is to design the input distribution and reflection states to stabilize the environment for improved sensing performance while guaranteeing the communication quality.
+		\item \emph{\gls{bd}-\gls{ris} and frequency shifting:} Similar to \gls{ambc}, the different groups of \gls{bd}-\gls{ris} can be used to shift the incident wave to different frequencies.
+		This phenomenon can be exploited to mitigate the self and inter-operator interference \cite{Miridakis2024}, generate a multi-frequency signal out of a \gls{cw}, or manipulate the response of frequency-selective channels. However, it could be challenging to design and implement the time-varying scattering matrices at a low power consumption.
+		\item \emph{Multi-sector \gls{bd}-\gls{ris} and interference alignment:} The current work solves leakage interference minimization and \gls{wsr} maximization problems in \gls{ris}-aided \gls{ic}.
+		It remains unknown how many scattering elements are required to completely eliminate the interference, and what is the \gls{dof} in a $(N_\mathrm{T},N_\mathrm{S},N_\mathrm{R})$ \gls{ic}.
+		Besides, there exists a multi-sector model \cite{Li2023c} that provides full-space coverage and highly directional beams.
+		It would be interesting to see how those sector-specific (instead of being shared by all users) scattering matrices can help to align the interference and improve the fairness issue.
+	\end{itemize}
+\end{section}

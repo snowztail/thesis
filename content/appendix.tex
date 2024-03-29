@@ -3,210 +3,210 @@
 \chapter{Appendix}
 
 
-% \begin{section}{Proofs for Chapter \ref{ch:ris_aided_swipt}}
-% 	\begin{subsection}{Proof of Proposition~\ref{pr:relaxation}}\label{ap:relaxation}
-% 		For any feasible $\bar{\mathbf{\Theta}}$ to problem~\eqref{op:irs}, $\mathrm{tr}(\bar{\mathbf{\Theta}})=L+1$ always holds because of the modulus constraint~\eqref{co:irs_modulus}.
-% 		Therefore, problem~\eqref{op:irs} can be recast as
-% 		\begin{maxi!}
-% 			{\scriptstyle{\bar{\mathbf{\Theta}}}}{\tilde{z}(\bar{\mathbf{\Theta}})-\mathrm{tr}(\bar{\mathbf{\Theta}})}{\label{op:irs_equivalent}}{\label{ob:irs_equivalent}}
-% 			\addConstraint{R(\bar{\mathbf{\Theta}}) \ge \bar{R}}\label{co:irs_equivalent_rate}
-% 			\addConstraint{\mathrm{diag}^{-1}(\bar{\mathbf{\Theta}})=\mathbf{1}}\label{co:irs_equivalent_modulus}
-% 			\addConstraint{\bar{\mathbf{\Theta}}\succeq{\mathbf{0}}}\label{co:irs_equivalent_sd}
-% 			\addConstraint{\mathrm{rank}(\bar{\mathbf{\Theta}})=1.\label{co:irs_equivalent_rank}}
-% 		\end{maxi!}
-% 		It is straightforward to verify the convex problem~\eqref{ob:irs_equivalent}--\eqref{co:irs_equivalent_sd} satisfies the Slater's condition and strong duality holds \cite{Boyd2004}.
-% 		The corresponding Lagrangian function at iteration $r$ is
-% 		\begin{equation}\label{eq:lagrangian}
-% 			\begin{split}
-% 				\mathcal{L}
-% 				& = \mathrm{tr}\left(\bar{\mathbf{\Theta}}^{(r)}\right) - \frac{1}{2} \beta_2 \rho \mathrm{tr}\Bigl(
-% 						(\mathbf{C}_{\mathrm{I},0} + \mathbf{C}_{\mathrm{P},0}) \bar{\mathbf{\Theta}}^{(r)}
-% 					\Bigr) \\
-% 				& \quad - \frac{3}{4} \beta_4 \rho^2 \Biggl(
-% 						2 t_{\mathrm{I},0}^{(r-1)} \mathrm{tr}\Bigl(
-% 							\mathbf{C}_{\mathrm{I},0} \bar{\mathbf{\Theta}}^{(r)}
-% 						\Bigr) + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(r-1)})^* \mathrm{tr}\Bigl(
-% 							\mathbf{C}_{\mathrm{P},k} \bar{\mathbf{\Theta}}^{(r)}
-% 						\Bigr)\\
-% 				& \qquad + 2 t_{\mathrm{P},0}^{(r-1)} \mathrm{tr}\Bigl(
-% 						\mathbf{C}_{\mathrm{I},0} \bar{\mathbf{\Theta}}^{(r)}
-% 					\Bigr) + 2 t_{\mathrm{I},0}^{(r-1)} \mathrm{tr}\Bigl(
-% 						\mathbf{C}_{\mathrm{P},0} \bar{\mathbf{\Theta}}^{(r)}
-% 					\Bigr)
-% 					\Biggr)\\
-% 				& \quad + \mu \Biggl(
-% 					2^{\bar{R}} - \prod_{n=1}^N \biggl(
-% 						1 + \frac{(1-\rho) \mathrm{tr}\Bigl(
-% 							\mathbf{C}_n \bar{\mathbf{\Theta}}^{(r)}
-% 						\Bigr)}{\sigma_n^2}
-% 					\biggr)
-% 				\Biggr)\\
-% 				& \quad + \mathrm{tr}\biggl(
-% 					\mathrm{diag}(\mathbf{\nu}) \odot \Bigl(
-% 						\bar{\mathbf{\Theta}}^{(r)} \odot \mathbf{I} - \mathbf{I}
-% 					\Bigr)
-% 				\biggr) - \mathrm{tr} \Bigl(
-% 					\mathbf{\Upsilon} \bar{\mathbf{\Theta}}^{(r)}
-% 				\Bigr) + \zeta,
-% 			\end{split}
-% 		\end{equation}
-% 		where $\mu$, $\mathbf{\nu}$, $\mathbf{\Upsilon}$ denote respectively the scalar, vector and matrix Lagrange multiplier associated with constraint~\eqref{co:irs_equivalent_rate}, \eqref{co:irs_equivalent_modulus} and \eqref{co:irs_equivalent_sd}, and $\zeta$ collects all terms irrelevant to $\bar{\mathbf{\Theta}}^{(r)}$.
-% 		The \gls{kkt} conditions on the primal and dual solutions are
-% 		\begin{subequations}
-% 			\begin{equation}\label{eq:lagrange_multiplier}
-% 				\mu^\star \ge 0, \mathbf{\Upsilon}^\star \succeq \mathbf{0},
-% 			\end{equation}
-% 			\begin{equation}\label{eq:complementary_slackness}
-% 				\mathbf{\nu}^\star \odot \mathrm{diag}^{-1}(\bar{\mathbf{\Theta}}^\star) = \mathbf{0}, \mathbf{\Upsilon}^\star \bar{\mathbf{\Theta}}^\star = \mathbf{0},
-% 			\end{equation}
-% 			\begin{equation}\label{eq:gradient}
-% 				\nabla_{\bar{\mathbf{\Theta}}^\star} \mathcal{L} = 0.
-% 			\end{equation}
-% 		\end{subequations}
-% 		We then express \eqref{eq:gradient} explicitly as $\mathbf{\Upsilon}^\star = \mathbf{I} - \mathbf{\Delta}^\star$, where
-% 		\begin{equation}
-% 			\begin{split}\label{eq:delta}
-% 				\mathbf{\Delta}^\star
-% 				& = \frac{1}{2} \beta_2 \rho (\mathbf{C}_{\mathrm{I},0}+\mathbf{C}_{\mathrm{P},0})\\
-% 				& \quad + \frac{3}{4} \beta_4 \rho^2
-% 					\Biggl(
-% 						2 t_{\mathrm{I},0}^{(r-1)} \mathbf{C}_{\mathrm{I},0} + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(r-1)})^* \mathbf{C}_{\mathrm{P},k} + 2 t_{\mathrm{P},0}^{(r-1)} \mathbf{C}_{\mathrm{I},0} + 2 t_{\mathrm{I},0}^{(r-1)} \mathbf{C}_{\mathrm{P},0}
-% 					\Biggr)\\
-% 				& \quad + \mu^\star \sum_{n=1}^N \frac{(1-\rho) \mathbf{C}_n}{\sigma_n^2} \prod_{n'=1,n' \ne n}^N \Biggl(
-% 					1 + \frac{(1-\rho)\mathrm{tr}\Bigl(
-% 						\mathbf{C}_{n'} \bar{\mathbf{\Theta}}^\star
-% 					\Bigr)}{\sigma_{n'}^2}
-% 				\Biggr) - \mathrm{diag}(\mathbf{\nu^\star}).
-% 			\end{split}
-% 		\end{equation}
-% 		Note that \eqref{eq:complementary_slackness} suggests $\mathrm{rank}(\mathbf{\Upsilon}^\star)+\mathrm{rank}(\bar{\mathbf{\Theta}}^\star) \le L+1$. By reusing the proof in \cite[Appendix~A]{Xu2020}, we conclude $\mathrm{rank}(\mathbf{\Upsilon}^\star) \ge L$. On the other hand, $\bar{\mathbf{\Theta}}^\star$ cannot be $\mathbf{0}$ and $\mathrm{rank}(\bar{\mathbf{\Theta}}^\star) \ge 1$. Therefore, any optimal solution $\bar{\mathbf{\Theta}}^\star$ to the relaxed problem~\eqref{op:irs_equivalent} must be rank-\num{1}. Due to the equivalence between \eqref{ob:irs} and \eqref{ob:irs_equivalent}, $\bar{\mathbf{\Theta}}^\star$ is also optimal to the relaxed problem~\eqref{op:irs}. The proof is completed.
-% 	\end{subsection}
+\begin{section}{Proofs for Chapter \ref{ch:ris_aided_swipt}}
+	\begin{subsection}{Proof of Proposition~\ref{pr:relaxation}}\label{ap:relaxation}
+		For any feasible $\bar{\mathbf{\Theta}}$ to problem~\eqref{op:irs}, $\mathrm{tr}(\bar{\mathbf{\Theta}})=L+1$ always holds because of the modulus constraint~\eqref{co:irs_modulus}.
+		Therefore, problem~\eqref{op:irs} can be recast as
+		\begin{maxi!}
+			{\scriptstyle{\bar{\mathbf{\Theta}}}}{\tilde{z}(\bar{\mathbf{\Theta}})-\mathrm{tr}(\bar{\mathbf{\Theta}})}{\label{op:irs_equivalent}}{\label{ob:irs_equivalent}}
+			\addConstraint{R(\bar{\mathbf{\Theta}}) \ge \bar{R}}\label{co:irs_equivalent_rate}
+			\addConstraint{\mathrm{diag}^{-1}(\bar{\mathbf{\Theta}})=\mathbf{1}}\label{co:irs_equivalent_modulus}
+			\addConstraint{\bar{\mathbf{\Theta}}\succeq{\mathbf{0}}}\label{co:irs_equivalent_sd}
+			\addConstraint{\mathrm{rank}(\bar{\mathbf{\Theta}})=1.\label{co:irs_equivalent_rank}}
+		\end{maxi!}
+		It is straightforward to verify the convex problem~\eqref{ob:irs_equivalent}--\eqref{co:irs_equivalent_sd} satisfies the Slater's condition and strong duality holds \cite{Boyd2004}.
+		The corresponding Lagrangian function at iteration $r$ is
+		\begin{equation}\label{eq:lagrangian}
+			\begin{split}
+				\mathcal{L}
+				& = \mathrm{tr}\left(\bar{\mathbf{\Theta}}^{(r)}\right) - \frac{1}{2} \beta_2 \rho \mathrm{tr}\Bigl(
+						(\mathbf{C}_{\mathrm{I},0} + \mathbf{C}_{\mathrm{P},0}) \bar{\mathbf{\Theta}}^{(r)}
+					\Bigr) \\
+				& \quad - \frac{3}{4} \beta_4 \rho^2 \Biggl(
+						2 t_{\mathrm{I},0}^{(r-1)} \mathrm{tr}\Bigl(
+							\mathbf{C}_{\mathrm{I},0} \bar{\mathbf{\Theta}}^{(r)}
+						\Bigr) + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(r-1)})^* \mathrm{tr}\Bigl(
+							\mathbf{C}_{\mathrm{P},k} \bar{\mathbf{\Theta}}^{(r)}
+						\Bigr)\\
+				& \qquad + 2 t_{\mathrm{P},0}^{(r-1)} \mathrm{tr}\Bigl(
+						\mathbf{C}_{\mathrm{I},0} \bar{\mathbf{\Theta}}^{(r)}
+					\Bigr) + 2 t_{\mathrm{I},0}^{(r-1)} \mathrm{tr}\Bigl(
+						\mathbf{C}_{\mathrm{P},0} \bar{\mathbf{\Theta}}^{(r)}
+					\Bigr)
+					\Biggr)\\
+				& \quad + \mu \Biggl(
+					2^{\bar{R}} - \prod_{n=1}^N \biggl(
+						1 + \frac{(1-\rho) \mathrm{tr}\Bigl(
+							\mathbf{C}_n \bar{\mathbf{\Theta}}^{(r)}
+						\Bigr)}{\sigma_n^2}
+					\biggr)
+				\Biggr)\\
+				& \quad + \mathrm{tr}\biggl(
+					\mathrm{diag}(\mathbf{\nu}) \odot \Bigl(
+						\bar{\mathbf{\Theta}}^{(r)} \odot \mathbf{I} - \mathbf{I}
+					\Bigr)
+				\biggr) - \mathrm{tr} \Bigl(
+					\mathbf{\Upsilon} \bar{\mathbf{\Theta}}^{(r)}
+				\Bigr) + \zeta,
+			\end{split}
+		\end{equation}
+		where $\mu$, $\mathbf{\nu}$, $\mathbf{\Upsilon}$ denote respectively the scalar, vector and matrix Lagrange multiplier associated with constraint~\eqref{co:irs_equivalent_rate}, \eqref{co:irs_equivalent_modulus} and \eqref{co:irs_equivalent_sd}, and $\zeta$ collects all terms irrelevant to $\bar{\mathbf{\Theta}}^{(r)}$.
+		The \gls{kkt} conditions on the primal and dual solutions are
+		\begin{subequations}
+			\begin{equation}\label{eq:lagrange_multiplier}
+				\mu^\star \ge 0, \mathbf{\Upsilon}^\star \succeq \mathbf{0},
+			\end{equation}
+			\begin{equation}\label{eq:complementary_slackness}
+				\mathbf{\nu}^\star \odot \mathrm{diag}^{-1}(\bar{\mathbf{\Theta}}^\star) = \mathbf{0}, \mathbf{\Upsilon}^\star \bar{\mathbf{\Theta}}^\star = \mathbf{0},
+			\end{equation}
+			\begin{equation}\label{eq:gradient}
+				\nabla_{\bar{\mathbf{\Theta}}^\star} \mathcal{L} = 0.
+			\end{equation}
+		\end{subequations}
+		We then express \eqref{eq:gradient} explicitly as $\mathbf{\Upsilon}^\star = \mathbf{I} - \mathbf{\Delta}^\star$, where
+		\begin{equation}
+			\begin{split}\label{eq:delta}
+				\mathbf{\Delta}^\star
+				& = \frac{1}{2} \beta_2 \rho (\mathbf{C}_{\mathrm{I},0}+\mathbf{C}_{\mathrm{P},0})\\
+				& \quad + \frac{3}{4} \beta_4 \rho^2
+					\Biggl(
+						2 t_{\mathrm{I},0}^{(r-1)} \mathbf{C}_{\mathrm{I},0} + \sum_{k=-N+1}^{N-1} (t_{\mathrm{P},k}^{(r-1)})^* \mathbf{C}_{\mathrm{P},k} + 2 t_{\mathrm{P},0}^{(r-1)} \mathbf{C}_{\mathrm{I},0} + 2 t_{\mathrm{I},0}^{(r-1)} \mathbf{C}_{\mathrm{P},0}
+					\Biggr)\\
+				& \quad + \mu^\star \sum_{n=1}^N \frac{(1-\rho) \mathbf{C}_n}{\sigma_n^2} \prod_{n'=1,n' \ne n}^N \Biggl(
+					1 + \frac{(1-\rho)\mathrm{tr}\Bigl(
+						\mathbf{C}_{n'} \bar{\mathbf{\Theta}}^\star
+					\Bigr)}{\sigma_{n'}^2}
+				\Biggr) - \mathrm{diag}(\mathbf{\nu^\star}).
+			\end{split}
+		\end{equation}
+		Note that \eqref{eq:complementary_slackness} suggests $\mathrm{rank}(\mathbf{\Upsilon}^\star)+\mathrm{rank}(\bar{\mathbf{\Theta}}^\star) \le L+1$. By reusing the proof in \cite[Appendix~A]{Xu2020}, we conclude $\mathrm{rank}(\mathbf{\Upsilon}^\star) \ge L$. On the other hand, $\bar{\mathbf{\Theta}}^\star$ cannot be $\mathbf{0}$ and $\mathrm{rank}(\bar{\mathbf{\Theta}}^\star) \ge 1$. Therefore, any optimal solution $\bar{\mathbf{\Theta}}^\star$ to the relaxed problem~\eqref{op:irs_equivalent} must be rank-\num{1}. Due to the equivalence between \eqref{ob:irs} and \eqref{ob:irs_equivalent}, $\bar{\mathbf{\Theta}}^\star$ is also optimal to the relaxed problem~\eqref{op:irs}. The proof is completed.
+	\end{subsection}
 
-% 	\begin{subsection}{Proof of Proposition~\ref{pr:sca}}\label{ap:sca}
-% 		The objective function \eqref{ob:irs} is non-decreasing over iterations because the solution to \eqref{ob:irs}--\eqref{co:irs_sd} at iteration $r{-}1$ is still feasible at iteration $r$. As $r \to \infty$, $\tilde{z}(\bar{\mathbf{\Theta}}^{(r)})$ is bounded above because of the unit-modulus constraint \eqref{co:irs_modulus}. Thus, Algorithm~\ref{al:sca} is guaranteed to converge. Besides, we notice that Algorithm~\ref{al:sca} is an inner approximation algorithm \cite{Marks1978a}, because $\tilde{z}(\bar{\mathbf{\Theta}}) \le z(\bar{\mathbf{\Theta}})$, $\partial\tilde{z}(\bar{\mathbf{\Theta}}^{(r)})/\partial\bar{\mathbf{\Theta}}=\partial z(\bar{\mathbf{\Theta}}^{(r)})/\partial\bar{\mathbf{\Theta}}$ and the approximation \eqref{eq:taylor_1}--\eqref{eq:taylor_3} are asymptotically tight as $r \to \infty$ \cite{Li2013}. Therefore, it is guaranteed to provide a local optimal $\bar{\mathbf{\Theta}}^{\star}$ to the relaxed passive beamforming problem. According to Proposition~\ref{pr:relaxation}, $\bar{\mathbf{\Theta}}^{\star}$ is rank-\num{1} such that $\boldsymbol{\theta}^{\star}$ can be extracted without performance loss and the local optimality inherits to the original problem~\eqref{op:original}.
-% 	\end{subsection}
+	\begin{subsection}{Proof of Proposition~\ref{pr:sca}}\label{ap:sca}
+		The objective function \eqref{ob:irs} is non-decreasing over iterations because the solution to \eqref{ob:irs}--\eqref{co:irs_sd} at iteration $r{-}1$ is still feasible at iteration $r$. As $r \to \infty$, $\tilde{z}(\bar{\mathbf{\Theta}}^{(r)})$ is bounded above because of the unit-modulus constraint \eqref{co:irs_modulus}. Thus, Algorithm~\ref{al:sca} is guaranteed to converge. Besides, we notice that Algorithm~\ref{al:sca} is an inner approximation algorithm \cite{Marks1978a}, because $\tilde{z}(\bar{\mathbf{\Theta}}) \le z(\bar{\mathbf{\Theta}})$, $\partial\tilde{z}(\bar{\mathbf{\Theta}}^{(r)})/\partial\bar{\mathbf{\Theta}}=\partial z(\bar{\mathbf{\Theta}}^{(r)})/\partial\bar{\mathbf{\Theta}}$ and the approximation \eqref{eq:taylor_1}--\eqref{eq:taylor_3} are asymptotically tight as $r \to \infty$ \cite{Li2013}. Therefore, it is guaranteed to provide a local optimal $\bar{\mathbf{\Theta}}^{\star}$ to the relaxed passive beamforming problem. According to Proposition~\ref{pr:relaxation}, $\bar{\mathbf{\Theta}}^{\star}$ is rank-\num{1} such that $\boldsymbol{\theta}^{\star}$ can be extracted without performance loss and the local optimality inherits to the original problem~\eqref{op:original}.
+	\end{subsection}
 
-% 	\begin{subsection}{Proof of Proposition~\ref{pr:mrt}}\label{ap:mrt}
-% 		From the perspective of \gls{wit}, the \gls{mrt} precoder \eqref{eq:precoder_mrt} maximizes $\lvert{\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I}, n}}\rvert = \lVert{\mathbf{h}_{n}}\rVert s_{\mathrm{I}, n}$ and thus the rate \eqref{eq:R}. From the perspective of \gls{wpt}, the \gls{mrt} precoder \eqref{eq:precoder_mrt} maximizes $(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})^* = \lVert{\mathbf{h}_{n}}\rVert^2 s_{\mathrm{I/P}, n}^2$ and thus the second and fourth order \gls{dc} terms \eqref{eq:y_I2}--\eqref{eq:y_P4}. Therefore, the global optimal information and power precoders coincide at \gls{mrt}.
-% 	\end{subsection}
-% \end{section}
+	\begin{subsection}{Proof of Proposition~\ref{pr:mrt}}\label{ap:mrt}
+		From the perspective of \gls{wit}, the \gls{mrt} precoder \eqref{eq:precoder_mrt} maximizes $\lvert{\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I}, n}}\rvert = \lVert{\mathbf{h}_{n}}\rVert s_{\mathrm{I}, n}$ and thus the rate \eqref{eq:R}. From the perspective of \gls{wpt}, the \gls{mrt} precoder \eqref{eq:precoder_mrt} maximizes $(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})(\mathbf{h}_{n}^\mathsf{H} \mathbf{w}_{\mathrm{I/P}, n})^* = \lVert{\mathbf{h}_{n}}\rVert^2 s_{\mathrm{I/P}, n}^2$ and thus the second and fourth order \gls{dc} terms \eqref{eq:y_I2}--\eqref{eq:y_P4}. Therefore, the global optimal information and power precoders coincide at \gls{mrt}.
+	\end{subsection}
+\end{section}
 
-% \begin{section}{Proofs for Chapter \ref{ch:riscatter}}
-% 	\begin{subsection}{Proof of Proposition \ref{pr:input_kkt_condition}}
-% 		Denote the Lagrange multipliers associated with \eqref{co:sum_probability} and \eqref{co:nonnegative_probability} as $\{\nu_k\}_{k \in \mathcal{K}}$ and $\{\lambda_{m_k}\}_{k \in \mathcal{K},m_k \in \mathcal{M}}$, respectively.
-% 		The Lagrangian function of problem \eqref{op:input_distribution} is
-% 		\begin{equation}
-% 			L(p, \nu, \lambda) = I(x_{\mathcal{K}}) + \sum_k \nu_k \Bigl( \sum_{m_k} p(x_{m_k}) - 1 \Bigr) + \sum_{k,m_k} \lambda_{m_k} p(x_{m_k}),
-% 		\end{equation}
-% 		and the \gls{kkt} conditions are, $\forall k,m_k$,
-% 		\begin{subequations}
-% 			\label{eq:input_kkt_condition_original}
-% 			\begin{gather}
-% 				I_k^\star(x_{m_k}) - (1 - \rho) + \nu_k^\star + \lambda_{m_k}^\star = 0, \label{eq:input_kkt_condition_1} \\
-% 				\lambda_{m_k}^\star = 0, \quad    \text{if} \ p^\star(x_{m_k}) > 0, \label{eq:input_kkt_condition_2} \\
-% 				\lambda_{m_k}^\star \ge 0, \quad  \text{if} \ p^\star(x_{m_k}) = 0 \label{eq:input_kkt_condition_3}.
-% 			\end{gather}
-% 		\end{subequations}
-% 		Plugging \eqref{eq:input_kkt_condition_2} and \eqref{eq:input_kkt_condition_3} into \eqref{eq:input_kkt_condition_1} yields
-% 		\begin{subequations}
-% 			\label{eq:input_kkt_condition_transformed}
-% 			\begin{alignat}{2}
-% 				I_k^\star(x_{m_k}) & = 1 - \rho - \nu_k^\star, \quad   &  & \text{if} \ p^\star(x_{m_k}) > 0,\label{eq:probable_states_marginal} \\
-% 				I_k^\star(x_{m_k}) & \le 1 - \rho - \nu_k^\star, \quad &  & \text{if} \ p^\star(x_{m_k}) = 0,\label{eq:dropped_states_marginal}
-% 			\end{alignat}
-% 		\end{subequations}
-% 		such that
-% 		\begin{equation}
-% 			\sum_{m_k} p^\star(x_{m_k}) I_k^\star(x_{m_k}) = 1 - \rho - \nu_k^\star.
-% 			\label{eq:input_kkt_condition_implied}
-% 		\end{equation}
-% 		On the other hand, by definition \eqref{eq:weighted_sum_marginal_information} we have
-% 		\begin{equation}
-% 			\sum_{m_k} p^\star(x_{m_k}) I_k^\star(x_{m_k}) = I^\star(x_{\mathcal{K}}),
-% 			\label{eq:weighted_sum_marginal_information_implied}
-% 		\end{equation}
-% 		where the right-hand side is irrelevant to $k$.
-% 		\eqref{eq:input_kkt_condition_transformed}, \eqref{eq:input_kkt_condition_implied}, and \eqref{eq:weighted_sum_marginal_information_implied} together complete the proof.
-% 		\label{ap:input_kkt_condition}
-% 	\end{subsection}
+\begin{section}{Proofs for Chapter \ref{ch:riscatter}}
+	\begin{subsection}{Proof of Proposition \ref{pr:input_kkt_condition}}
+		Denote the Lagrange multipliers associated with \eqref{co:sum_probability} and \eqref{co:nonnegative_probability} as $\{\nu_k\}_{k \in \mathcal{K}}$ and $\{\lambda_{m_k}\}_{k \in \mathcal{K},m_k \in \mathcal{M}}$, respectively.
+		The Lagrangian function of problem \eqref{op:input_distribution} is
+		\begin{equation}
+			L(p, \nu, \lambda) = I(x_{\mathcal{K}}) + \sum_k \nu_k \Bigl( \sum_{m_k} p(x_{m_k}) - 1 \Bigr) + \sum_{k,m_k} \lambda_{m_k} p(x_{m_k}),
+		\end{equation}
+		and the \gls{kkt} conditions are, $\forall k,m_k$,
+		\begin{subequations}
+			\label{eq:input_kkt_condition_original}
+			\begin{gather}
+				I_k^\star(x_{m_k}) - (1 - \rho) + \nu_k^\star + \lambda_{m_k}^\star = 0, \label{eq:input_kkt_condition_1} \\
+				\lambda_{m_k}^\star = 0, \quad    \text{if} \ p^\star(x_{m_k}) > 0, \label{eq:input_kkt_condition_2} \\
+				\lambda_{m_k}^\star \ge 0, \quad  \text{if} \ p^\star(x_{m_k}) = 0 \label{eq:input_kkt_condition_3}.
+			\end{gather}
+		\end{subequations}
+		Plugging \eqref{eq:input_kkt_condition_2} and \eqref{eq:input_kkt_condition_3} into \eqref{eq:input_kkt_condition_1} yields
+		\begin{subequations}
+			\label{eq:input_kkt_condition_transformed}
+			\begin{alignat}{2}
+				I_k^\star(x_{m_k}) & = 1 - \rho - \nu_k^\star, \quad   &  & \text{if} \ p^\star(x_{m_k}) > 0,\label{eq:probable_states_marginal} \\
+				I_k^\star(x_{m_k}) & \le 1 - \rho - \nu_k^\star, \quad &  & \text{if} \ p^\star(x_{m_k}) = 0,\label{eq:dropped_states_marginal}
+			\end{alignat}
+		\end{subequations}
+		such that
+		\begin{equation}
+			\sum_{m_k} p^\star(x_{m_k}) I_k^\star(x_{m_k}) = 1 - \rho - \nu_k^\star.
+			\label{eq:input_kkt_condition_implied}
+		\end{equation}
+		On the other hand, by definition \eqref{eq:weighted_sum_marginal_information} we have
+		\begin{equation}
+			\sum_{m_k} p^\star(x_{m_k}) I_k^\star(x_{m_k}) = I^\star(x_{\mathcal{K}}),
+			\label{eq:weighted_sum_marginal_information_implied}
+		\end{equation}
+		where the right-hand side is irrelevant to $k$.
+		\eqref{eq:input_kkt_condition_transformed}, \eqref{eq:input_kkt_condition_implied}, and \eqref{eq:weighted_sum_marginal_information_implied} together complete the proof.
+		\label{ap:input_kkt_condition}
+	\end{subsection}
 
-% 	\begin{subsection}{Proof of Proposition \ref{pr:input_kkt_solution}}
-% 		We first prove sequence \eqref{eq:input_kkt_solution} is non-decreasing in weighted sum mutual information.
-% 		Let $p(x_{m_{\mathcal{K}}}) = \prod_{q \in \mathcal{K}} p(x_{m_q})$ and $p'(x_{m_{\mathcal{K}}}) = p'(x_{m_k}) \prod_{q \in \mathcal{K} \setminus \{k\}} p(x_{m_q})$ be two distributions potentially different at $x_{m_k}$, and $J \bigl(p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)$ be a joint function defined as
-% 		\begin{equation}
-% 			\begin{split}
-% 				J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)
-% 				& \triangleq \sum_{m_{\mathcal{K}}} p(x_{m_{\mathcal{K}}})
-% 				\Biggl( \rho \log \Bigl(1 + \frac{\lvert \mathbf{h}^\mathsf{H}(x_{m_{\mathcal{K}}}) \mathbf{w} \rvert^2}{\sigma_v^2}\Bigr)\\
-% 				& \quad + (1 - \rho) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log \frac{q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) p'(x_{m_{\mathcal{K}}})}{p'(\hat{x}_{m_{\mathcal{K}}'}) p(x_{m_{\mathcal{K}}})} \Biggr).
-% 			\end{split}
-% 			\label{eq:intermediate_information_function}
-% 		\end{equation}
-% 		It is straightforward to verify $J \bigl( p(x_{m_{\mathcal{K}}}),p(x_{m_{\mathcal{K}}}) \bigr) = I(x_{\mathcal{K}})$ and $J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)$ is a concave function for a given $p'(x_{m_{\mathcal{K}}})$.
-% 		Setting $\nabla_{p(x_{m_k})} J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr) = 0$ yields
-% 		\begin{equation}
-% 			S_k'(x_{m_k}) - S_k'(x_{i_k}) + (1 - \rho) \log \frac{p(x_{i_k})}{p^\star(x_{m_k})} = 0,
-% 			\label{eq:optimal_intermediate_information_condition}
-% 		\end{equation}
-% 		where $i_k \ne m_k$ is the reference state and
-% 		\begin{equation}
-% 			S_k'(x_{m_k}) \triangleq I_k'(x_{m_k}) + (1 - \rho) \sum_{m_{\mathcal{K} \setminus \{k\}}} p(x_{m_{\mathcal{K} \setminus \{k\}}}) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log p'(x_{m_{\mathcal{K}}}).
-% 		\end{equation}
-% 		Evidently, $\forall m_k \ne i_k$, \eqref{eq:optimal_intermediate_information_condition} boils down to
-% 		\begin{equation}
-% 			p^\star(x_{m_k}) = \frac{p'(x_{m_k}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k}) \Bigr)}{\sum_{m_k'} p'(x_{m_k'}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k'}) \Bigr)}.
-% 			\label{eq:optimal_relative_distribution}
-% 		\end{equation}
-% 		Since $p(x_{i_k}) = 1 - \sum_{m_k \ne i_k} p^\star(x_{m_k})$ has exactly the same form as \eqref{eq:optimal_relative_distribution}, the choice of reference does not matter and \eqref{eq:optimal_relative_distribution} is optimal $\forall m_k \in \mathcal{M}$.
-% 		That is, for a fixed $p'(x_{m_{\mathcal{K}}})$, \eqref{eq:optimal_relative_distribution} ensures
-% 		\begin{equation}
-% 			J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr) \ge I'(x_{\mathcal{K}}).
-% 			\label{eq:information_difference_lower}
-% 		\end{equation}
-% 		On the other hand, we notice
-% 		\begin{subequations}
-% 			\allowdisplaybreaks
-% 			\label{eq:information_difference_upper}
-% 			\begin{align}
-% 				 & I(x_{\mathcal{K}}) - J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)                                                                                                                    \nonumber           \\
-% 				 & = (1 - \rho) \sum_{m_k} \frac{p'(x_{m_k}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \log \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}                                   \\
-% 				 & \ge (1 - \rho) \sum_{m_k} \frac{p'(x_{m_k}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \Biggl( 1 - \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k})} \Biggr)                    \\
-% 				 & = (1 - \rho) \Biggl( 1 - \sum_{m_k} \frac{p'(x_{m_k}) \cancel{f_k'(x_{m_k})}}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) \cancel{f_k'(x_{m_k})}} \Biggr)                       \\
-% 				 & = (1 - \rho) \Biggl( 1 - \sum_{m_{\mathcal{K}}''} \frac{\cancel{\sum_{m_k} p'(x_{m_k}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k})}}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\cancel{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'})}} \Biggr)                                     \\
-% 				 & = (1 - \rho) \Biggl( 1 - \frac{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'}) \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \Biggr)                        \nonumber \\
-% 				 & = 0,
-% 			\end{align}
-% 		\end{subequations}
-% 		where $f_k'(x_{m_k}) \triangleq \exp \bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k}) \bigr)$ and the equality holds if and only if $p(x_{m_{\mathcal{K}}})$ and $p'(x_{m_{\mathcal{K}}})$ equals (i.e., \eqref{eq:optimal_relative_distribution} converges).
-% 		\eqref{eq:information_difference_lower} and \eqref{eq:information_difference_upper} together imply $I(x_{\mathcal{K}}) \ge I'(x_{\mathcal{K}})$.
-% 		Since mutual information is bounded above, we conclude the sequence \eqref{eq:input_kkt_solution} is non-decreasing and convergent.
+	\begin{subsection}{Proof of Proposition \ref{pr:input_kkt_solution}}
+		We first prove sequence \eqref{eq:input_kkt_solution} is non-decreasing in weighted sum mutual information.
+		Let $p(x_{m_{\mathcal{K}}}) = \prod_{q \in \mathcal{K}} p(x_{m_q})$ and $p'(x_{m_{\mathcal{K}}}) = p'(x_{m_k}) \prod_{q \in \mathcal{K} \setminus \{k\}} p(x_{m_q})$ be two distributions potentially different at $x_{m_k}$, and $J \bigl(p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)$ be a joint function defined as
+		\begin{equation}
+			\begin{split}
+				J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)
+				& \triangleq \sum_{m_{\mathcal{K}}} p(x_{m_{\mathcal{K}}})
+				\Biggl( \rho \log \Bigl(1 + \frac{\lvert \mathbf{h}^\mathsf{H}(x_{m_{\mathcal{K}}}) \mathbf{w} \rvert^2}{\sigma_v^2}\Bigr)\\
+				& \quad + (1 - \rho) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log \frac{q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) p'(x_{m_{\mathcal{K}}})}{p'(\hat{x}_{m_{\mathcal{K}}'}) p(x_{m_{\mathcal{K}}})} \Biggr).
+			\end{split}
+			\label{eq:intermediate_information_function}
+		\end{equation}
+		It is straightforward to verify $J \bigl( p(x_{m_{\mathcal{K}}}),p(x_{m_{\mathcal{K}}}) \bigr) = I(x_{\mathcal{K}})$ and $J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)$ is a concave function for a given $p'(x_{m_{\mathcal{K}}})$.
+		Setting $\nabla_{p(x_{m_k})} J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr) = 0$ yields
+		\begin{equation}
+			S_k'(x_{m_k}) - S_k'(x_{i_k}) + (1 - \rho) \log \frac{p(x_{i_k})}{p^\star(x_{m_k})} = 0,
+			\label{eq:optimal_intermediate_information_condition}
+		\end{equation}
+		where $i_k \ne m_k$ is the reference state and
+		\begin{equation}
+			S_k'(x_{m_k}) \triangleq I_k'(x_{m_k}) + (1 - \rho) \sum_{m_{\mathcal{K} \setminus \{k\}}} p(x_{m_{\mathcal{K} \setminus \{k\}}}) \sum_{m_{\mathcal{K}}'} q(\hat{x}_{m_{\mathcal{K}}'}|x_{m_{\mathcal{K}}}) \log p'(x_{m_{\mathcal{K}}}).
+		\end{equation}
+		Evidently, $\forall m_k \ne i_k$, \eqref{eq:optimal_intermediate_information_condition} boils down to
+		\begin{equation}
+			p^\star(x_{m_k}) = \frac{p'(x_{m_k}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k}) \Bigr)}{\sum_{m_k'} p'(x_{m_k'}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k'}) \Bigr)}.
+			\label{eq:optimal_relative_distribution}
+		\end{equation}
+		Since $p(x_{i_k}) = 1 - \sum_{m_k \ne i_k} p^\star(x_{m_k})$ has exactly the same form as \eqref{eq:optimal_relative_distribution}, the choice of reference does not matter and \eqref{eq:optimal_relative_distribution} is optimal $\forall m_k \in \mathcal{M}$.
+		That is, for a fixed $p'(x_{m_{\mathcal{K}}})$, \eqref{eq:optimal_relative_distribution} ensures
+		\begin{equation}
+			J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr) \ge I'(x_{\mathcal{K}}).
+			\label{eq:information_difference_lower}
+		\end{equation}
+		On the other hand, we notice
+		\begin{subequations}
+			\allowdisplaybreaks
+			\label{eq:information_difference_upper}
+			\begin{align}
+				 & I(x_{\mathcal{K}}) - J \bigl( p(x_{m_{\mathcal{K}}}),p'(x_{m_{\mathcal{K}}}) \bigr)                                                                                                                    \nonumber           \\
+				 & = (1 - \rho) \sum_{m_k} \frac{p'(x_{m_k}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \log \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}                                   \\
+				 & \ge (1 - \rho) \sum_{m_k} \frac{p'(x_{m_k}) f_k'(x_{m_k})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \Biggl( 1 - \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k})} \Biggr)                    \\
+				 & = (1 - \rho) \Biggl( 1 - \sum_{m_k} \frac{p'(x_{m_k}) \cancel{f_k'(x_{m_k})}}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k}) \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) \cancel{f_k'(x_{m_k})}} \Biggr)                       \\
+				 & = (1 - \rho) \Biggl( 1 - \sum_{m_{\mathcal{K}}''} \frac{\cancel{\sum_{m_k} p'(x_{m_k}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k})}}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \frac{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'}) f_k'(x_{m_k'})}{\cancel{\sum_{m_k'} p'(x_{m_k'}) q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'})}} \Biggr)                                     \\
+				 & = (1 - \rho) \Biggl( 1 - \frac{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'}) \sum_{m_{\mathcal{K}}''} q(\hat{x}_{m_{\mathcal{K}}''}|x_{m_k'})}{\sum_{m_k'} p'(x_{m_k'}) f_k'(x_{m_k'})} \Biggr)                        \nonumber \\
+				 & = 0,
+			\end{align}
+		\end{subequations}
+		where $f_k'(x_{m_k}) \triangleq \exp \bigl( \frac{\rho}{1 - \rho} I_k'(x_{m_k}) \bigr)$ and the equality holds if and only if $p(x_{m_{\mathcal{K}}})$ and $p'(x_{m_{\mathcal{K}}})$ equals (i.e., \eqref{eq:optimal_relative_distribution} converges).
+		\eqref{eq:information_difference_lower} and \eqref{eq:information_difference_upper} together imply $I(x_{\mathcal{K}}) \ge I'(x_{\mathcal{K}})$.
+		Since mutual information is bounded above, we conclude the sequence \eqref{eq:input_kkt_solution} is non-decreasing and convergent.
 
-% 		Next, we prove any converging point of sequence \eqref{eq:input_kkt_solution}, denoted as $p^\star(x_{m_k})$, fulfills the \gls{kkt} conditions \eqref{eq:input_kkt_condition}.
-% 		Let
-% 		\begin{equation}
-% 			D^{(r)}(x_{m_k}) \triangleq \frac{p^{(r+1)}(x_{m_k})}{p^{(r)}(x_{m_k})} = \frac{f_k^{(r)}(x_{m_k})}{\sum_{m_k'} p^{(r)}(x_{m_k'}) f_k^{(r)}(x_{m_k'})}.
-% 		\end{equation}
-% 		As sequence \eqref{eq:input_kkt_solution} is convergent, any state with $p^\star(x_{m_k}) > 0$ need to satisfy $D^\star(x_{m_k}) \triangleq \lim_{r \to \infty} D^{(r)}(x_{m_k}) = 1$, namely
-% 		\begin{equation}
-% 			I_k^\star(x_{m_k}) = \frac{1 - \rho}{\rho} \log \sum_{m_k'} p^\star(x_{m_k'}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k^\star(x_{m_k'}) \Bigr).
-% 		\end{equation}
-% 		The right-hand side is a constant for node $k$ and implies \eqref{eq:probable_states_marginal}.
-% 		That is, any converging point with nonzero probability must satisfy \eqref{eq:probable_states}.
-% 		On the other hand, we assume $p^\star(x_{m_k}) = 0$ does not satisfy \eqref{eq:dropped_states}, namely
-% 		\begin{equation}
-% 			I_k^\star(x_{m_k}) > I^\star(x_{\mathcal{K}}) = \sum_{m_k'} p^\star(x_{m_k'}) I_k^\star(x_{m_k'}),
-% 			\label{eq:dropped_states_assumption}
-% 		\end{equation}
-% 		Since the exponential function is monotonically increasing, \eqref{eq:dropped_states_assumption} implies $f_k^\star(x_{m_k}) > \sum_{m_k'} p^\star(x_{m_k'}) f_k^\star(x_{m_k'})$ and $D^\star(x_{m_k}) > 1$.
-% 		It contradicts with
-% 		\begin{equation}
-% 			p^{(r)}(x_{m_k}) = p^{(0)}(x_{m_k}) \prod_{n=1}^r D^{(n)}(x_{m_k}),
-% 		\end{equation}
-% 		since the left-hand side is zero while all terms on the right-hand side are strictly positive.
-% 		The proof is completed.
-% 		\label{ap:input_kkt_solution}
-% 	\end{subsection}
-% \end{section}
+		Next, we prove any converging point of sequence \eqref{eq:input_kkt_solution}, denoted as $p^\star(x_{m_k})$, fulfills the \gls{kkt} conditions \eqref{eq:input_kkt_condition}.
+		Let
+		\begin{equation}
+			D^{(r)}(x_{m_k}) \triangleq \frac{p^{(r+1)}(x_{m_k})}{p^{(r)}(x_{m_k})} = \frac{f_k^{(r)}(x_{m_k})}{\sum_{m_k'} p^{(r)}(x_{m_k'}) f_k^{(r)}(x_{m_k'})}.
+		\end{equation}
+		As sequence \eqref{eq:input_kkt_solution} is convergent, any state with $p^\star(x_{m_k}) > 0$ need to satisfy $D^\star(x_{m_k}) \triangleq \lim_{r \to \infty} D^{(r)}(x_{m_k}) = 1$, namely
+		\begin{equation}
+			I_k^\star(x_{m_k}) = \frac{1 - \rho}{\rho} \log \sum_{m_k'} p^\star(x_{m_k'}) \exp \Bigl( \frac{\rho}{1 - \rho} I_k^\star(x_{m_k'}) \Bigr).
+		\end{equation}
+		The right-hand side is a constant for node $k$ and implies \eqref{eq:probable_states_marginal}.
+		That is, any converging point with nonzero probability must satisfy \eqref{eq:probable_states}.
+		On the other hand, we assume $p^\star(x_{m_k}) = 0$ does not satisfy \eqref{eq:dropped_states}, namely
+		\begin{equation}
+			I_k^\star(x_{m_k}) > I^\star(x_{\mathcal{K}}) = \sum_{m_k'} p^\star(x_{m_k'}) I_k^\star(x_{m_k'}),
+			\label{eq:dropped_states_assumption}
+		\end{equation}
+		Since the exponential function is monotonically increasing, \eqref{eq:dropped_states_assumption} implies $f_k^\star(x_{m_k}) > \sum_{m_k'} p^\star(x_{m_k'}) f_k^\star(x_{m_k'})$ and $D^\star(x_{m_k}) > 1$.
+		It contradicts with
+		\begin{equation}
+			p^{(r)}(x_{m_k}) = p^{(0)}(x_{m_k}) \prod_{n=1}^r D^{(n)}(x_{m_k}),
+		\end{equation}
+		since the left-hand side is zero while all terms on the right-hand side are strictly positive.
+		The proof is completed.
+		\label{ap:input_kkt_solution}
+	\end{subsection}
+\end{section}
 
 \begin{section}{Proofs for Chapter \ref{ch:channel_shaping}}
 	\begin{subsection}{Proof of Lemma \ref{lm:pareto_gradient}}\label{ap:pareto_gradient}
