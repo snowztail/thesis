@@ -726,7 +726,8 @@
 	\addcontentsline=\nocontentsline#1{#2}
 	\egroup}
 % Removes pagenumber appearing from TOC
-\addtocontents{toc}{\protect\thispagestyle{empty}}
+% \addtocontents{toc}{\protect\thispagestyle{empty}}
+\addtocontents{toc}{}
 
 
 % ***************************** Header Formatting ******************************
@@ -788,8 +789,11 @@
 %\renewcommand{\headrulewidth}{0.5pt}
 %\renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{
-	\fancyhead{}
-	\renewcommand{\headrulewidth}{0pt}
+	% \fancyhead{}
+	% \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\nouppercase \rightmark}
+  \fancyhead[LE,RO]{\bfseries\thepage}
+  \fancyhead[RE]{\nouppercase \leftmark}
 }
 
 % If Margin has been set (default margin print/online version)

@@ -215,7 +215,7 @@
 		\begin{equation}
 			\sigma_n = \mathbf{u}_n^\mathsf{H} \mathbf{H} \mathbf{v}_n = \mathbf{u}_n^\mathsf{T} \mathbf{H}^* \mathbf{v}_n^*,
 		\end{equation}
-		whose differential w.r.t. $\mathbf{\Theta}_g^*$ is
+		whose differential with respect to $\mathbf{\Theta}_g^*$ is
 		\begin{align*}
 			\partial \sigma_n
 			 & = \partial \mathbf{u}_n^\mathsf{T} \underbrace{\mathbf{H}^* \mathbf{v}_n^*}_{\sum_m \mathbf{u}_m^* \sigma_m \mathbf{v}_m^\mathsf{T} \mathbf{v}_n} + \mathbf{u}_n^\mathsf{T} \cdot \partial \mathbf{H}^* \cdot \mathbf{v}_n^* + \underbrace{\mathbf{u}_n^\mathsf{T} \mathbf{H}^*}_{\mathbf{u}_n^\mathsf{T} \sum_m \mathbf{u}_m^* \sigma_m \mathbf{v}_m^\mathsf{T}} \partial \mathbf{v}_n^* \\
@@ -257,10 +257,8 @@
 		\begin{equation*}
 			\begin{split}
 				\mathbf{G}
-				& = \mathbf{H}_\mathrm{D} \mathbf{H}_\mathrm{D}^\mathsf{H} + \mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F}^\mathsf{H} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \\
-				& \quad + \mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{V}_\mathrm{F}^\mathsf{H} \mathbf{H}_\mathrm{D}^\mathsf{H} + \mathbf{H}_\mathrm{D} \mathbf{V}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \\
-				& = \mathbf{H}_\mathrm{D} (\mathbf{I} - \mathbf{V}_\mathrm{F} \mathbf{V}_\mathrm{F}^\mathsf{H}) \mathbf{H}_\mathrm{D}^\mathsf{H} \\
-				& \quad + (\mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} + \mathbf{H}_\mathrm{D} \mathbf{V}_\mathrm{F}) (\mathbf{\Sigma}_\mathrm{F} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} + \mathbf{V}_\mathrm{F}^\mathsf{H} \mathbf{H}_\mathrm{D}^\mathsf{H}) \\
+				& = \mathbf{H}_\mathrm{D} \mathbf{H}_\mathrm{D}^\mathsf{H} + \mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F}^\mathsf{H} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} + \mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{V}_\mathrm{F}^\mathsf{H} \mathbf{H}_\mathrm{D}^\mathsf{H} + \mathbf{H}_\mathrm{D} \mathbf{V}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \\
+				& = \mathbf{H}_\mathrm{D} (\mathbf{I} - \mathbf{V}_\mathrm{F} \mathbf{V}_\mathrm{F}^\mathsf{H}) \mathbf{H}_\mathrm{D}^\mathsf{H} + (\mathbf{H}_\mathrm{B} \mathbf{\Theta} \mathbf{U}_\mathrm{F} \mathbf{\Sigma}_\mathrm{F} + \mathbf{H}_\mathrm{D} \mathbf{V}_\mathrm{F}) (\mathbf{\Sigma}_\mathrm{F} \mathbf{U}_\mathrm{F}^\mathsf{H} \mathbf{\Theta}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} + \mathbf{V}_\mathrm{F}^\mathsf{H} \mathbf{H}_\mathrm{D}^\mathsf{H}) \\
 				& = \mathbf{Y} + \mathbf{Z} \mathbf{Z}^\mathsf{H},
 			\end{split}
 		\end{equation*}
@@ -298,7 +296,7 @@
 	\end{subsection}
 
 	\begin{subsection}{Proof of Lemma \ref{lm:rate_gradient}}\label{ap:rate_gradient}
-		The differential of $R$ w.r.t. $\mathbf{\Theta}_g^*$ is \cite{Hjorungnes2007}
+		The differential of $R$ with respect to $\mathbf{\Theta}_g^*$ is \cite{Hjorungnes2007}
 		\begin{align*}
 			\partial R
 			 & = \frac{1}{\eta} \mathrm{tr} \biggl\{ \partial \mathbf{H}^* \cdot \mathbf{Q}^\mathsf{T} \mathbf{H}^\mathsf{T} \Bigl(\mathbf{I} + \frac{\mathbf{H}^* \mathbf{Q}^\mathsf{T} \mathbf{H}^\mathsf{T}}{\eta}\Bigr)^{-1} \biggr\}                                                                      \\
@@ -309,7 +307,7 @@
 	\end{subsection}
 
 	\begin{subsection}{Proof of Proposition \ref{pp:power}}\label{ap:power}
-		The differential of \eqref{ob:power_passive} w.r.t. $\mathbf{\Theta}_g^*$ is
+		The differential of \eqref{ob:power_passive} with respect to $\mathbf{\Theta}_g^*$ is
 		\begin{align*}
 			\partial \lVert \mathbf{H} \rVert _\mathrm{F}^2
 			 & = \mathrm{tr}\bigl(\mathbf{H}_{\mathrm{B},g}^* \cdot \partial \mathbf{\Theta}_g^* \cdot \mathbf{H}_{\mathrm{F},g}^* (\mathbf{H}_\mathrm{D}^\mathsf{T} + \mathbf{H}_\mathrm{F}^\mathsf{T} \mathbf{\Theta}^\mathsf{T} \mathbf{H}_\mathrm{B}^\mathsf{T})\bigr) \\
@@ -334,30 +332,40 @@
 		The upper bound is tight when $\mathbf{V}_g^\mathsf{H} \mathbf{\Theta}_g^\mathsf{H} \mathbf{U}_g = \mathbf{I}$, which implies the optimal solution of \eqref{op:power_passive_approx} is $\tilde{\mathbf{\Theta}}_g = \mathbf{U}_g \mathbf{V}_g^\mathsf{H}$, $\forall g$.
 
 		Next, we prove that solving \eqref{op:power_passive_approx} successively does not decrease \eqref{ob:power_passive}.
-		Since $\tilde{\mathbf{\Theta}}$ optimal for problem \eqref{op:power_passive_approx}, we have $\sum_g 2 \Re\bigl\{ \mathrm{tr}(\tilde{\mathbf{\Theta}}_g^\mathsf{H} \mathbf{M}_g) \bigr\} \ge \sum_g 2 \Re\bigl\{ \mathrm{tr}(\mathbf{\Theta}_g^\mathsf{H} \mathbf{M}_g) \bigr\}$ which is explicitly expressed by \eqref{iq:power_passive_approx}.
+		Since $\tilde{\mathbf{\Theta}}$ optimal for problem \eqref{op:power_passive_approx}, we have $\sum_g 2 \Re\bigl\{ \mathrm{tr}(\tilde{\mathbf{\Theta}}_g^\mathsf{H} \mathbf{M}_g) \bigr\} \ge \sum_g 2 \Re\bigl\{ \mathrm{tr}(\mathbf{\Theta}_g^\mathsf{H} \mathbf{M}_g) \bigr\}$ which is explicitly expressed by
+		\begin{multline}
+			\label{iq:power_passive_approx}
+			2 \Re \Bigl\{\sum\limits_g \mathrm{tr}(\tilde{\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}(\tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\} \\
+			\ge 2 \Re \Bigl\{\sum\limits_g \mathrm{tr}({\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}({\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\}.
+		\end{multline}
 		% Expanding both side gives \eqref{iq:power_passive_approx}.
-		On the other hand, expanding $\lVert \sum_g \mathbf{H}_{\mathrm{B},g} \tilde{\mathbf{\Theta}}_g \mathbf{H}_{\mathrm{F},g} - \sum_g \mathbf{H}_{\mathrm{B},g} \mathbf{\Theta}_g \mathbf{H}_{\mathrm{F},g} \rVert _\mathrm{F}^2 \ge 0$ gives \eqref{iq:nonnegative_norm_square}.
+		On the other hand, expanding $\lVert \sum_g \mathbf{H}_{\mathrm{B},g} \tilde{\mathbf{\Theta}}_g \mathbf{H}_{\mathrm{F},g} - \sum_g \mathbf{H}_{\mathrm{B},g} \mathbf{\Theta}_g \mathbf{H}_{\mathrm{F},g} \rVert _\mathrm{F}^2 \ge 0$ gives
+		\begin{multline}
+			\label{iq:nonnegative_norm_square}
+			\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \tilde{\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) - 2 \Re \Bigl\{\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2})\Bigr\}\\
+			+ \sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} {\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} {\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) \ge 0.
+		\end{multline}
 		Adding \eqref{iq:power_passive_approx} and \eqref{iq:nonnegative_norm_square}, we have
 		\begin{multline}
 			2 \Re \Bigl\{\mathrm{tr}(\tilde{\mathbf{\Theta}}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_\mathrm{F}^\mathsf{H}) \Bigr\} + \mathrm{tr}(\mathbf{H}_\mathrm{F}^\mathsf{H} \tilde{\mathbf{\Theta}}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \mathbf{H}_\mathrm{B} \tilde{\mathbf{\Theta}} \mathbf{H}_\mathrm{F}) \\
 			\ge 2 \Re \Bigl\{\mathrm{tr}({\mathbf{\Theta}}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_\mathrm{F}^\mathsf{H}) \Bigr\} + \mathrm{tr}(\mathbf{H}_\mathrm{F}^\mathsf{H} {\mathbf{\Theta}}^\mathsf{H} \mathbf{H}_\mathrm{B}^\mathsf{H} \mathbf{H}_\mathrm{B} {\mathbf{\Theta}} \mathbf{H}_\mathrm{F}),
 		\end{multline}
 		which suggests that updating $\tilde{\mathbf{\Theta}}$ does not decrease \eqref{ob:power_passive}.
-		\begin{figure*}
-			\begin{equation}
-				\label{iq:power_passive_approx}
-				\resizebox{0.95\textwidth}{!}{
-					$2 \Re \Bigl\{\sum\limits_g \mathrm{tr}(\tilde{\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}(\tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\} \ge 2 \Re \Bigl\{\sum\limits_g \mathrm{tr}({\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}({\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\}$
-				}
-			\end{equation}
-			\begin{equation}
-				\label{iq:nonnegative_norm_square}
-				\resizebox{0.95\textwidth}{!}{
-					$\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \tilde{\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) - 2 \Re \Bigl\{\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2})\Bigr\} + \sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} {\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} {\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) \ge 0$
-				}
-			\end{equation}
-			\hrulefill
-		\end{figure*}
+		% \begin{figure*}
+			% \begin{equation}
+			% 	\label{iq:power_passive_approx}
+			% 	\resizebox{0.95\textwidth}{!}{
+			% 		$2 \Re \Bigl\{\sum\limits_g \mathrm{tr}(\tilde{\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}(\tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\} \ge 2 \Re \Bigl\{\sum\limits_g \mathrm{tr}({\mathbf{\Theta}}_g^\mathsf{H} \mathbf{H}_{\mathrm{B},g}^\mathsf{H} \mathbf{H}_\mathrm{D} \mathbf{H}_{\mathrm{F},g}^\mathsf{H}) + \sum\limits_{g_1,g_2} \mathrm{tr}({\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2} \mathbf{H}_{\mathrm{F},g_1}^\mathsf{H})\Bigr\}$
+			% 	}
+			% \end{equation}
+		% 	\begin{equation}
+		% 		\label{iq:nonnegative_norm_square}
+		% 		\resizebox{0.95\textwidth}{!}{
+		% 			$\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \tilde{\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) - 2 \Re \Bigl\{\sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} \tilde{\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} \mathbf{\Theta}_{g_2} \mathbf{H}_{\mathrm{F},g_2})\Bigr\} + \sum\limits_{g_1,g_2} \mathrm{tr}(\mathbf{H}_{\mathrm{F},g_1}^\mathsf{H} {\mathbf{\Theta}}_{g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_1}^\mathsf{H} \mathbf{H}_{\mathrm{B},g_2} {\mathbf{\Theta}}_{g_2} \mathbf{H}_{\mathrm{F},g_2}) \ge 0$
+		% 		}
+		% 	\end{equation}
+		% 	\hrulefill
+		% \end{figure*}
 
 		Finally, we prove that the converging point of \eqref{op:power_passive_approx}, denoted by $\tilde{\mathbf{\Theta}}^?$, is a stationary point of \eqref{op:power_passive}.
 		The \gls{kkt} conditions of \eqref{op:power_passive} and \eqref{op:power_passive_approx} are equivalent in terms of primal/dual feasibility and complementary slackness, while the stationary conditions are respectively, $\forall g$,

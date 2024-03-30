@@ -14,10 +14,10 @@ width=9.509cm,
 height=7.5cm,
 at={(0cm,0cm)},
 scale only axis,
-xmin=-10,
-xmax=30,
+xmin=-20,
+xmax=20,
 xlabel style={font=\color{white!15!black}},
-xlabel={Direct SNR [dB]},
+xlabel={Transmit Power [dB]},
 ymin=6.48635941156549,
 ymax=201.987610000957,
 ylabel style={font=\color{white!15!black}},
@@ -29,71 +29,71 @@ legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align
 ]
 \addplot [color=black, line width=2.0pt]
   table[row sep=crcr]{%
--10	6.48635941156549\\
-0	21.5214871275404\\
-10	45.0265046723773\\
-20	72.422439336639\\
-30	100.563098683264\\
+-20	6.48635941156549\\
+-10	21.5214871275404\\
+0	45.0265046723773\\
+10	72.422439336639\\
+20	100.563098683264\\
 };
 \addlegendentry{$N_\mathrm{S} = 0$}
 
 \addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
   table[row sep=crcr]{%
--10	7.02117917137241\\
-0	22.8962031384014\\
-10	47.4237237465048\\
-20	75.0272993980888\\
-30	103.194018898239\\
+-20	7.02117917137241\\
+-10	22.8962031384014\\
+0	47.4237237465048\\
+10	75.0272993980888\\
+20	103.194018898239\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (32, 1)$}
 
 \addplot [color=mycolor1, dashed, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
   table[row sep=crcr]{%
--10	7.37089652749512\\
-0	23.9754474544347\\
-10	48.9396257237975\\
-20	76.6135852502643\\
-30	104.777858029664\\
+-20	7.37089652749512\\
+-10	23.9754474544347\\
+0	48.9396257237975\\
+10	76.6135852502643\\
+20	104.777858029664\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (32, 4)$}
 
 \addplot [color=mycolor1, dotted, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
   table[row sep=crcr]{%
--10	7.92080329467276\\
-0	25.4942113008919\\
-10	50.8392698133478\\
-20	78.6205392734233\\
-30	106.807080544116\\
+-20	7.92080329467276\\
+-10	25.4942113008919\\
+0	50.8392698133478\\
+10	78.6205392734233\\
+20	106.807080544116\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (32, 32)$}
 
 \addplot [color=mycolor2, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
   table[row sep=crcr]{%
--10	10.4149588179023\\
-0	31.4446145028552\\
-10	59.6517377835957\\
-20	89.3374682956471\\
-30	119.211944846161\\
+-20	10.4149588179023\\
+-10	31.4446145028552\\
+0	59.6517377835957\\
+10	89.3374682956471\\
+20	119.211944846161\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (256, 1)$}
 
 \addplot [color=mycolor2, dashed, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
   table[row sep=crcr]{%
--10	13.5990610062377\\
-0	38.8358018247535\\
-10	70.6878846178664\\
-20	103.750160929285\\
-30	136.952951531633\\
+-20	13.5990610062377\\
+-10	38.8358018247535\\
+0	70.6878846178664\\
+10	103.750160929285\\
+20	136.952951531633\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (256, 4)$}
 
 \addplot [color=mycolor2, dotted, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
   table[row sep=crcr]{%
--10	21.0669283703778\\
-0	56.5659878613809\\
-10	102.883995624597\\
-20	152.237987738074\\
-30	201.987610000957\\
+-20	21.0669283703778\\
+-10	56.5659878613809\\
+0	102.883995624597\\
+10	152.237987738074\\
+20	201.987610000957\\
 };
 \addlegendentry{$(N_\mathrm{S}, L) = (256, 256)$}
 

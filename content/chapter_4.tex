@@ -222,7 +222,7 @@
 		\begin{remark}
 			Unlike dynamic \gls{ris} that simply performs a time sharing between reflection states, RIScatter conveys additional information by randomizing the reflection pattern over time while still guaranteeing the probability of occurrence of each state.
 			Upon successful backscatter detection, the impact of RIScatter nodes on the primary link can be modelled as dynamic passive beamforming.
-			\label{re:dynamic_passive_beamforming}
+			\label{rm:dynamic_passive_beamforming}
 		\end{remark}
 
 		\begin{figure}[H]
@@ -307,7 +307,7 @@
 				\label{eq:equivalent_distribution}
 			\end{equation}
 			When multiple nodes are co-located, they can jointly encode by designing the joint probability $p(x_{m_{\mathcal{K}}})$ directly.
-			\label{re:independent_encoding}
+			\label{rm:independent_encoding}
 		\end{remark}
 
 		Let $z=\sum_{n} \bigl\lvert y[n] \bigr\rvert^2$ be the receive energy per backscatter block.
@@ -325,7 +325,7 @@
 		\begin{remark}
 			We have assumed Gaussian codebook for the primary source and finite support for the backscatter nodes, since they are relatively practical and widely adopted in relevant literatures \cite{Qian2019b,Xu2020b,Zhang2021d,Hua2022,Hu2021a,Qian2019}.
 			The proposed framework is extendable to non-Gaussian primary source, and the conditional \gls{pdf} \eqref{eq:energy_distribution} can be approximated using \gls{clt} for large $N$.
-			\label{re:non_gaussian}
+			\label{rm:non_gaussian}
 		\end{remark}
 
 		The user first jointly decodes the backscatter message of all nodes using a low-complexity energy detector.\footnote{The reliability of the energy detector is improved by the adaptive input distribution and thresholding design. With high-order modulation or large number of scatter nodes, the reliability can be further enhanced by increasing the spreading factor or using error correction codes with low code-rate. In practice, users can decode backscatter nodes ranging from a few to hundreds of meters in the presence of noise and interference, and the backscatter throughput can reach few Kbps to tens of Mbps \cite{Wu2022e}.\label{fn:energy_detector}}
@@ -489,7 +489,7 @@
 		\begin{remark}
 			The insufficiency of the \gls{kkt} conditions for problem \eqref{op:input_distribution} implies that the proposed method may not converge to the global-optimal solution.
 			However, simulation results in Section~\ref{sc:simulation_results} will show that the average performance gap is indistinguishable at a moderate $K$.
-			\label{re:input_kkt_distribution}
+			\label{rm:input_kkt_distribution}
 		\end{remark}
 	\end{subsection}
 
@@ -610,15 +610,15 @@
 		\begin{remark}
 			The design of the energy detector does not affect the primary achievable rate, since the composite channel \eqref{eq:equivalent_channel} can always be determined after backscatter decoding and re-encoding.
 			This implies that any thresholding maximizing the total backscatter rate is optimal for problem \eqref{op:decision_threshold}.
-			\label{re:backscatter_decision}
+			\label{rm:backscatter_decision}
 		\end{remark}
 
 		\begin{remark}
 			In terms of total backscatter rate, the nodes can be viewed as an augmented source, and problem \eqref{op:decision_threshold} becomes the rate-optimal quantizer design for \gls{dmtc}.
-			\label{re:augmented_source}
+			\label{rm:augmented_source}
 		\end{remark}
 
-		Thanks to Remark \ref{re:backscatter_decision} and \ref{re:augmented_source}, problem \eqref{op:decision_threshold} can be recast as
+		Thanks to Remark \ref{rm:backscatter_decision} and \ref{rm:augmented_source}, problem \eqref{op:decision_threshold} can be recast as
 		\begin{maxi!}
 			{\scriptstyle{\mathbf{t} \in \mathcal{T}^{L+1}}}{I_{\text{B}}(x_{\mathcal{K}};\hat{x}_{\mathcal{K}})}{\label{op:decision_threshold_discrete}}{\label{ob:decision_threshold_discrete}}
 			\addConstraint{\eqref{co:sequential_threshold},}
@@ -794,7 +794,7 @@
 			Fig.~\subref*{fg:region_distribution} shows their average achievable rate regions.
 			Cooperation achieves the outer bound of all schemes, but joint encoding over passive devices may incur additional hardware cost.
 			Besides, the average rate performance of Exhaustion and \gls{kkt} completely coincide with each other when $K=2$.
-			This confirms Remark \ref{re:input_kkt_distribution} that the \gls{kkt} input distribution can be good enough when $K$ is moderate.
+			This confirms Remark \ref{rm:input_kkt_distribution} that the \gls{kkt} input distribution can be good enough when $K$ is moderate.
 			Equiprobable experiences minor backscatter and major primary rate losses without exploiting \gls{csi} and \gls{qos}, and those gaps should be larger when $M$ or $K$ increases.
 			Marginalization provides a close performance to \gls{kkt}, but Randomization and Decomposition fail our expectations for most channel realizations.
 			Those observations emphasize the importance of adaptive RIScatter encoding and demonstrate the advantage of the proposed \gls{kkt} input distribution design.
