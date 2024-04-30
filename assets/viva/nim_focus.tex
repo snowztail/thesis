@@ -1,0 +1,44 @@
+\tikzstyle{glass}=[color=red!10]
+\tikzset{
+	light beam/.style={decoration={markings,
+					mark=at position 0.5 with {\arrow[xshift=3pt]{latex}}},
+			postaction={decorate}},
+	light beam/.default=0.5}
+
+
+% REFLECTION & REFRACTION
+\begin{tikzpicture}
+	\def\w{3.2}     % width interface
+	\def\d{1}     % distance between source and glass
+	\def\l{3.5}     % distance from glass
+	\def\t{2}     % thickness glass
+	% \def\na{1.0}  % air
+	% \def\ng{2}    % glass
+	\def\n{-1.5}
+
+\begin{scope}[rotate=90]
+	% MEDIUM
+	\coordinate (L) at (-\w,-\d);              % lower-left point interface
+	\fill[glass] (L) rectangle++ (2*\w,-\t);   % glass
+
+% 	\foreach \anga in {-30,-20,...,30} {
+	\foreach \anga in {-30,0,...,30} {
+		\pgfmathsetmacro{\angg}{asin(\n*sin(\anga))}
+
+		\pgfmathsetmacro{\a}{\d/cos(\anga)}
+		\pgfmathsetmacro{\b}{\t/cos(\angg)}
+		\pgfmathsetmacro{\c}{\l/cos(\anga)}
+
+		\coordinate (S) at (0,0);                         % ray source
+		\coordinate (I) at (\anga-90:\a);                 % impinging point
+		\coordinate (O) at ($(I) + ({\angg-90}:\b)$);     % departing point
+		\coordinate (E) at ($(O) + ({\anga-90}:\c)$);     % refraction tail
+
+		% LINES
+		\draw[light beam,thick] (S) -- (I);    % incoming ray
+		\draw[light beam,thick] (I) -- (O);     % refracted ray in glass
+		\draw[light beam,thick] (O) -- (E);     % refracted ray in air
+	}
+	\node at (-2.6,-2) {$n=-2/3$};
+\end{scope}
+\end{tikzpicture}

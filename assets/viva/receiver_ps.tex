@@ -1,0 +1,14 @@
+\begin{circuitikz}[transform shape,align=center]
+	\draw (0,0) node[bareRXantenna](r){Rx}(r.center)
+		to[short] ++(0,-1)
+		to node[coupler,anchor=left up](c){Power splitter} ++(1,0);
+	\draw (c.right up)
+		to[short] ++(0.5,0)
+		to ++(0,0.5)
+		to ++(1,0) node[draw,minimum width=2.5cm,anchor=west](eh){Energy\\harvester};
+	% \draw (eh.east) to ++(1,0) node[draw,anchor=west,minimum width=2.5cm]{Power\\management};
+	\draw (c.right down)
+		to[short] ++(0.5,0)
+		to ++(0,-0.5)
+		to ++(1,0) node[draw,anchor=west,minimum width=2.5cm]{Information\\decoder};
+\end{circuitikz}

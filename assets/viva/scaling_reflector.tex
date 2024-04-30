@@ -1,0 +1,159 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.036in,
+height=1.531in,
+at={(0.677in,2.323in)},
+scale only axis,
+xmin=1,
+xmax=100,
+xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+ymin=16.5555734490246,
+ymax=40,
+ylabel style={font=\color{white!15!black}},
+ylabel={SNR [dB]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left, draw=white!15!black},
+title style={font=\huge}, label style={font=\huge}, ticklabel style={font=\LARGE}, legend style={font=\LARGE}
+]
+\addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	16.5555734490246\\
+5	19.6335595133498\\
+10	21.8178579734798\\
+15	23.5761671596729\\
+20	25.1046157566153\\
+25	26.4353009128835\\
+30	27.3687767493369\\
+35	28.5000247501475\\
+40	29.55470011095\\
+45	30.2660500078313\\
+50	30.8940169652101\\
+55	31.7135354369005\\
+60	32.341170905938\\
+65	32.8036703248563\\
+70	33.3976115406002\\
+75	33.9866791914948\\
+80	34.3153022204229\\
+85	34.7478623486695\\
+90	35.2274340968895\\
+95	35.6119521148845\\
+100	35.9998760976194\\
+};
+\addlegendentry{WF}
+
+\end{axis}
+
+\begin{axis}[%
+width=4.036in,
+height=1.531in,
+at={(0.677in,0.472in)},
+scale only axis,
+xmin=1,
+xmax=100,
+xtick={  1,  10,  20,  30,  40,  50,  60,  70,  80,  90, 100},
+xlabel style={font=\color{white!15!black}},
+xlabel={Number of reflectors},
+ymin=-100,
+ymax=0,
+ytick={-100,  -80,  -60,  -40,  -20,    0},
+ylabel style={font=\color{white!15!black}},
+ylabel={DC [dBA]},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.97,0.03)}, anchor=south east, legend columns=3, legend cell align=left, align=left, draw=white!15!black},
+title style={font=\huge}, label style={font=\huge}, ticklabel style={font=\LARGE}, legend style={font=\LARGE}
+]
+\addplot [color=mycolor1, line width=2.0pt, mark=o, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+1	-92.5536970513039\\
+5	-87.4040857061315\\
+10	-81.5588189562214\\
+15	-76.8140292111448\\
+20	-72.3119132681356\\
+25	-68.7912416779769\\
+30	-65.7862313987141\\
+35	-62.1723146529388\\
+40	-58.5241681973142\\
+45	-56.2591989620605\\
+50	-53.9864632003429\\
+55	-50.8433722019956\\
+60	-48.7348538385412\\
+65	-47.0991935158248\\
+70	-44.8084149592399\\
+75	-42.6836629529512\\
+80	-41.4931625063164\\
+85	-39.8213975436717\\
+90	-37.8873698523974\\
+95	-36.6019945477592\\
+100	-35.0270512662257\\
+};
+\addlegendentry{LEH}
+
+\addplot [color=mycolor2, dashed, line width=2.0pt, mark=+, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+1	-78.9404966300438\\
+5	-72.8653842234958\\
+10	-65.561806372763\\
+15	-60.0355415823876\\
+20	-55.0277956057781\\
+25	-51.0918624499135\\
+30	-47.829959033523\\
+35	-43.8800207934611\\
+40	-39.9870037432698\\
+45	-37.4246355658198\\
+50	-35.09156159735\\
+55	-31.7254806484209\\
+60	-29.6556112190413\\
+65	-27.9027388534924\\
+70	-25.4289617613286\\
+75	-23.32558330701\\
+80	-22.0667156512475\\
+85	-20.3765921162739\\
+90	-18.4192057525797\\
+95	-16.9836370754222\\
+100	-15.3684103792823\\
+};
+\addlegendentry{SMF}
+
+\addplot [color=mycolor3, dotted, line width=2.0pt, mark=square, mark options={solid, mycolor3}]
+  table[row sep=crcr]{%
+1	-78.711551303767\\
+5	-72.6351143679569\\
+10	-65.3278838246729\\
+15	-59.7998504435555\\
+20	-54.791570853135\\
+25	-50.8545605551382\\
+30	-47.5929011664101\\
+35	-43.6415675742364\\
+40	-39.7487995240244\\
+45	-37.1874794473846\\
+50	-34.8530261281813\\
+55	-31.4884244381754\\
+60	-29.4174064918624\\
+65	-27.6650993474425\\
+70	-25.1913292817342\\
+75	-23.0883653237371\\
+80	-21.8292565432622\\
+85	-20.1391870609115\\
+90	-18.1812656012089\\
+95	-16.7459125238822\\
+100	-15.1306956073902\\
+};
+\addlegendentry{GP}
+
+\end{axis}
+\end{tikzpicture}%

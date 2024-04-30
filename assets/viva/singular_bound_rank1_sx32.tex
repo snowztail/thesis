@@ -1,0 +1,164 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.00000,0.44706,0.74118}%
+\definecolor{mycolor3}{rgb}{0.85098,0.32549,0.09804}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46667,0.67451,0.18824}%
+%
+\makeatletter
+\newcommand\resetstackedplots{
+    \makeatletter
+    \pgfplots@stacked@isfirstplottrue
+    \makeatother
+    \addplot [forget plot,draw=none] coordinates{(1,0) (5,0) (10,0) (15,0) (20,0)};
+}
+\makeatother
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=9.509cm,
+height=7.5cm,
+at={(0cm,0cm)},
+scale only axis,
+bar width=0.325,
+xmin=-0.125,
+xmax=5.125,
+xtick={1,2,3,4},
+xticklabels={{$\sigma_1(\mathbf{H})$},{$\sigma_2(\mathbf{H})$},{$\sigma_3(\mathbf{H})$},{$\sigma_4(\mathbf{H})$}},
+ymin=0,
+ymax=0.002,
+ylabel style={font=\color{white!15!black}},
+ylabel={Amplitude},
+axis background/.style={fill=white},
+xmajorgrids,
+ymajorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black},
+legend columns=4,
+transpose legend,
+legend style={/tikz/column 2/.style={column sep=5pt}}
+]
+\addplot[ybar stacked, fill=mycolor1, fill opacity=0, draw=none, forget plot] table[row sep=crcr] {%
+0.8375	0.00172515536422714\\
+1.8375	0.00100217806517558\\
+2.8375	0.000352757538105714\\
+3.8375	0.000123939298123254\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addplot[ybar stacked, fill=mycolor2, fill opacity=0.5, draw=black, area legend] table[row sep=crcr] {%
+0.8375	1.77586704705756e-05\\
+1.8375	0.000127158817727647\\
+2.8375	0.0002203611436369\\
+3.8375	0.000174937536612442\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addlegendentry{D-min}
+
+\addplot[ybar stacked, fill=mycolor3, fill opacity=0.5, draw=black, area legend] table[row sep=crcr] {%
+0.8375	0.000181872601837377\\
+1.8375	0.000366753236169139\\
+2.8375	0.000296256103311964\\
+3.8375	3.0817049708412e-05\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addlegendentry{D-max}
+
+\resetstackedplots
+
+\addplot[ybar stacked, fill=mycolor4, fill opacity=0, draw=none, forget plot] table[row sep=crcr] {%
+1.1625	0.00172516728828725\\
+2.1625	0.00100306026989406\\
+3.1625	0.000335153436324708\\
+4.1625	0.000105743462680291\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addplot[ybar stacked, fill=mycolor2, draw=black, area legend] table[row sep=crcr] {%
+1.1625	1.77467464104629e-05\\
+2.1625	0.000126276613009161\\
+3.1625	0.000237965245417907\\
+4.1625	0.000193133372055405\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addlegendentry{BD-min}
+
+\addplot[ybar stacked, fill=mycolor3, draw=black, area legend] table[row sep=crcr] {%
+1.1625	0.000222406605491606\\
+2.1625	0.000415962829151039\\
+3.1625	0.000325674699988366\\
+4.1625	3.0817049696797e-05\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.125	0\\
+5.125	0\\
+};
+\addlegendentry{BD-max}
+
+\addplot [color=mycolor5, line width=2.0pt]
+  table[row sep=crcr]{%
+-0.125	0.00172515536418547\\
+5.125	0.00172515536418547\\
+};
+\addlegendentry{$\sigma_1(\mathbf{T})$}
+
+\addplot [color=mycolor5, dashed, line width=2.0pt]
+  table[row sep=crcr]{%
+-0.125	0.00100217806517392\\
+5.125	0.00100217806517392\\
+};
+\addlegendentry{$\sigma_2(\mathbf{T})$}
+
+\addplot [color=mycolor5, dotted, line width=2.0pt]
+  table[row sep=crcr]{%
+-0.125	0.000329693884444316\\
+5.125	0.000329693884444316\\
+};
+\addlegendentry{$\sigma_3(\mathbf{T})$}
+
+\addplot [color=mycolor5, dashdotted, line width=2.0pt]
+  table[row sep=crcr]{%
+-0.125	1.01657134672358e-11\\
+5.125	1.01657134672358e-11\\
+};
+\addlegendentry{$\sigma_4(\mathbf{T})$}
+
+\end{axis}
+
+% \begin{axis}[%
+% width=12.27cm,
+% height=9.202cm,
+% at={(-1.595cm,-1.012cm)},
+% scale only axis,
+% xmin=0,
+% xmax=1,
+% ymin=0,
+% ymax=1,
+% axis line style={draw=none},
+% ticks=none,
+% axis x line*=bottom,
+% axis y line*=left,
+% legend columns=5,
+% transpose legend,
+% legend style={/tikz/column 2/.style={column sep=5pt}}
+% ]
+% \end{axis}
+\end{tikzpicture}%
