@@ -1,5 +1,4 @@
 \begin{circuitikz}[transform shape,align=center]
-	\draw (0,0) node[bareRXantenna](r){Rx}(r.center) to ++(0,-1) to ++(1.5,0) node[draw,anchor=west,minimum width=2.5cm](eh){Energy\\harvester};
-	\draw (eh.east) to ++(1,0) coordinate(j){} to ++(0,1) to ++(1,0) node[draw,anchor=west,minimum width=2.5cm]{Power\\management};
-	\draw (j) to ++(0,-1) to ++(1,0) node[draw,anchor=west,minimum width=2.5cm]{Information\\decoder};
+	\draw (0,0) node[bareRXantenna](r){Rx}(r.center) to ++(0,-1) to ++(1.5,0) node[draw,anchor=west,minimum width=2.5cm](eh){Joint harvester\\and decoder};
+	\draw (eh.east) to ++(2,0) node[draw,anchor=west,minimum width=2.5cm]{Power\\management};
 \end{circuitikz}

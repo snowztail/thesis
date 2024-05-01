@@ -57,15 +57,15 @@ This chapter provides essential background for topics covered in the thesis. A d
 
 		Conventional metamaterials have fixed properties that depend on the geometry and arrangement of their constituent elements.
 		Once fabricated, these properties cannot be easily changed unless the structure is physically altered.
-		This limits their early usage to military and defense, with applications such as invisibility cloaks and optical illusions.
+		This limits their early usage to military, with applications such as invisibility cloaks and optical illusions.
 		In 2014, the concept of ``coding'' and ``programmable'' metamaterials was validated by researchers at Southeast University \cite{Cui2014}, who realized digital control of radar cross-section using biased diodes and \gls{fpga}.
 		With a proper model of the target properties and external citation, the metamaterial can be reconfigured in real-time for desired behaviors.
 		For example, a self-adaptive metasurface equipped with motion and light sensors have been developed in \cite{Ma2019} for single- and multi-beam steering.
 
 		Next, we discuss the principles of electromagnetic wave redirection via refraction and reflection:
 		\begin{itemize}
-			\item \emph{Refraction:} As shown in Fig. \ref{fg:nim_focus}, the negative-index material can re-focus the beams diverging from a point source to another point behind the material \cite{Padilla2006}. This could be helpful for wireless applications where the transmitter and receiver are at different sides of the material.
-			\item \emph{Reflection:} As shown in Fig. \ref{fg:wave_reflected}, the scattering elements cooperatively alter the phase of the incident wave for a constructive (or destructive) superposition of the reflected waves in the target direction \cite{Poulakis2022}. This could be helpful for wireless applications where the transmitter and receiver are at the same side of the material.
+			\item \emph{Refraction:} As shown in Fig. \subref*{fg:nim_focus}, the negative-index material can re-focus the beams diverging from a point source to another point behind the material \cite{Padilla2006}. This could be helpful for wireless applications where the transmitter and receiver are at different sides of the obstacle.
+			\item \emph{Reflection:} As shown in Fig. \subref*{fg:wave_reflected}, the scattering elements cooperatively alter the phase of the incident wave for a constructive (or destructive) superposition of the reflected waves in the target direction \cite{Poulakis2022}. This could be helpful to concentrate ambient electromagnetic energy within a specific area.
 		\end{itemize}
 		% electromagnetic wave refraction and reflection.
 
@@ -81,7 +81,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 					\input{assets/chapter_2/pim_diverge.tex}
 				}
 			}
-			\caption{Refraction through metamaterials. For negative-index material, beams diverging from a point source is set in reverse and converges back to another point.}
+			\caption{Refraction through metamaterials. For negative-index material, beams diverging from a point source is set in reverse and converges back to another point behind the material.}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
@@ -105,7 +105,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\begin{subsubsection}{Principles}\label{sc:principles}
 			\gls{rf} wave can be manipulated by scattering elements made from \emph{programmable metamaterials} or \emph{passive antennas} \cite{Liang2022}.
 			As discussed above, the former refracts or reflects the incident signals at the air-cell boundary and mainly applies a phase shift.
-			In contrast, the latter allows the wave to feed into and collect from the antenna port such that some energy can be absorbed by the circuit and the rest is reradiated to the space.
+			In contrast, the latter allows the wave to feed into the antenna port such that some energy can be absorbed by the circuit and the rest is reradiated to the space.
 			An interesting observation is that when excited by an external wave, a scattering element can simultaneously function as an object and a radiator.
 			The corresponding scattered field is \cite{Hansen1989}
 			\begin{equation}
@@ -117,13 +117,13 @@ This chapter provides essential background for topics covered in the thesis. A d
 				\label{eq:reflection_coefficient}
 			\end{equation}
 			and $Z_0$ is the characteristic impedance for programmable metamaterials or the input impedance for passive antennas.
-			It is worth mentioning that
+			Specifically,
 			\begin{itemize}
-				\item \emph{Structural component:} Depends on the geometry and material of the scatterer. It is usually modelled as part of the environment multipath \cite{Thomas2012,Liang2020} or simply regarded a \gls{dc} offset when the impinging signal is \gls{cw} \cite{Boyer2014}.
-				\item \emph{Antenna component:} Depends on the reflection coefficient that can be altered by load impedance. This is widely exploited for various scattering applications, such as backscatter modulation in \gls{bc} and passive beamforming in \gls{ris} \cite{Zhao2022a}.
+				\item \emph{Structural component:} Depends on the geometry and material of the scatterer. It is usually modelled as part of the environment multipath \cite{Thomas2012,Liang2020} or a baseband \gls{dc} offset when the impinging signal is \gls{cw} \cite{Boyer2014}.
+				\item \emph{Antenna component:} Depends on the reflection coefficient and load impedance. This is widely exploited for various scattering applications, such as backscatter modulation in \gls{bc} and passive beamforming in \gls{ris} \cite{Zhao2024}.
 			\end{itemize}
 			We then introduce two canonical \gls{ris} models that will be adopted in the work chapters.
-			More accurate models based on field equations (e.g., \cite{Ozdogan2020,Najafi2020}) and measurement fitting (e.g., \cite{Abeywickrama2020}) are also available in the literature.
+			Advanced models based on field equations (e.g., \cite{Ozdogan2020,Najafi2020}) and parametric fitting (e.g., \cite{Abeywickrama2020}) are also available in the literature for accurate and practical analysis.
 			% physics-based (e.g., \cite{Ozdogan2020,Najafi2020}) and practical (e.g., \cite{Abeywickrama2020}) models
 		\end{subsubsection}
 
@@ -150,18 +150,11 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{bd} Model}
-			How to model the \gls{ris} response if the passive scattering elements can be cooperative instead of independent?
-			This question has been answered by \cite{Shen2020a} where a \gls{bd} model was proposed.
-			From a network theory perspective \cite{Ivrlac2010}, the interaction between the scattering elements can be modelled as lossless (but not necessarily symmetric) in-group connections in an $N_\mathrm{S}$-port circuit network, as shown in Figs. \ref{fg:bd_ris_architecture_1} and \ref{fg:bd_ris_architecture_2} \cite{Shen2020a}.
-			This architecture allows wave impinging on any element to propagate within the circuit and depart partially from other elements in the same group.
-			\begin{figure}[H]
-				\centering
-				\resizebox{0.75\columnwidth}{!}{
-					\includegraphics{assets/chapter_2/bd_ris_architecture_1.eps}
-				}
-				\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. Source: Modified from \cite{Shen2020a}.}
-				\label{fg:bd_ris_architecture_1}
-			\end{figure}
+			How to model the \gls{ris} response if the passive scattering elements can cooperate with neighbors via physical connections?
+			This question has been answered by \cite{Shen2020a} through a \gls{bd} model.
+			From a network theory perspective \cite{Ivrlac2010}, a general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
+			It allows wave impinging on any element to propagate within the circuit and depart partially from other elements in the same group, such that both amplitude and phase of the scattered wave can be redistributed with zero power loss.
+			Fig. \ref{fg:bd_ris_architecture_2} illustrates an 8-element \gls{ris} with group size 2 (left) and 4 (right).
 			\begin{figure}[H]
 				\centering
 				\resizebox{0.75\columnwidth}{!}{
@@ -171,7 +164,17 @@ This chapter provides essential background for topics covered in the thesis. A d
 				\label{fg:bd_ris_architecture_2}
 			\end{figure}
 
-			A general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
+			% thus redistribute both amplitude and phase of the scattered wave with zero power loss.
+			% \begin{figure}[H]
+			% 	\centering
+			% 	\resizebox{0.75\columnwidth}{!}{
+			% 		\includegraphics{assets/chapter_2/bd_ris_architecture_1.eps}
+			% 	}
+			% 	\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. Source: Modified from \cite{Shen2020a}.}
+			% 	\label{fg:bd_ris_architecture_1}
+			% \end{figure}
+
+			% A general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
 			With symmetric components (e.g., capacitors and inductors), the scattering matrix of group $g \in \mathcal{G} \triangleq \{1, \ldots, G\}$ is \cite{Shen2020a}
 			\begin{equation}
 				\mathbf{\Theta}_g = (\jmath \mathbf{X}_g + Z_0 \mathbf{I})^{-1} (\jmath \mathbf{X}_g - Z_0 \mathbf{I}),
@@ -187,9 +190,9 @@ This chapter provides essential background for topics covered in the thesis. A d
 					\label{eq:unitary_property}
 				\end{equation}
 			\end{subequations}
-			On the other hand, lossless networks may also be built over asymmetric passive components (e.g., ring hybrids and branch-line hybrids) \cite{Ahn2006} such that the symmetric constraint \eqref{eq:symmetric_property} can be relaxed.
-			This corresponds to the ultimate passive model where energy conservation \eqref{eq:unitary_property} is the only constraint for each group, as widely considered in quantum physics.
-			The overall scattering matrix of asymmetric \gls{bd}-\gls{ris} is thus \emph{block-diagonal with unitary blocks}
+			On the other hand, lossless networks may also be built over asymmetric passive components (e.g., ring hybrids and branch-line hybrids) \cite{Ahn2006} such that the symmetric constraint \eqref{eq:symmetric_property} is unnecessary.
+			This corresponds to the ultimate passive model where energy conservation \eqref{eq:unitary_property} is the only constraint for each group, as has been widely adopted in quantum physics.
+			The overall scattering matrix of asymmetric \gls{bd}-\gls{ris} is thus \emph{block-diagonal with unitary diagonal blocks}
 			\begin{equation}
 				\mathbf{\Theta} = \mathrm{diag}(\mathbf{\Theta}_1,\ldots,\mathbf{\Theta}_G) =
 				\begin{bmatrix}
@@ -206,7 +209,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			Therefore, the \gls{bd} model \eqref{eq:bd_scattering_matrix} is envisioned to be the next-generation theoretical foundation for passive \gls{ris}, which grants more design freedom and stronger signal processing capability.
 
 			It is also worth mentioning that each group can be abstracted as a mathematical graph with $L$ vertices and a variable number of edges \cite{Nerini2024}.
-			One element is in the same group with another if and only if there is at least one path (via edges) between them.
+			Two elements are in the same group if and only if there is at least one path (via edges) between them.
 			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
 			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
 			This has motivated the concept of \gls{star}-\gls{ris} \cite{Mu2021,Liu2021} and multi-sector \gls{ris} \cite{Li2023c} where incident wave is partially steered to various directions for different users.
@@ -235,7 +238,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 		First, it completely eliminates wired connections and can be integrated into existing wireless systems with minimum modifications.
 		Those properties translate to simple deployment, high scalability, and low maintenance cost.
 		Second, the power can be simultaneously radiated to multiple devices on demand in a predictable, sustainable and reliable manner.
-		This supports our initial vision and is different from other uncontrollable and intermittent energy sources.
+		This fits in our initial vision and differs from other unstable energy sources.
 		Third and most importantly, radio waves carries power and information simultaneously.
 		\gls{wpt} can therefore be jointly designed with \gls{wit} to make the most of radiation, spectrum and infrastructures.
 		However, energy efficiency and safety concerns have been two major obstacles that limit the practical development of \gls{wpt}.
@@ -268,10 +271,10 @@ This chapter provides essential background for topics covered in the thesis. A d
 			\item $\eta_3$: Receiver \gls{rf}-to-\gls{dc} conversion efficiency that depends on the impedance matching and rectifier design. We will discuss its behavior and modelling in the next subsection.
 			\item $\eta_4$: Storage \gls{dc}-to-\gls{dc} conversion efficiency that depends on the converter circuit and battery characteristics. Modern power management units can achieve a charging efficiency $\eta_4 \ge 90\%$ \cite{Tan2012}.
 		\end{itemize}
-		It is worth mentioning that $\eta_1$ and $\eta_3$ also depend on the characteristics of input waveform like power level, carrier frequency, and \gls{papr} \cite{Clerckx2016a}.
+		It is worth mentioning that $\eta_1$ and $\eta_3$ also depend on the signal characteristics such as power level, carrier frequency, and \gls{papr} \cite{Clerckx2016a}.
 		Extensive efforts have been contributed from \gls{rf}, wireless communications, and power electronic communities to improve the conversion efficiency of individual modules.
 		However, it is often overlooked in the literature that a practical \gls{wpt} system is highly \emph{non-linear} since the amplifier and rectifier are very sensitive to the input waveform.
-		This non-linear behavior can lead to a \emph{coupling effect} between the modules, such that optimizing $\eta_1$ to $\eta_4$ independently does not necessarily maximize the end-to-end power efficiency $\eta$ \cite{Clerckx2016a}.
+		This non-linear behavior can lead to a {coupling effect} between the modules, such that optimizing $\eta_1$ to $\eta_4$ independently does not necessarily maximize the end-to-end power efficiency $\eta$ \cite{Clerckx2016a}.
 		Besides, the system modeling and analysis are subject to practical constraints like diode threshold and reverse-breakdown voltages, device parasitics, impedance mismatch, and harmonic generation  \citep{Valenta2014}.
 	\end{subsection}
 
@@ -297,14 +300,14 @@ This chapter provides essential background for topics covered in the thesis. A d
 				\label{fg:harvester_circuit}
 			\end{figure}
 			The rectifier is a nonlinear circuit that converts the \gls{rf} signal to \gls{dc} power by rectifying and filtering the input signal.
-			Figs. \ref{fg:harvester_circuit} illustrates the equivalent circuits of a rectenna (antenna and rectifier) and a single-diode half-wave rectifier, where $v_{\mathrm{S}}$ is the source voltage on the receive antenna, $Z_{\mathrm{A}} = R_{\mathrm{A}} + \jmath X_{\mathrm{A}}$ is the antenna impedance, $Z_{\mathrm{in}} = R_{\mathrm{in}} + \jmath X_{\mathrm{in}}$ is the total impedance of the matching network and rectifier, $v_{\mathrm{in}}$ is input voltage on the matching network and rectifier, $v_{\mathrm{D}}$ is the diode voltage, $C$ is the buffer capacitance, $R_{\mathrm{L}}$ is the rectifier load resistance, and $v_{\mathrm{out}}$ is the output voltage.
-			It is worth mentioning that the half-wave rectifier is the most popular choice in \gls{wpt} literature due to its simple behavior and low cost.
+			Fig. \ref{fg:harvester_circuit} illustrates the equivalent circuits of a rectenna (antenna and rectifier) and a single-diode half-wave rectifier, where $v_{\mathrm{S}}$ is the source voltage on the receive antenna, $Z_{\mathrm{A}} = R_{\mathrm{A}} + \jmath X_{\mathrm{A}}$ is the antenna impedance, $Z_{\mathrm{in}} = R_{\mathrm{in}} + \jmath X_{\mathrm{in}}$ is the total impedance of the matching network and rectifier, $v_{\mathrm{in}}$ is input voltage on the matching network and rectifier, $v_{\mathrm{D}}$ is the diode voltage, $C$ is the buffer capacitance, $R_{\mathrm{L}}$ is the rectifier load resistance, and $v_{\mathrm{out}}$ is the output voltage.
+			It is worth mentioning that the half-wave rectifier is the most popular choice in \gls{wpt} literature due to its simple layout and low cost.
 			Other rectifier topologies like full-wave, bridge, and voltage doubler can potentially improve the \gls{rf}-to-\gls{dc} conversion efficiency \cite{Rotenberg2020}, but their modeling and analysis are much more complicated.
 		\end{subsubsection}
 
 		\begin{subsubsection}{Operation Regions and Signal Models}\label{sc:operation_regions}
 			The diode is the key non-linear component that determines to the harvested energy.
-			Generally speaking, the behavior of any rectenna can be separated into three operation regions \cite{Clerckx2016a}:
+			Roughly speaking, the behavior of any rectenna can be separated into three operation regions \cite{Clerckx2016a}:
 			\begin{itemize}
 				\item \emph{Linear region:} When the input power level is relatively low, the output power is proportional to the input and the \gls{rf}-to-\gls{dc} conversion efficiency $\eta_3$ is a constant. Most early \gls{wpt} research (especially from communications society) assume the rectenna works in this region. For a received signal $y(t)$, the harvested \gls{dc} power in this region can be modelled as
 				\begin{equation}
@@ -377,16 +380,16 @@ This chapter provides essential background for topics covered in the thesis. A d
 		Some preference of \gls{wit} and \gls{wpt} are inherently conflicting, for example:
 		\begin{itemize}
 			\item \emph{Waveform and modulation:} Under an average power constraint, \gls{wit} favors Gaussian signaling with maximum entropy distribution \cite{Cover2005} while \gls{wpt} prefers deterministic (unmodulated) multisine with higher \gls{papr} \cite{Trotter2009}.
-			\item \emph{Channel:} In a \gls{mimo} scenario, \gls{wit} favors full-rank \gls{nlos} with high spatial diversity while \gls{wpt} prefers rank-deficient \gls{los} with high spatial correlation \cite{Wu2022a}.
+			\item \emph{Channel:} In a \gls{mimo} scenario, \gls{wit} favors full-rank \gls{nlos} with high spatial diversity at high \gls{snr} while \gls{wpt} prefers rank-deficient \gls{los} with high spatial correlation \cite{Wu2022a}.
 			\item \emph{Receiver:} The power sensitivity is usually in the range of -40 to -80 dBm for information receivers and -10 to -30 dBm for energy harvesters \cite{Lu2015}.
 		\end{itemize}
 		Those disparities translate to a fundamental trade-off between information and power transfer in \gls{swipt} systems, which is often quantified by a \emph{\gls{r-e} region}.
 		\begin{equation}
 			\mathcal{C}_\mathrm{R-E}(P) \triangleq \Bigl\{ (r,e) : 0 \le r \le \log(1 + \gamma), \ 0 \le e \le z \Bigr\},
 		\end{equation}
-		where $P$ is the average transmit power, $\gamma$ is the \gls{snr} at the information decoder, and $z$ defined in \eqref{eq:dc_power_nonlinear} is uniquely mapped to the harvested \gls{dc} power.
+		where $P$ is the average transmit power, $\gamma$ is the \gls{snr} at the information decoder, and $z$ in \eqref{eq:dc_power_nonlinear} relates to the harvested \gls{dc} power.
 		Each point in this region corresponds to a \emph{rate-energy pair} achieved by a particular \emph{resource allocation scheme}.
-		It is worth mentioning that different transceive strategies (e.g., waveform and receiver design) can lead to totally different \gls{r-e} regions (instead of different points in the same region), which motivates a joint optimization of the transmitter, channel, and receiver.
+		It is worth mentioning that different transceive strategies (e.g., waveform and receiver design) can lead to totally different \gls{r-e} regions instead of different points in the same region, which motivates a joint optimization of the transmitter, channel, and receiver.
 	\end{subsection}
 
 	\begin{subsection}{Modules and Operation Modes}
@@ -434,28 +437,26 @@ This chapter provides essential background for topics covered in the thesis. A d
 			\begin{figure}[H]
 				\centering
 				\subfloat[Ideal receiver]{
-					\resizebox{0.6\columnwidth}{!}{
+					\resizebox{!}{2.25cm}{
 						\input{assets/chapter_2/receiver_ideal.tex}
 					}
 					\label{fg:receiver_ideal}
 				}
-				\\
 				\subfloat[Time switching receiver]{
-					\resizebox{0.6\columnwidth}{!}{
+					\resizebox{!}{2.25cm}{
 						\input{assets/chapter_2/receiver_ts.tex}
 					}
 					\label{fg:receiver_ts}
 				}
 				\\
 				\subfloat[Power splitting receiver]{
-					\resizebox{0.6\columnwidth}{!}{
+					\resizebox{!}{2.25cm}{
 						\input{assets/chapter_2/receiver_ps.tex}
 					}
 					\label{fg:receiver_ps}
 				}
-				\\
 				\subfloat[Integrated receiver]{
-					\resizebox{0.6\columnwidth}{!}{
+					\resizebox{!}{1.75cm}{
 						\input{assets/chapter_2/receiver_integrated.tex}
 					}
 					\label{fg:receiver_integrated}
@@ -475,7 +476,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 
 			The most popular architectures in the literature are \gls{ts} and \gls{ps} due to their practicality and tractability.
 			The \gls{r-e} region of the former can be inferred from that of the latter, since the \gls{wit}-only and \gls{wpt}-only vertices in \gls{ts} correspond to $\rho=1$ and $\rho=0$ in \gls{ps}, respectively.
-			Integrated receiver eliminates the need of \gls{rf} chains and advanced architectures, but experiences information degradation and works better for low-throughput applications.
+			Integrated receiver eliminates the need of \gls{rf} chains and advanced architectures, but experiences information degradation and fits low-throughput applications.
 		\end{subsubsection}
 	\end{subsection}
 \end{section}
@@ -511,9 +512,9 @@ This chapter provides essential background for topics covered in the thesis. A d
 		The difference is two-fold:
 		\begin{itemize}
 			\item \emph{Modulation requires variation:} \gls{bc} relies on dynamically changing the reflection coefficient over time to encode information. This is different from \gls{ris} where the optimal configuration (and reflection coefficient) is fixed for a given channel realization.
-			\item \emph{Harvesting requires absorption:} Part of the impinging wave should be fed into the node to power its operation. This is different from \gls{ris} where a full reflection is desired to maximize its channel control capability.
+			\item \emph{Harvesting requires absorption:} Part of the impinging wave should be fed into the node to power its operation. This is different from \gls{ris} where a full reflection is desired to maximize its energy efficiency.
 		\end{itemize}
-		Denote the amplitude scattering ratio of the \gls{bc} node as $\alpha$, i.e., the power absorption ratio is $(1-\alpha)^2$. Some popular modulation schemes are summarized below:
+		Denote the amplitude scattering ratio of the \gls{bc} node as $\alpha$ that corresponds to a power absorption ratio $(1-\alpha)^2$. Some popular modulation schemes are summarized below:
 		\begin{itemize}
 			\item \emph{\gls{qam} \cite{Thomas2012a}:} The reflection coefficient corresponding to the $m$-th symbol is
 			\begin{equation}
@@ -548,10 +549,9 @@ This chapter provides essential background for topics covered in the thesis. A d
 			\end{equation}
 			where $\phi_n = \frac{2 \pi}{\Delta f}(A n^2 + B n)$ and $A$, $B$ are constants.
 			As the core modulation scheme in \gls{lora}, it is more robust to noise and interference (with a reception sensitivity of -149 dBm), harder to be detected by eavesdroppers, and can be used for ranging and localization \cite{Abbasi2021a}.
-
-			Common \gls{bc} channel coding schemes include unipolar \gls{rz} and \gls{nrz}, Manchester, differential, pulse-pause and FM0.
-			They are not the focus of the thesis and the readers are referred to \cite[Chapter 2.3]{Hoang2020} for details.
 		\end{itemize}
+		Common \gls{bc} channel coding schemes include unipolar \gls{rz} and \gls{nrz}, Manchester, differential, pulse-pause and FM0.
+		They are not the focus of the thesis and the readers are referred to \cite[Chapter 2.3]{Hoang2020} for details.
 	\end{subsection}
 
 	\begin{subsection}{Applications}
@@ -589,8 +589,8 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\end{figure}
 
 		\begin{subsubsection}{\glsfmtfull{mbc}}
-			\gls{mbc} is the most common architecture where the carrier emitter and reader are integrated into one device called interrogator.
-			As shown in \subref*{fg:backcom_monostatic} and \subref*{fg:mbc_intro}, the interrogator transmits a \gls{cw} in the downlink and receives the reflected information-bearing signal in the uplink.
+			\gls{mbc} is probably the most common \gls{bc} scenario where the carrier emitter and reader are integrated into one device called interrogator.
+			As shown in Figs. \subref*{fg:backcom_monostatic} and \subref*{fg:mbc_intro}, the interrogator transmits a \gls{cw} in the downlink and receives the reflected information-bearing signal in the uplink.
 			The node varies its load impedance over time to switch between two states.
 			Ideally, a full absorption (perfect matching, $\Gamma_0 = 0$) maps to bit ``0'' where energy is harvested, and a full reflection (perfect mismatch, $\lvert \Gamma_1 \rvert = 1$) maps to bit ``1'' where \gls{snr} is determined.
 			\gls{mbc} is widely used in \gls{rfid} systems.
@@ -598,22 +598,22 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{bbc}}
-			\gls{bbc} separates the carrier emitter and reader into two individual devices, as illustrated in \subref*{fg:backcom_bistatic} and \subref*{fg:bbc_intro}.
+			\gls{bbc} separates the carrier emitter and reader into two individual devices, as illustrated in Figs. \subref*{fg:backcom_bistatic} and \subref*{fg:bbc_intro}.
 			This helps to combat self-interference and extend the operation range, but the system involves three devices and requires more complex coordination and synchronization.
 			It is more popular in more complicated scenarios like \gls{wsn} and \gls{iot} with potentially moving nodes.
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{ambc}}
 			\gls{ambc} has been recognized as a revolutionary technology since its debut in 2013 \cite{Liu2013b}.
-			As shown in \subref*{fg:ambc_intro}, it gets rid of dedicated \gls{rf} sources and relies on ambient signals (e.g., TV, FM, and Wi-Fi) for both energy harvesting and information transfer.
+			As shown in Fig. \subref*{fg:ambc_intro}, it gets rid of dedicated \gls{rf} sources and relies on ambient signals (e.g., TV, FM, and Wi-Fi) for both energy harvesting and information transfer.
 			Compared with \gls{mbc} and \gls{bbc}, its carrier waveform is no longer a \gls{cw} but a mixture of already modulated signals with different frequencies and amplitudes, which makes the detection more challenging.
-			Therefore, it often employs \gls{fsk} modulation to shift the scattered signals to a different band for reduced interference on both coexisting systems.
+			Therefore, it often employs \gls{fsk} modulation that shifts the scattered signals to a different band for reduced interference on both coexisting systems.
 			\gls{ambc} is a plug-and-play and environmental-friendly \gls{iot} solution, but its practical deployment is limited by the availability and quality of ambient signals.
 		\end{subsubsection}
 
 		\begin{subsubsection}{\glsfmtfull{sr}}
 			\gls{sr} is a relatively new concept proposed in 2019 that introduced itself as ``cooperative \gls{ambc}'' \cite{Guo2019b}.
-			As shown in \subref*{fg:sr_intro}, it shares not only the transmitter, \gls{rf} source, but also the receiver with a primary transmission.
+			As shown in Fig. \subref*{fg:sr_intro}, it shares not only the transmitter, \gls{rf} source, but also the receiver with a primary transmission.
 			This is different from traditional \gls{ambc} where the legacy system can be unaware of the backscatter link and the node wants to minimize its footprint.
 			Such a symbiotic interaction can improve the reliability of the backscatter link as well as the energy efficiency of the primary link, but unavoidably challenges the system design.
 			For example, the acquisition of backscatter \gls{csi} can be difficult due to its passive characteristic, the detection of node message may involve complicated signal processing like \gls{sic}, and the synchronization of both links can be nontrivial due to the load-switching constraints.
@@ -621,17 +621,3 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\end{subsubsection}
 	\end{subsection}
 \end{section}
-
-% \begin{section}{\glsfmtfull{im}}
-
-% \end{section}
-
-% \begin{section}{\glsfmtfull{mimo}}
-% 	\begin{subsection}{\glsfmtfull{pc}: Channel Shaping}
-
-% 	\end{subsection}
-
-% 	\begin{subsection}{\glsfmtfull{ic}: Interference Alignment}
-
-% 	\end{subsection}
-% \end{section}

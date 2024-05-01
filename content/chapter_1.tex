@@ -8,7 +8,7 @@
 \begin{section}{Motivation}
 	The quest for better wireless connectivity has been long-standing since Marconi's illuminating radio in 1895.
 	Great successes have been made at the transmitter and receiver sides over the past century, and the communications society is unprecedentedly close to the Shannon limit \cite{Shannon1948}.
-	By 2025, global mobile data traffic is expected to reach {607} exabytes per year \cite{Tariq2020} while the number of connected devices may exceed {75} billion \cite{Georgiev2024}.
+	By 2025, global mobile data traffic is expected to reach {607} exabytes (1 exabyte is \num{e18} bytes) per year \cite{Tariq2020} while the number of connected devices may exceed {75} billion (almost 10 per person on average) \cite{Georgiev2024}.
 	At the same time, wireless applications are also evolving in various forms to address world-changing incidents like COVID-19, climate change, geopolitical tensions, and \gls{ai} revolution.
 	An initial attempt was made in 5G where the network prioritizes among high-throughput, ubiquitous-coverage, high-reliability, low-latency, massive-connectivity, and energy-efficient services \cite{Shafi2017}.
 	However, the desire of human and machine for better communication shows no signs of slowing down.
@@ -45,7 +45,7 @@
 	\end{itemize}
 
 	Before delving into these questions, we first provide a short overview of \gls{ris} and introduce some potential applications.
-	A detailed literature review and technical discussion on \gls{ris} and other technologies will be reserved for Chapter \ref{ch:background}.
+	A detailed literature review and technical discussion on \gls{ris} and other technologies will be reserved for the following chapters.
 \end{section}
 
 \begin{section}{Overview on \glsfmtfull{ris}}\label{sc:ris_overview}
@@ -82,21 +82,21 @@
 	\begin{subsection}{Characteristics}
 		The key characteristics of \gls{ris} are summarized as follows:
 		\begin{itemize}
-			\item \emph{Passive and environmental-friendly:} \gls{ris} reflects the incident waves in a passive manner and does not require dedicated \gls{rf} chains.\footnote{The controller may be implemented with low-power components and powered by ambient energy.} This is different from \gls{af} relays that require power-hungry oscillators and introduces additional thermal noise.
-			\item \emph{Flexible:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from conventional reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
-			\item \emph{Full-duplex and universal:} This physical-layer solution can simultaneously support communication, sensing, and power transfer without self-interference. Thanks to channel reciprocity, the optimal configuration for downlink and uplink coincide with each other \cite{Wu2021}. This is different from \gls{df} relays that are designed for a specific communication link and suffers from packet delays.
-			\item \emph{Low-cost and conformal:} It can be manufactured from low-cost materials and deployed in various forms (e.g., walls, windows, ceilings, tables) to provide seamless coverage and powerful customization for indoor and outdoor environments. This is different from conventional multi-antenna systems that features complex hardware and bulky structures.
+			\item \emph{Low-power with negligible noise:} \gls{ris} reflects the incident waves in a passive manner and does not require dedicated \gls{rf} chains.\footnote{The controller may be implemented with low-power components and powered by ambient energy.} This is different from \gls{af} relays that require power-hungry oscillators and introduces considerable thermal noise.
+			\item \emph{Programmable in real-time:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from conventional reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
+			\item \emph{Full-duplex without self-interference and delay:} This physical-layer solution can simultaneously support communication, sensing, and power transfer without self-interference. The optimal downlink and uplink configurations coincide with each other thanks to channel reciprocity \cite{Wu2021}. This is different from \gls{df} relays that are designed for a specific transmission and suffers from packet delays.
+			\item \emph{Low-cost and conformal:} It can be manufactured from low-cost materials and deployed in various forms (e.g., walls, windows, ceilings) to provide seamless coverage and powerful customization for indoor and outdoor environments. This is different from conventional \gls{mimo} systems that features complex hardware and bulky structures.
 		\end{itemize}
 	\end{subsection}
 
 	\begin{subsection}{Applications}\label{sc:ris_applications}
-		The channel manipulation capability of \gls{ris} unlocks a wide range of unprecedented applications, such as signal enhancement \cite{Wu2019}, interference suppression \cite{Jiang2022}, blockage bypassing \cite{Ghatak2021}, coverage extension \cite{Zeng2021}, and security control \cite{Almohamad2020}.
+		The channel manipulation capability of \gls{ris} unlocks a wide range of applications, such as signal enhancement \cite{Wu2019}, interference suppression \cite{Jiang2022}, blockage bypassing \cite{Ghatak2021}, coverage extension \cite{Zeng2021}, and security control \cite{Almohamad2020}.
 		It also has the potential to convey additional information \cite{Ye2022}, compensate for the Doppler effect \cite{Basar2021}, transform frequency-selective channels into frequency-flat \cite{Arslan2022}, improve the spatial diversity for multi-antenna systems \cite{Ozdogan2020a}, and create artificial time diversity for multi-user orthogonal \cite{Yang2019} and non-orthogonal \cite{Chen2023} multiple accesses.
 
 		Those fancy characteristics and applications of \gls{ris} have also attracted significant attention from the industry.
-		The first public testing attempt was made in 2018 by NTT Docomo and Metawave, which demonstrated a metasurface reflectarray in the FR2 band of 5G can boost a downlink data rate from \qty{60}{Mbps} to \qty{560}{Mbps} \cite{Liu2022b}.
+		The first public testing attempt was made in 2018 by NTT Docomo and Metawave, who demonstrated a metasurface-based reflectarray in the FR2 band of 5G can boost a downlink data rate from \qty{60}{Mbps} to \qty{560}{Mbps} \cite{Liu2022b}.
 		Later in 2020, NTT Docomo developed a transparent dynamic \gls{ris} that can allows 28GHz signals to reflect or pass through with negligible power loss.
-		A regional ``\gls{ris} alliance'' was formed in 2021 by Chinese companies and institutes including ZTE, China Mobile, and CAICT, which soon released a white paper \cite{Rista2023} to promote the technology and standardization.
+		``\gls{ris} alliance'' was formed in 2021 by Chinese companies and institutes including ZTE, China Mobile, and CAICT, which soon released a white paper \cite{Rista2023} to promote the technology and standardization.
 		In December 2022, ITU-R drafted a recommendation report for IMT-2030 (6G) \cite{Itu2022} that marks \gls{ris} as a key technology to enhance the radio interface for multiple physical dimension transmission.
 		These developments showcase the rapid progress of \gls{ris} from theoretical concept to practical implementation, paving the way for its integration into the next-generation network.
 	\end{subsection}
@@ -127,7 +127,7 @@
 		\item Chapter \ref{ch:channel_shaping} explores the ultimate channel shaping capabilities of \gls{ris} in \gls{mimo} systems. The key contributions include:
 		\begin{itemize}
 			\item Quantify the capability of a passive \gls{ris} to reshape the \gls{mimo} \gls{pc} in terms of singular values via analytical bounds and numerical optimization;
-			\item Focus on a general \gls{bd}-\gls{ris} architecture featuring element-wise connections and demonstrate its superior signal processing performance (subspace alignment and subchannel rearrangement) over the widely-adopted diagonal model;
+			\item Zoom out to a general \gls{bd}-\gls{ris} architecture featuring element-wise connections and demonstrate its superior shaping performance in terms of subspace alignment and subchannel rearrangement;
 			\item Propose an efficient \gls{rcg} algorithm for general \gls{bd}-\gls{ris} optimization and provide low-complexity solutions for quadratic problems;
 			\item Characterize the Pareto frontiers of channel singular values and obtain power- and rate-optimal \gls{bd}-\gls{ris} configurations in \gls{mimo} \gls{pc};
 			\item Investigate the impact of \gls{bd}-\gls{ris} on leakage interference suppression and \gls{wsr} maximization in \gls{mimo} \gls{ic};
@@ -139,8 +139,8 @@
 \begin{section}{Publications}
 	\begin{itemize}
 		\item \bibentry{Zhao2022}
-		\item \bibentry{Zhao2022a}
 		\item \bibentry{Zhao2023}
 		\item \bibentry{Zhao2024}
+		\item \bibentry{Zhao2024a}
 	\end{itemize}
 \end{section}
