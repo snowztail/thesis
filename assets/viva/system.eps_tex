@@ -57,8 +57,8 @@
     \put(-0.00020079,0.17648561){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AP\end{tabular}}}}%
     \put(0.40247465,0.48648438){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RIS\end{tabular}}}}%
     \put(0.97930298,0.05996617){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}UE\end{tabular}}}}%
-    \put(0.44815942,0.171038){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{D},n}^\mathsf{H}$\end{tabular}}}}%
-    \put(0.6588808,0.31057413){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{B},n}^\mathsf{H}$\end{tabular}}}}%
-    \put(0.20848906,0.43809175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{H}_{\mathrm{F},n}$\end{tabular}}}}%
+    \put(0.44815942,0.171038){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{D}}^\mathsf{H}$\end{tabular}}}}%
+    \put(0.6588808,0.31057413){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{h}_{\mathrm{B}}^\mathsf{H}$\end{tabular}}}}%
+    \put(0.20848906,0.43809175){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{H}_{\mathrm{F}}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

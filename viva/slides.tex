@@ -1119,7 +1119,7 @@
 		\end{block}
 	\end{frame}
 
-	\begin{frame}{Future works: III}
+	\begin{frame}{Future works: IV}
 		\begin{block}{Feasibility of interference alignment by \gls{ris}}
 			\begin{align*}
 				&\text{find} && \mathbf{\Theta} &&&\\
@@ -1135,108 +1135,6 @@
 	\end{frame}
 
 \end{section}
-% \end{section}
-
-% \begin{section}{Research Proposal}
-% 	\begin{subsection}{STAR-RIS: Interference Alignment}
-% 		\begin{frame}{STAR-RIS in Interference Channel (I)}
-% 			Consider a STAR-RIS-aided interference \gls{mimo} of $K$ transmitter-receiver pairs.
-% 			\begin{block}{Leakage interference minimization}
-% 				\vspace{-2em}
-% 				\begin{mini!}
-% 					{\scriptstyle{\mathbf{\Theta}, \{\mathbf{G}_k\}, \{\mathbf{W}_k\}}}{\mathop{\sum\sum}_{j \neq k} \bigl\lVert \mathbf{G}_k \underbrace{(\mathbf{H}^{[kj]}_\mathrm{D} + \mathbf{H}^{[k]}_\mathrm{B} \mathbf{\Theta}^{[kj]} \mathbf{H}^{[j]}_{\mathrm{F}})}_{\triangleq \mathbf{H}^{[kj]}} \mathbf{W}_j \bigr\rVert _{\mathrm{F}}^2}{\label{op:leakage}}{}
-% 					\addConstraint{\mathbf{\Theta}_{\mathrm{T},g}^\mathsf{H} \mathbf{\Theta}_{\mathrm{T},g}+\mathbf{\Theta}_{\mathrm{R},g}^\mathsf{H} \mathbf{\Theta}_{\mathrm{R},g}=\mathbf{I}, \quad}{\forall g}{\label{co:scatter}}
-% 					\addConstraint{\mathbf{G}_k \mathbf{G}_k^\mathsf{H}=\mathbf{I}, \quad}{\forall k}{\label{co:combiner}}
-% 					\addConstraint{\mathbf{W}_j^\mathsf{H} \mathbf{W}_j=\mathbf{I}, \quad}{\forall j,}{\label{co:precoder}}
-% 				\end{mini!}
-% 			\end{block}
-
-% 			\begin{block}{Feasibility of interference alignment}
-% 				\vspace{-1em}
-% 				\begin{subequations}
-% 					\begin{align}
-% 						&\text{find} && \mathbf{\Theta}, \{\mathbf{G}_k\}, \{\mathbf{W}_k\} &&&\\
-% 						&\text{s.t.} && \mathbf{G}_k \mathbf{H}^{[kj]} \mathbf{W}_j = \mathbf{0}, &&& \forall j \neq k\\
-% 						& && \mathrm{rank}(\mathbf{G}_k \mathbf{H}^{[kk]} \mathbf{W}_k) = d_k, &&& \forall k
-% 					\end{align}
-% 				\end{subequations}
-% 			\end{block}
-% 		\end{frame}
-
-% 		\begin{frame}{STAR-RIS in Interference Channel (II)}
-% 			\begin{block}{Weighted sum-rate maximization}
-% 				\vspace{-2em}
-% 				\begin{maxi!}
-% 					{\scriptstyle{\mathbf{\Theta}, \{\mathbf{W}_k\}}}{\sum_k \rho_k \log \det \biggl(\mathbf{I} + \mathbf{W}_k {\mathbf{H}^{[kj]}}^\mathsf{H} \mathbf{Q}_k^{-1} {\mathbf{H}^{[kj]}} \mathbf{W}_k\biggr)}{\label{op:ic_rate}}{\label{ob:ic_rate}}
-% 					\addConstraint{\mathbf{\Theta}_{\mathrm{T},g}^\mathsf{H} \mathbf{\Theta}_{\mathrm{T},g}+\mathbf{\Theta}_{\mathrm{R},g}^\mathsf{H} \mathbf{\Theta}_{\mathrm{R},g}=\mathbf{I}, \quad}{\forall g}{}
-% 					\addConstraint{\lVert \mathbf{W}_k \rVert _\mathrm{F}^2 \le P_k, \quad}{\forall k,}{}
-% 				\end{maxi!}
-% 				where $\mathbf{Q}_k$ is the interference-plus-noise covariance matrix at receiver $k$
-% 				\begin{equation*}
-% 					\mathbf{Q}_k = \sum_{j \ne k} {\mathbf{H}^{[kj]}} \mathbf{W}_j {\mathbf{W}_j}^\mathsf{H} {\mathbf{H}^{[kj]}}^\mathsf{H} + \eta \mathbf{I},
-% 				\end{equation*}
-% 			\end{block}
-% 		\end{frame}
-% 	\end{subsection}
-
-% 	\begin{subsection}{NOMA: Index Modulation}
-% 		\begin{frame}{\glsfmtlong{im} is a Multiplicative NOMA}
-% 			\begin{block}{Multiplicative broadcast channel}
-% 				The received signal is
-% 				\begin{equation*}
-% 					y_k = h_k \prod_q x_q + n.
-% 				\end{equation*}
-% 				\begin{itemize}
-% 					\item \gls{sic} $\to$ successive channel refinement (better symbol-level precoding)
-% 					\item \textcolor{blue}{Log-normal} is also maximum entropy distribution
-% 					\item Product of log-normal is log-normal
-% 				\end{itemize}
-% 			\end{block}
-
-% 			\begin{exampleblock}{Index modulation is a special case with superuser $R = R_1 + R_2$}
-% 				\begin{itemize}
-% 					\item $x_1 \sim \mathcal{CN}(0, \sigma_1^2)$ and $x_2$ with finite support
-% 					\item Index message encoded in the Euclidean distance between $h x_2^{(i)}$
-% 					\item Decode $x_2$ first, rate depends on \textcolor{blue}{entropy of Gaussian mixture}
-% 				\end{itemize}
-% 			\end{exampleblock}
-% 		\end{frame}
-
-% 		\begin{frame}{Multiplicative NOMA: Another Example}
-% 			\begin{block}{Joint transmitter-\gls{ris} encoding}
-% 				The received signal is
-% 				\begin{equation*}
-% 					y_k = h_k \theta \sum_q x_q + n.
-% 				\end{equation*}
-% 				\vspace{-1em}
-% 				\begin{itemize}
-% 					\item Dynamic \gls{ris} can achieve the convex hull of static \gls{ris} \cite{Mu2021a}
-% 					\begin{figure}
-% 						\centering
-% 						\subfloat{
-% 							\resizebox{0.4\columnwidth}{!}{
-% 								\includegraphics[scale=1]{assets/rate_region_noma.jpg}
-% 							}
-% 						}
-% 						\subfloat{
-% 							\resizebox{0.4\columnwidth}{!}{
-% 								\includegraphics[scale=1]{assets/rate_region_oma.jpg}
-% 							}
-% 						}
-% 					\end{figure}
-% 					\item Joint encoding rides additional information on $\theta$ as ``common message''
-% 				\end{itemize}
-% 			\end{block}
-% 		\end{frame}
-% 		\begin{frame}{Thank You}
-% 			\begin{figure}
-% 				\centering
-% 				\includegraphics[width=0.8\columnwidth]{assets/ris.jpg}
-% 			\end{figure}
-% 		\end{frame}
-% 	\end{subsection}
-% \end{section}
-
 \bibliographystyle{IEEEtran}
 \bibliography{../misc/library.bib}
 \end{document}

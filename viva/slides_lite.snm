@@ -1,0 +1,13 @@
+\beamer@slide {fg:ris_architecture}{3}
+\beamer@slide {fg:receiver_ts}{7}
+\beamer@slide {fg:receiver_ps}{7}
+\beamer@slide {fg:riscatter_network}{11}
+\beamer@slide {fg:receiver}{12}
+\beamer@slide {eq:diagonal_scattering_matrix}{16}
+\beamer@slide {eq:bd_ris}{16}
+\beamer@slide {fg:bd_ris_architecture_2}{16}
+\beamer@slide {eq:update_geodesic}{17}
+\beamer@slide {tb:complexity_test}{17}
+\beamer@slide {fg:singular_pareto_sx32}{19}
+\beamer@slide {fg:singular_bound_rank2_sx128}{19}
+\beamer@slide {fg:rate_txrx}{19}
