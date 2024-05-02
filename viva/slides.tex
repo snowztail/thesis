@@ -707,7 +707,7 @@
 		\end{figure}
 		Within each backscatter block, received signal at primary block $n$ is
 		\begin{equation*}
-			y[n] = \underbrace{\mathbf{h}_{\text{D}}^\mathsf{H} + \sum_{k} \alpha_k \mathbf{h}_{\text{C},k}^\mathsf{H} \textcolor{orange}{x_k}}_{\mathbf{h}^\mathsf{H}(\textcolor{orange}{x_{\mathcal{K}}})} \mathbf{w} \textcolor{blue}{s[n]} + v[n],
+			y[n] = \underbrace{\Bigl(\mathbf{h}_{\text{D}}^\mathsf{H} + \sum_{k} \alpha_k \mathbf{h}_{\text{C},k}^\mathsf{H} \textcolor{orange}{x_k}\Bigr)}_{\mathbf{h}^\mathsf{H}(\textcolor{orange}{x_{\mathcal{K}}})} \mathbf{w} \textcolor{blue}{s[n]} + v[n],
 		\end{equation*}
 		\vspace{-0.25cm}
 		\begin{block}{Properties}
@@ -721,7 +721,7 @@
 		\end{block}
 	\end{frame}
 
-	\begin{frame}{Low-Complexity Receiver}
+	\begin{frame}{Low-complexity receiver}
 		We propose a low-complexity receiver that exploits the aforementioned properties to avoid \gls{sic}.
 		\begin{figure}[!t]
 			\centering
