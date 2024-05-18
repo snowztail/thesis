@@ -35,8 +35,8 @@
 		\item Backscatter signal strength is much weaker than primary due to \emph{double fading};
 		\item The spreading factor (i.e., backscatter symbol duration over primary) is usually large\footnote{The load-switching interval of low-power backscatter modulators is usually \num{0.1} to \qty{10}{\us} \cite{Torres2021}, accounting for a typical spreading factor between \num{10} and \num{e3}.}.
 	\end{enumerate}
-	The second property motivated \cite{Long2020a,Liang2020,Guo2019b,Ding2020,Hassani2023,Zhou2019a,Wu2021a,Xu2021a,Yang2021a,Yang2018,Han2021,Zhang2022,Dai2023} to view \gls{sr} as a multiplicative \gls{noma} and perform \gls{sic} from primary to backscatter link.
-	During primary decoding, the backscatter signal can be modelled as channel uncertainty or multiplicative interference, when the spreading factor is large or small, respectively.
+	The second property motivated \cite{Long2020a,Liang2020,Guo2019b,Ding2020,Hassani2023,Zhou2019a,Wu2021a,Xu2021a,Yang2021a,Yang2018,Han2021,Zhang2022,Dai2023} to view \gls{sr} as a multiplicative \gls{noma}\footnote{As discussed in Section \ref{sc:mcs}, a time-varying reflection pattern at rate $\Delta f$ can shift the frequency of the scattered signal by $\pm \Delta f$. Therefore, the spreading ratio should be carefully chosen to balance backscatter rate and frequency offset.} and perform \gls{sic} from primary to backscatter link.
+	During primary decoding, the backscatter signal can be modeled as channel uncertainty or multiplicative interference, when the spreading factor is large or small, respectively.
 	Decoding each backscatter symbol also requires multiple \gls{sic} followed by a \gls{mrc} over primary blocks, which is operation-intensive and \gls{csi}-sensitive.
 	Under those assumptions, the achievable rate region of cell-free \gls{sr} was characterized in \cite{Dai2023}.
 	When the spreading factor is sufficiently large, the primary achievable rate under semi-coherent detection\footnote{In this chapter, semi-coherent detection refers to the primary/backscatter decoding with known \gls{csi} and unknown backscatter/primary symbols.} asymptotically approaches its coherent counterpart such that both links are approximately interference-free \cite{Long2020a}.
@@ -143,7 +143,7 @@
 
 	Second, we address the first challenge and propose a low-complexity \gls{sic}-free receiver.
 	It semi-coherently decodes the weak backscatter signal using an energy detector, re-encodes for the exact reflection pattern, then coherently decodes the primary link.
-	Thanks to double modulation, backscatter detection can be viewed as part of channel training, and the impact of backscatter modulation can be modelled as dynamic passive beamforming afterwards.
+	Thanks to double modulation, backscatter detection can be viewed as part of channel training, and the impact of backscatter modulation can be modeled as dynamic passive beamforming afterwards.
 	The proposed receiver may be built over legacy receivers with minor hardware upgrade, as it only requires one additional energy comparison and re-encoding per backscatter symbol (instead of primary symbol).
 	The energy detector can also be tailored for arbitrary input distribution and spreading factor to increase backscatter throughput.
 	This is the first work to propose a \gls{sic}-free cooperative receiver for active-passive coexisting networks.
@@ -192,19 +192,21 @@
 
 		RIScatter generalizes \gls{bc} and \gls{ris} from a probabilistic perspective.
 		Each reflection coefficient simultaneously acts as a passive beamforming codeword and part of information codeword.
-		As shown in Fig.~\ref{fg:scatter_comparison}, the reflection pattern of each RIScatter node over time is semi-random and guided by the input probability assigned to each state.
+		As shown in Fig.~\subref*{fg:input_distribution}, the reflection pattern of each RIScatter node over time is semi-random and guided by the input probability assigned to each state.
 		This probability distribution is carefully designed to incorporate the backscatter information, \gls{csi}, and \gls{qos}, in order to strike a balance between backscatter modulation and passive beamforming.
+		Fig.~\subref*{fg:time_structure} illustrates the reflection pattern of a RIScatter node over time, where ``PB'', ``BB'', and ``CB'' refer to primary symbol block, backscatter symbol block, and channel block, respectively.
+		We assume the coherent channel block is longer than backscatter symbol block, and the backscatter symbol block is longer than primary symbol block.
 		\begin{figure}[H]
 			\centering
 			\subfloat[Input Distribution]{
-				\resizebox{0.8\columnwidth}{!}{
+				\resizebox{0.6\columnwidth}{!}{
 					\input{assets/chapter_4/input_distribution.tex}
 				}
 				\label{fg:input_distribution}
 			}
 			\\
 			\subfloat[Reflection Pattern]{
-				\resizebox{0.8\columnwidth}{!}{
+				\resizebox{0.6\columnwidth}{!}{
 					\input{assets/chapter_4/time_structure.tex}
 				}
 				\label{fg:time_structure}
@@ -221,7 +223,7 @@
 		\end{figure}
 		\begin{remark}
 			Unlike dynamic \gls{ris} that simply performs a time sharing between reflection states, RIScatter conveys additional information by randomizing the reflection pattern over time while still guaranteeing the probability of occurrence of each state.
-			Upon successful backscatter detection, the impact of RIScatter nodes on the primary link can be modelled as dynamic passive beamforming.
+			Upon successful backscatter detection, the impact of RIScatter nodes on the primary link can be modeled as dynamic passive beamforming.
 			\label{rm:dynamic_passive_beamforming}
 		\end{remark}
 
@@ -273,7 +275,7 @@
 		Without loss of generality, we assume all nodes have $M$ available reflection states.
 		In the primary point-to-point system, the \gls{ap} transmits information to the user over a multipath channel enhanced by RIScatter nodes.
 		In the backscatter multiple access system, the \gls{ap} acts as a carrier emitter, the RIScatter nodes modulate over the scattered signal, and the user jointly decodes all nodes.
-		We assume the primary symbol duration is much longer than multipath delay spread (i.e., no inter-symbol interference), and the signal going through two or more RIScatter nodes is too weak to be received by the user.
+		We assume the channel coherence time is longer than the backscatter symbol duration, the primary symbol duration is much longer than multipath delay spread (i.e., no inter-symbol interference), and the signal going through two or more RIScatter nodes is too weak to be received by the user.
 		For simplicity, we consider a quasi-static block fading model and focus on a specific channel block where the \gls{csi} remains constant.
 		Denote the \gls{ap}-user direct channel as $\mathbf{h}_{\text{D}}^\mathsf{H} \in \mathbb{C}^{1 \times Q}$, the \gls{ap}-node $k \in \mathcal{K} \triangleq \{1,\ldots,K\}$ forward channel as $\mathbf{h}_{\text{F},k}^\mathsf{H} \in \mathbb{C}^{1 \times Q}$, the node $k$-user backward channel as $h_{\text{B},k}$, and the cascaded \gls{ap}-node $k$-user channel as $\mathbf{h}_{\text{C},k}^\mathsf{H} \triangleq h_{\text{B},k} \mathbf{h}_{\text{F},k}^\mathsf{H} \in \mathbb{C}^{1 \times Q}$.
 		We assume the direct and cascaded \gls{csi} are available at the \gls{ap} and the user.
@@ -725,7 +727,7 @@
 		Second, the average primary rate slightly decreases/increases in the presence of a \gls{ambc}/\gls{ris} node, and the benefit of \gls{sr} is not obvious.
 		This is because the cascaded channel is around \qty{25}{dB} weaker than the direct channel.
 		Here, \gls{ris} ensures a constructive superposition of the direct and scattered components, while \gls{sr} only creates a quasi-static rich-scattering environment that marginally enhances the average primary rate.
-		When $N$ is moderate, the randomly scattered signals should be modelled as interference rather than stable multipath, and the \gls{sr} point should move vertically towards the \gls{ambc} point.
+		When $N$ is moderate, the randomly scattered signals should be modeled as interference rather than stable multipath, and the \gls{sr} point should move vertically towards the \gls{ambc} point.
 		Third, RIScatter enables a flexible primary-backscatter trade-off with adaptive input distribution design.
 		In terms of maximum primary achievable rate, RIScatter coincides with \gls{ris} and outperforms the others by using the static reflection pattern that maximizes the primary \gls{snr} all the time.
 		On the other hand, its maximum backscatter achievable rate is higher than that of \gls{ambc}.
@@ -742,7 +744,7 @@
 			\caption{Typical RIScatter reflection state distribution at different $\rho$ for $Q=1$, $K=1$, $M=4$, $N=20$, $\sigma_v^2=\qty{-40}{dBm}$ and $r=\qty{2}{m}$.}
 			\label{fg:distribution_weights}
 		\end{figure}
-		The objective is to demonstrate RIScatter nodes can leverage \gls{csi}- and \gls{qos}-adaptive input distribution design to balance backscatter modulation and passive beamforming.
+		The objective is to demonstrate that RIScatter nodes can leverage \gls{csi}- and \gls{qos}-adaptive input distribution design to balance backscatter modulation and passive beamforming.
 		For one RIScatter node with $M=4$, we evaluate the \gls{kkt} input distribution at different \gls{qos} and present the result in Fig.~\ref{fg:distribution_weights}.
 		At $\rho=0$ where the backscatter performance is prioritized, the optimal input distribution is \num{0} on two states and nearly uniform on the other two.
 		This is inline with Shannon's observation that binary antipodal inputs is good enough for channel capacity at low \gls{snr} \cite{Shannon1948}.
@@ -960,6 +962,7 @@
 			The backscatter \gls{snr} is fixed to \qty{0}{dB} with $Q=1$ in this study.
 			Interestingly, Fig.~\subref*{fg:region_snr_primary} shows that increasing the primary \gls{snr} can improve the primary rate but degrade the backscatter rate.
 			The reason is that the relative strength of the scattered signal compared to the direct signal is weakened, such that the nodes cannot make enough difference to the energy detector.
+			It suggests that the nodes should be positioned in the proximity of the user to avoid \gls{snr} imbalance.
 			This, together with Fig.~\subref*{fg:region_beamforming} and \subref*{fg:region_tags}, emphasizes the importance of balancing the primary and backscatter \gls{snr} in the design of active-passive coexisting networks.
 			% This, together with Fig.~\subref*{fg:region_beamforming} and \subref*{fg:region_tags}, emphasizes the importance of primary-backscatter trade-off in active-passive coexisting networks.
 		\end{subsubsection}

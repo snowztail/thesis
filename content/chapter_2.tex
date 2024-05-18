@@ -97,8 +97,9 @@ This chapter provides essential background for topics covered in the thesis. A d
 			}
 			\caption{Reflection through metamaterials. Yellow dots represent scattering elements. Solid and dashed lines denote wavefronts and rays, respectively. The scattering elements work together to manipulate the phases of incident waves, resulting in a focused beam steered in the intended direction.}
 		\end{figure}
-		It is worth noticing that refraction and reflection are different implementations of \emph{passive beamforming} where the phase and amplitude of the ambient signal are altered by the metamaterial for a desired net effect.
-		In the next subsection, we will some typical \gls{ris} scattering models and their physical architecture.
+		It is worth noticing that refraction and reflection are different forms of {wave scattering} where the signal amplitude and phase are altered by the metamaterial.
+		Their contributions can be jointly modeled within the scattering matrix $\mathbf{\Theta}$, which corresponds to the $S$-parameters in microwave engineering and the channel matrix in wireless communications.
+		In the next subsection, we will introduce some typical \gls{ris} scattering models and their physical architecture.
 	\end{subsection}
 
 	\begin{subsection}{Wave Scattering Models}
@@ -119,7 +120,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			and $Z_0$ is the characteristic impedance for programmable metamaterials or the input impedance for passive antennas.
 			Specifically,
 			\begin{itemize}
-				\item \emph{Structural component:} Depends on the geometry and material of the scatterer. It is usually modelled as part of the environment multipath \cite{Thomas2012,Liang2020} or a baseband \gls{dc} offset when the impinging signal is \gls{cw} \cite{Boyer2014}.
+				\item \emph{Structural component:} Depends on the geometry and material of the scatterer. It is usually modeled as part of the environment multipath \cite{Thomas2012,Liang2020} or a baseband \gls{dc} offset when the impinging signal is \gls{cw} \cite{Boyer2014}.
 				\item \emph{Antenna component:} Depends on the reflection coefficient and load impedance. This is widely exploited for various scattering applications, such as backscatter modulation in \gls{bc} and passive beamforming in \gls{ris} \cite{Zhao2024}.
 			\end{itemize}
 			We then introduce two canonical \gls{ris} models that will be adopted in the work chapters.
@@ -152,15 +153,15 @@ This chapter provides essential background for topics covered in the thesis. A d
 		\begin{subsubsection}{\glsfmtfull{bd} Model}
 			How to model the \gls{ris} response if the passive scattering elements can cooperate with neighbors via physical connections?
 			This question has been answered by \cite{Shen2020a} through a \gls{bd} model.
-			From a network theory perspective \cite{Ivrlac2010}, a general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
+			From a network theory perspective \cite{Ivrlac2010}, a general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable components.
 			It allows wave impinging on any element to propagate within the circuit and depart partially from other elements in the same group, such that both amplitude and phase of the scattered wave can be redistributed with zero power loss.
-			Fig. \ref{fg:bd_ris_architecture_2} illustrates an 8-element \gls{ris} with group size 2 (left) and 4 (right).
+			Fig. \ref{fg:bd_ris_architecture_2} illustrates an 8-element \gls{bd}-\gls{ris} with group size 2 (left) and 4 (right).
 			\begin{figure}[H]
 				\centering
 				\resizebox{0.75\columnwidth}{!}{
 					\includegraphics{assets/chapter_2/bd_ris_architecture_2.eps}
 				}
-				\caption{Network model of an 8-element \gls{ris} with group-wise cooperative scattering of group size (a) 2 and (b) 4. The group size is a design parameter to balance the circuit complexity and scattering performance. Source: Modified from \cite{Shen2020a}.}
+				\caption{Network model of an 8-element \gls{ris} with group-wise cooperative scattering of group size (a) 2 and (b) 4. The group size is a design parameter to balance the circuit complexity and scattering performance. Source: modified from \cite{Shen2020a}.}
 				\label{fg:bd_ris_architecture_2}
 			\end{figure}
 
@@ -170,12 +171,12 @@ This chapter provides essential background for topics covered in the thesis. A d
 			% 	\resizebox{0.75\columnwidth}{!}{
 			% 		\includegraphics{assets/chapter_2/bd_ris_architecture_1.eps}
 			% 	}
-			% 	\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. Source: Modified from \cite{Shen2020a}.}
+			% 	\caption{Network model of a 4-element \gls{ris} with (a) independent scattering and (b) fully cooperative scattering with all elements interconnected. Source: modified from \cite{Shen2020a}.}
 			% 	\label{fg:bd_ris_architecture_1}
 			% \end{figure}
 
 			% A general \gls{bd}-\gls{ris} can be modeled as an $N_\mathrm{S}$-port network that divides into $G$ individual groups, each containing $L \triangleq N_\mathrm{S} / G$ elements interconnected by real-time reconfigurable connections.
-			With symmetric components (e.g., capacitors and inductors), the scattering matrix of group $g \in \mathcal{G} \triangleq \{1, \ldots, G\}$ is \cite{Shen2020a}
+			Using passive symmetric components (e.g., capacitors and inductors), the scattering matrix of group $g \in \mathcal{G} \triangleq \{1, \ldots, G\}$ is \cite{Shen2020a}
 			\begin{equation}
 				\mathbf{\Theta}_g = (\jmath \mathbf{X}_g + Z_0 \mathbf{I})^{-1} (\jmath \mathbf{X}_g - Z_0 \mathbf{I}),
 			\end{equation}
@@ -190,8 +191,17 @@ This chapter provides essential background for topics covered in the thesis. A d
 					\label{eq:unitary_property}
 				\end{equation}
 			\end{subequations}
-			On the other hand, lossless networks may also be built over asymmetric passive components (e.g., ring hybrids and branch-line hybrids) \cite{Ahn2006} such that the symmetric constraint \eqref{eq:symmetric_property} is unnecessary.
-			This corresponds to the ultimate passive model where energy conservation \eqref{eq:unitary_property} is the only constraint for each group, as has been widely adopted in quantum physics.
+
+			On the other hand, lossless networks may also be built over asymmetric passive components (e.g., ring hybrids and branch-line hybrids) such that the symmetric constraint \eqref{eq:symmetric_property} can be relaxed.
+			A 4-port ring hybrid is illustrated in Fig. \ref{fg:ring_hybrid}.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\textwidth]{assets/chapter_2/ring_hybrid.pdf}
+				\caption{A 4-port asymmetric ring hybrid. Here the arc length between ports are $\Theta_1 = \Theta_2 = \Theta_3 = \lambda / 4$ and $\Theta_4 = 3 \lambda / 4$ where $\lambda$ is the wavelength. The termination admittances $Y_a$ to $Y_d$ are arbitrary and the characteristic admittances of transmission-line sections are not necessarily the same, such that the scattering parameters can be asymmetric. Source: modified from \cite{Ahn2006}.}
+				\label{fg:ring_hybrid}
+			\end{figure}
+
+			By reconfiguring passive asymmetric components, we end up with the ultimate passive model where energy conservation \eqref{eq:unitary_property} is the only constraint for each group, as has been widely adopted in quantum physics.
 			The overall scattering matrix of asymmetric \gls{bd}-\gls{ris} is thus \emph{block-diagonal with unitary diagonal blocks}
 			\begin{equation}
 				\mathbf{\Theta} = \mathrm{diag}(\mathbf{\Theta}_1,\ldots,\mathbf{\Theta}_G) =
@@ -211,7 +221,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			It is also worth mentioning that each group can be abstracted as a mathematical graph with $L$ vertices and a variable number of edges \cite{Nerini2024}.
 			Two elements are in the same group if and only if there is at least one path (via edges) between them.
 			It implies that instead of connecting every pair of elements, the practical circuit can be designed to have a sparse graph with only a few connections, which is beneficial for reducing the circuit complexity and power loss from non-ideal components.
-			Antenna directivity and radiation pattern should also be modelled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
+			Antenna directivity and radiation pattern should also be modeled in the scattering matrix, especially when the locations of users or \gls{ris} are not fixed.
 			This has motivated the concept of \gls{star}-\gls{ris} \cite{Mu2021,Liu2021} and multi-sector \gls{ris} \cite{Li2023c} where incident wave is partially steered to various directions for different users.
 		\end{subsubsection}
 	\end{subsection}
@@ -255,7 +265,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			\label{fg:wpt_architecture}
 		\end{figure}
 
-		The block diagram a closed-loop \gls{ris}-aided \gls{wpt} system is illustrated in Fig. \ref{fg:wpt_architecture}.
+		The block diagram of a closed-loop \gls{ris}-aided \gls{wpt} system is illustrated in Fig. \ref{fg:wpt_architecture}.
 		The \gls{rf} signal is generated and radiated by the energy transmitter, propagated through a wireless channel in the presence of a \gls{ris}, captured by the antenna(s) at the receiver, converted to \gls{dc} power by rectifier(s), then passed to the power management unit.
 		Upon successful harvesting, the \gls{dc} power is either delivered directly to the device or stored in a battery/super capacitor for future operations.
 		When a feedback link is available, one can acquire \gls{csi} at the energy transmitter and exploit it for signal optimization.
@@ -309,7 +319,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			The diode is the key non-linear component that determines to the harvested energy.
 			Roughly speaking, the behavior of any rectenna can be separated into three operation regions \cite{Clerckx2016a}:
 			\begin{itemize}
-				\item \emph{Linear region:} When the input power level is relatively low, the output power is proportional to the input and the \gls{rf}-to-\gls{dc} conversion efficiency $\eta_3$ is a constant. Most early \gls{wpt} research (especially from communications society) assume the rectenna works in this region. For a received signal $y(t)$, the harvested \gls{dc} power in this region can be modelled as
+				\item \emph{Linear region:} When the input power level is relatively low, the output power is proportional to the input and the \gls{rf}-to-\gls{dc} conversion efficiency $\eta_3$ is a constant. Most early \gls{wpt} research (especially from communications society) assume the rectenna works in this region. For a received signal $y(t)$, the harvested \gls{dc} power in this region can be modeled as
 				\begin{equation}
 					P_\mathrm{DC}^\mathrm{R} = \eta_3 P_\mathrm{RF}^\mathrm{R} = \eta_3 \mathbb{A}\bigl\{ \lvert y(t) \rvert^2 \bigr\},
 					\label{eq:dc_power_linear}
@@ -336,7 +346,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 					z \triangleq \sum_{i=2,\text{even}}^{n_0} \beta_i \mathbb{A}\bigl\{ y^i(t) \bigr\},
 					\label{eq:dc_power_nonlinear}
 				\end{equation}
-				where $\beta_i = I_\mathrm{S} \frac{R_\mathrm{A}^{i/2}}{i!(n v_\mathrm{T})^i}$ is a constant and $n_0$ is the truncation order. Selecting $n_0=2$ yields the same result as \eqref{eq:dc_power_linear}, which suggests that the linear model is a special case of the more accurate non-linear model. For a moderate excitation, the contribution of higher-order terms is significant and should be modelled in the harvested \gls{dc} power.
+				where $\beta_i = I_\mathrm{S} \frac{R_\mathrm{A}^{i/2}}{i!(n v_\mathrm{T})^i}$ is a constant and $n_0$ is the truncation order. Selecting $n_0=2$ yields the same result as \eqref{eq:dc_power_linear}, which suggests that the linear model is a special case of the more accurate non-linear model. For a moderate excitation, the contribution of higher-order terms is significant and should be modeled in the harvested \gls{dc} power.
 				\item \emph{Saturation region:} When the input power level is too high, the diode works in the reverse breakdown region, the rectifier is saturated, and the output power is a constant. This is the region where the $\eta_3$ significantly drops and should be avoided by circuit design.
 				For a fixed rectenna with Gaussian input signal, a parametric model was proposed in \cite{Boshkovska2015}
 				\begin{equation}
@@ -365,7 +375,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 		It is envisioned that future network providers will be able to offer a complete wireless solution including data and power services, which is essential for the upcoming intelligent era.
 
 		One of the most important issues in \gls{swipt} is that the energy harvester requires a much higher received signal power (several orders of magnitude) than the information decoder \cite{Clerckx2019}.
-		Since the channel \gls{rf}-to-\gls{rf} efficiency $\eta_2$ is the primary constraint on the overall power efficiency, how to combat the pathloss and fading effects has been recognized as a crucial research topic for \gls{wpt} \gls{swipt}.
+		Since the channel \gls{rf}-to-\gls{rf} efficiency $\eta_2$ is the primary constraint on the overall power efficiency, how to combat the pathloss and fading effects has been recognized as a crucial research topic for \gls{wpt} and \gls{swipt}.
 		Fortunately, this issue can be effectively mitigated by introducing a \gls{ris} to the environment.
 		By carefully tuning the scatter response of the \gls{ris} elements, one can potentially achieve the following benefits:
 		\begin{itemize}
@@ -508,6 +518,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 	\end{subsection}
 
 	\begin{subsection}{Modulation and Coding Schemes}
+		\label{sc:mcs}
 		\gls{bc} and \gls{ris} share the same wave scattering model in Section \ref{sc:principles}, but the reflection coefficient $\Gamma$ in \eqref{eq:reflection_coefficient} is exploited in different manners.
 		The difference is two-fold:
 		\begin{itemize}
@@ -542,7 +553,7 @@ This chapter provides essential background for topics covered in the thesis. A d
 			That is, periodically switching the reflection coefficient at rate $\Delta f$ results in a frequency shift $\pm \Delta f$ on the reflected signal.
 			Practical implementations have been demonstrated on a variety of license-free protocols (e.g., HitchHike \cite{Zhang2016a}, inter-technology \cite{Iyer2016}, Passive Wi-Fi \cite{Kellogg2017}, \gls{ble}-Backscatter \cite{Ensworth2017}) where the mirror copy can be suppressed.
 			\item \emph{\gls{css} \cite{Talla2017}:} A chirp is a signal whose frequency increases or decreases over time.
-			\gls{css} uses wideband linear-frequency modulated chirps to encode information, which is from \gls{dsss} and \gls{fsss} with pseudo-random sequences and \gls{fsk} with discrete frequencies.
+			\gls{css} uses wideband linear-frequency modulated chirps to encode information, which is from \gls{dsss} and \gls{fhss} with pseudo-random sequences and \gls{fsk} with discrete frequencies.
 			In particular, $N+1$ reflection coefficients of the same envelope are sequentially selected at a regular rate $\Delta f$, given by
 			\begin{equation}
 				\Gamma_n = \alpha \exp(\jmath \phi_n), \quad n \in \{0, 1, \ldots, N\},

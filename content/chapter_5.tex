@@ -127,7 +127,7 @@
 		\end{equation}
 		where $\mathbf{\Theta}_g \in \mathbb{U}^{L \times L}$ is the $g$-th unitary block (i.e., $\mathbf{\Theta}_g^\mathsf{H} \mathbf{\Theta}_g = \mathbf{I}$) that describes the response of group $g \in \mathcal{G} \triangleq \{1, \ldots, G\}$.
 		Note that diagonal and unitary \gls{ris} can be regarded as its extreme cases with group size $L=1$ and $L=N_\mathrm{S}$, respectively.
-		Some potential physical architectures of \gls{bd}-\gls{ris} are illustrated in \cite[Fig. 3]{Shen2020a}, \cite[Fig. 5]{Li2023c}, and \cite[Fig. 2]{Nerini2024}, where the radiation pattern and circuit topology need to be modelled in the scattering matrix.
+		Some potential physical architectures of \gls{bd}-\gls{ris} are illustrated in \cite[Fig. 3]{Shen2020a}, \cite[Fig. 5]{Li2023c}, and \cite[Fig. 2]{Nerini2024}, where the radiation pattern and circuit topology need to be modeled in the scattering matrix.
 
 		Let $\mathbf{H}_\mathrm{D} \in \mathbb{C}^{N_\mathrm{R} \times N_\mathrm{T}}$, $\mathbf{H}_\mathrm{B} \in \mathbb{C}^{N_\mathrm{R} \times N_\mathrm{S}}$, $\mathbf{H}_\mathrm{F} \in \mathbb{C}^{N_\mathrm{S} \times N_\mathrm{T}}$ denote the direct (transmitter-receiver), backward (\gls{ris}-receiver), and forward (transmitter-\gls{ris}) channels, respectively.
 		The equivalent channel is a function of the scattering matrix
@@ -823,7 +823,7 @@
 	\end{subsection}
 
 	\begin{subsection}{Weighted Sum-Rate Maximization}
-		Finally, we consider weighted sum-rate maximization in \gls{mimo}-\gls{ic} by joint active and passive beamforming design.
+		Finally, we consider weighted sum-rate maximization in \gls{mimo}-\gls{ic} by joint active beamforming design at the transmitters and passive beamforming design at the \gls{ris}.
 		The achievable rate of transmission $k$ is given by
 		\begin{equation}
 			R_k = \log \det \biggl(\mathbf{I} + \mathbf{W}_k {\mathbf{H}^{[kj]}}^\mathsf{H} \mathbf{Q}_k^{-1} {\mathbf{H}^{[kj]}} \mathbf{W}_k\biggr),
@@ -839,7 +839,7 @@
 			\addConstraint{\mathbf{\Theta}_g^\mathsf{H} \mathbf{\Theta}_g=\mathbf{I}, \quad \forall g}{}{}
 			\addConstraint{\lVert \mathbf{W}_k \rVert _\mathrm{F}^2 \le P_k. \quad \forall k}{}{}
 		\end{maxi!}
-		where $\rho_k$ is the weight of transmission $k$.
+		where $\rho_k$ is the weight that denotes the priority of transmission $k$.
 		The problem is non-convex and can be solved by the \gls{ao} method detailed below.
 
 		\begin{subsubsection}{Precoder Design}

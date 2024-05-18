@@ -74,7 +74,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.9\textwidth]{ris_architecture.pdf}
-			\caption{A typical architecture of \gls{ris}. Source: Modified from \cite{Wu2020}.}
+			\caption{A typical architecture of \gls{ris}. Source: modified from \cite{Wu2020}.}
 			\label{fg:ris_architecture}
 		\end{figure}
 	\end{subsection}
@@ -86,6 +86,7 @@
 			\item \emph{Programmable in real-time:} It provides a software configurable environment that can be adapted for different applications and scenarios. This is different from conventional reflectarray \cite{Nayeri2018} and frequency selective surfaces \cite{Anwar2018} with predefined radiation patterns and frequency response.
 			\item \emph{Full-duplex without self-interference and delay:} This physical-layer solution can simultaneously support communication, sensing, and power transfer without self-interference. The optimal downlink and uplink configurations coincide with each other thanks to channel reciprocity \cite{Wu2021}. This is different from \gls{df} relays that are designed for a specific transmission and suffers from packet delays.
 			\item \emph{Low-cost and conformal:} It can be manufactured from low-cost materials and deployed in various forms (e.g., walls, windows, ceilings) to provide seamless coverage and powerful customization for indoor and outdoor environments. This is different from conventional \gls{mimo} systems that features complex hardware and bulky structures.
+			\item \emph{Non-resonant and sub-wavelength:} Instead of relying on the resonance effect at a specific frequency, \gls{ris} ideally functions as a universal scatterer serving a wide range of frequency bands with independent response control. Miniature elements with sub-wavelength dimension and spacing further reduces mutual coupling and improves spatial resolution. However, they pose a great challenge on the design and optimization of the circuit components and matching network.
 		\end{itemize}
 	\end{subsection}
 
@@ -102,39 +103,39 @@
 	\end{subsection}
 \end{section}
 
-\begin{section}{Outline and Contributions}
-	The thesis is outlined as follows:
-	\begin{itemize}
-		\item Chapter \ref{ch:introduction} provides an overview of the thesis. It introduces the motivation and objectives, raise critical research questions, discusses the characteristics and applications of \gls{ris}, and summarizes the contributions of each research chapter. A list of publications is also provided.
-		\item Chapter \ref{ch:background} provides necessary background knowledge for \gls{ris}, \gls{wpt}, \gls{swipt}, and \gls{bc}. It covers fundamental principles, hardware implementation, signal and system models, performance metrics, design challenges, and state-of-the-art research.
-		\item Chapter \ref{ch:ris_aided_swipt} investigate the impact of \gls{ris} on wireless information and power transfer. The key contributions include:
-		\begin{itemize}
-			\item Introduce \gls{ris} to a multi-antenna multi-carrier \gls{swipt} system with different receiver architectures;
-			\item Consider joint waveform and beamforming design for the proposed system under a practical energy harvester model;
-			\item Characterize the \gls{r-e} performance trade-off by maximizing harvested energy subject to different communication rate constraints;
-			\item Propose local-optimal and low-complexity algorithms and evaluate their narrow and wideband performance through numerical simulations;
-			\item Discuss the array gain for communication and the scaling order for power transfer in terms of the number of transmit antennas and \gls{ris} elements.
-		\end{itemize}
-		\item Chapter \ref{ch:riscatter} develops a novel scatter protocol that integrates beamforming and modulation. The key contributions include:
-		\begin{itemize}
-			\item Provide an in-depth comparison of \gls{ris} with state-of-the-art \gls{bc} technologies and discuss the key properties of active and passive transmissions coexisting systems;
-			\item Unify \gls{ris} and \gls{bc} as one battery-free cognitive radio called RIScatter, where dispersed or co-located scatter nodes ride over an active primary link to modulate their own information and engineering the legacy channel simultaneously;
-			\item Integrate backscatter modulation and passive beamforming seamlessly into the input distribution design that allows arbitrary trade-off in between;
-			\item Propose a low-complexity cooperative receiver that sequentially decodes both coexisting links and exploits backscatter detection as part of channel training;
-			\item Characterize the achievable primary-backscatter rate region over different designs of input distribution at the scatter nodes, active beamforming at the \gls{ap}, and energy detector at the receiver;
-			\item Discuss the impact of practical factors such as the number of scatter nodes and states, transmit antenna size, backscatter symbol duration, and \gls{snr} on the system performance.
-		\end{itemize}
-		\item Chapter \ref{ch:channel_shaping} explores the ultimate channel shaping capabilities of \gls{ris} in \gls{mimo} systems. The key contributions include:
-		\begin{itemize}
-			\item Quantify the capability of a passive \gls{ris} to reshape the \gls{mimo} \gls{pc} in terms of singular values via analytical bounds and numerical optimization;
-			\item Zoom out to a general \gls{bd}-\gls{ris} architecture featuring element-wise connections and demonstrate its superior shaping performance in terms of subspace alignment and subchannel rearrangement;
-			\item Propose an efficient \gls{rcg} algorithm for general \gls{bd}-\gls{ris} optimization and provide low-complexity solutions for quadratic problems;
-			\item Characterize the Pareto frontiers of channel singular values and obtain power- and rate-optimal \gls{bd}-\gls{ris} configurations in \gls{mimo} \gls{pc};
-			\item Investigate the impact of \gls{bd}-\gls{ris} on leakage interference suppression and \gls{wsr} maximization in \gls{mimo} \gls{ic};
-			\item Discuss how channel shaping helps to decouple joint \gls{ris}-transceiver designs with comparable performance and significantly reduced complexity.
-		\end{itemize}
-	\end{itemize}
-\end{section}
+% \begin{section}{Outline and Contributions}
+% 	The thesis is outlined as follows:
+% 	\begin{itemize}
+% 		\item Chapter \ref{ch:introduction} provides an overview of the thesis. It introduces the motivation and objectives, raise critical research questions, discusses the characteristics and applications of \gls{ris}, and summarizes the contributions of each research chapter. A list of publications is also provided.
+% 		\item Chapter \ref{ch:background} provides necessary background knowledge for \gls{ris}, \gls{wpt}, \gls{swipt}, and \gls{bc}. It covers fundamental principles, hardware implementation, signal and system models, performance metrics, design challenges, and state-of-the-art research.
+% 		\item Chapter \ref{ch:ris_aided_swipt} investigate the impact of \gls{ris} on wireless information and power transfer. The key contributions include:
+% 		\begin{itemize}
+% 			\item Introduce \gls{ris} to a multi-antenna multi-carrier \gls{swipt} system with different receiver architectures;
+% 			\item Consider joint waveform and beamforming design for the proposed system under a practical energy harvester model;
+% 			\item Characterize the \gls{r-e} performance trade-off by maximizing harvested energy subject to different communication rate constraints;
+% 			\item Propose local-optimal and low-complexity algorithms and evaluate their narrow and wideband performance through numerical simulations;
+% 			\item Discuss the array gain for communication and the scaling order for power transfer in terms of the number of transmit antennas and \gls{ris} elements.
+% 		\end{itemize}
+% 		\item Chapter \ref{ch:riscatter} develops a novel scatter protocol that integrates beamforming and modulation. The key contributions include:
+% 		\begin{itemize}
+% 			\item Provide an in-depth comparison of \gls{ris} with state-of-the-art \gls{bc} technologies and discuss the key properties of active and passive transmissions coexisting systems;
+% 			\item Unify \gls{ris} and \gls{bc} as one battery-free cognitive radio called RIScatter, where dispersed or co-located scatter nodes ride over an active primary link to modulate their own information and engineering the legacy channel simultaneously;
+% 			\item Integrate backscatter modulation and passive beamforming seamlessly into the input distribution design that allows arbitrary trade-off in between;
+% 			\item Propose a low-complexity cooperative receiver that sequentially decodes both coexisting links and exploits backscatter detection as part of channel training;
+% 			\item Characterize the achievable primary-backscatter rate region over different designs of input distribution at the scatter nodes, active beamforming at the \gls{ap}, and energy detector at the receiver;
+% 			\item Discuss the impact of practical factors such as the number of scatter nodes and states, transmit antenna size, backscatter symbol duration, and \gls{snr} on the system performance.
+% 		\end{itemize}
+% 		\item Chapter \ref{ch:channel_shaping} explores the ultimate channel shaping capabilities of \gls{ris} in \gls{mimo} systems. The key contributions include:
+% 		\begin{itemize}
+% 			\item Quantify the capability of a passive \gls{ris} to reshape the \gls{mimo} \gls{pc} in terms of singular values via analytical bounds and numerical optimization;
+% 			\item Zoom out to a general \gls{bd}-\gls{ris} architecture featuring element-wise connections and demonstrate its superior shaping performance in terms of subspace alignment and subchannel rearrangement;
+% 			\item Propose an efficient \gls{rcg} algorithm for general \gls{bd}-\gls{ris} optimization and provide low-complexity solutions for quadratic problems;
+% 			\item Characterize the Pareto frontiers of channel singular values and obtain power- and rate-optimal \gls{bd}-\gls{ris} configurations in \gls{mimo} \gls{pc};
+% 			\item Investigate the impact of \gls{bd}-\gls{ris} on leakage interference suppression and \gls{wsr} maximization in \gls{mimo} \gls{ic};
+% 			\item Discuss how channel shaping helps to decouple joint \gls{ris}-transceiver designs with comparable performance and significantly reduced complexity.
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{section}
 
 \begin{section}{Publications}
 	\begin{itemize}
