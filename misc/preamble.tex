@@ -90,9 +90,9 @@
 % ******************* Captions and Hyperreferencing / URL **********************
 
 % Captions: This makes captions of figures use a boldfaced small font.
-\RequirePackage[small]{caption}
+% \RequirePackage[small]{caption}
 
-\RequirePackage[labelsep=space,tableposition=top]{caption}
+\RequirePackage[small,labelsep=space,tableposition=top]{caption}
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
 
 % *************************** Graphics and figures *****************************
@@ -289,3 +289,10 @@
 % ******************************************************************************
 % ****************************** Better enumeration ****************************
 \usepackage{enumitem}
+
+
+
+
+% ******************************************************************************
+% ********************************** PDF/A *************************************
+\usepackage[a-3u]{pdfx}

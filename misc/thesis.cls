@@ -276,7 +276,8 @@
 \ifpdf
 	% Convert eps figures to pdf
 	\RequirePackage{epstopdf}
-	\RequirePackage[pdftex]{graphicx}
+	% \RequirePackage[pdftex]{graphicx}
+	\RequirePackage{graphicx}
 	\DeclareGraphicsExtensions{.png, .jpg, .pdf}
 	\pdfcompresslevel=9
 	\graphicspath{{assets/}}
@@ -687,16 +688,16 @@
 % ******************************************************************************
 
 % *************************** Setting PDF Meta-Data ****************************
-\ifpdf
-	\AtBeginDocument{
-		\hypersetup{
-			pdftitle = {\@title},
-			pdfauthor = {\@author},
-			pdfsubject={\@subject},
-			pdfkeywords={\@keywords}
-		}
-	}
-\fi
+% \ifpdf
+% 	\AtBeginDocument{
+% 		\hypersetup{
+% 			pdftitle = {\@title},
+% 			pdfauthor = {\@author},
+% 			pdfsubject={\@subject},
+% 			pdfkeywords={\@keywords}
+% 		}
+% 	}
+% \fi
 
 % ******************************** Line Spacing ********************************
 % Set spacing as 1.5 line spacing for the PhD Thesis
